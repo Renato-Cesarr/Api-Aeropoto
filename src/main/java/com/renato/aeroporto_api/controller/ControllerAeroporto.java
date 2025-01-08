@@ -1,39 +1,37 @@
 package com.renato.aeroporto_api.controller;
 
 import com.renato.aeroporto_api.model.Aeroporto;
+import com.renato.aeroporto_api.service.ServiceAeroporto;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.ArrayList;
 import java.util.List;
 
 @RestController
 @RequestMapping("/aeroporto")
 public class ControllerAeroporto {
-	
 
-	private List<Aeroporto> aeroportos = new ArrayList<>();
+    @Autowired
+    private ServiceAeroporto aeroportoService;
 
-	@PostMapping
-	public Aeroporto createAeroporto(@RequestBody Aeroporto aeroporto) {
-		aeroportos.add(aeroporto);
-		return aeroporto;
-	}
-
-	@GetMapping
-	public List<Aeroporto> getAeroportoInfo() {
-		return aeroportos;
-	}
-
-    @PutMapping("/{nomeAeroporto}")
-    public String updateAeroporto(@PathVariable("nomeAeroporto") String nomeAeroporto,
-                                  @RequestBody Aeroporto aeroporto) {
-        for (Aeroporto aero : aeroportos) {
-            if (aero.getNomeAeroporto().equals(nomeAeroporto)) {
-                aero.setNomeAeroporto(aeroporto.getNomeAeroporto());
-                return "Aeroporto atualizado com sucesso!";
-            }
-        }
-        throw new RuntimeException("Aeroporto não encontrado.");
+    @PostMapping
+    public Aeroporto createAeroporto(@RequestBody Aeroporto aeroporto) {
+        return aeroportoService.createAeroporto(aeroporto);
     }
 
+    @GetMapping
+    public List<Aeroporto> getAeroportoInfo() {
+        return aeroportoService.getAeroportoInfo();
+    }
+
+    @PatchMapping("/{index}")
+    public String updateAeroporto(@PathVariable("index") int index,
+                                  @RequestBody Aeroporto aeroporto) {
+        return aeroportoService.updateAeroporto(index, aeroporto);
+    }
+
+    @DeleteMapping("/{index}")
+    public String deleteAeroporto(@PathVariable("index") int index) {
+        return aeroportoService.deleteAeroporto(index);
+    }
 }

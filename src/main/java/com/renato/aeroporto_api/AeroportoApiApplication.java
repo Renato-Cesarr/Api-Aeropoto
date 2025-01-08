@@ -8,7 +8,6 @@ public class AeroportoApiApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(AeroportoApiApplication.class, args);
-		System.out.println("Olá mundo");
 	}
 
 }
