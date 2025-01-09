@@ -4,9 +4,7 @@ target/
 .classpath
 mvnw
 mvnw.cmd
-pom.xml
 .settings
-pom.xml
 .mvn/
 .gitattributes
 
