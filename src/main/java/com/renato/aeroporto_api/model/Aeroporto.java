@@ -2,23 +2,72 @@ package com.renato.aeroporto_api.model;
 
 import java.util.List;
 
-import javax.validation.constraints.NotNull;
+import com.fasterxml.jackson.annotation.JsonAutoDetect;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.OneToMany;
+import jakarta.persistence.OneToOne;
+import jakarta.persistence.Table;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 
+@Table(name = "TB_AEROPORTO")
+@Entity(name = "Aeroporto")
+@JsonAutoDetect(fieldVisibility = JsonAutoDetect.Visibility.ANY)
 public class Aeroporto {
+
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@JsonProperty("códigoIATA")
+	private Integer códigoIATA;
+
+	@JsonProperty("nomeAeroporto")
+	@NotNull
 	private String nomeAeroporto;
-	private LocalizacaoAeroporto localizacaoAeroporto;
+
+	@JsonProperty("permitidoPousoAeronaves")
+	@Column(unique = true)
+	@NotBlank
 	private Boolean permitidoPousoAeronaves;
+
+	@JsonProperty("portoesDeEmbarque")
+	@NotBlank(message = "{informe pelo menos 1 portão}")
 	private List<Integer> portoesDeEmbarque;
-	private Integer limiteMaximoAeronaves;
+
+	@JsonProperty("capacidadeDeArmazenamentoDeCombustivel")
 	private Double capacidadeDeArmazenamentoDeCombustivel;
+
+	@JsonProperty("limiteMaximoAeronaves")
+	private Integer limiteMaximoAeronaves;
+
+	@NotNull
+	@OneToOne(targetEntity = LocalizacaoAeroporto.class)
+	@JoinColumn(name = "fk_localizacaoAeroporto")
+	private LocalizacaoAeroporto localizacaoAeroporto;
+
+
+	@NotNull
+	@OneToMany(targetEntity = TorreDeControle.class)
+	@JoinColumn(name = "fk_torreDeControle")
 	private TorreDeControle torreDeControle;
+
+
+	@NotNull
+	@OneToMany(targetEntity = Aviao.class)
+	@JoinColumn(name = "fk_aviao")
 	private Aviao aviao;
 
- 	@NotNull
+
 	public String getNomeAeroporto() {
 		return nomeAeroporto;
 	}
+
 	public void setNomeAeroporto(String nomeAeroporto) {
 		this.nomeAeroporto = nomeAeroporto;
 	}
@@ -78,6 +127,13 @@ public class Aeroporto {
 	public void setAviao(Aviao aviao) {
 		this.aviao = aviao;
 	}
-	
+
+	public Integer getCódigoIATA() {
+		return códigoIATA;
+	}
+
+	public void setCódigoIATA(Integer códigoIATA) {
+		this.códigoIATA = códigoIATA;
+	}
 
 }
