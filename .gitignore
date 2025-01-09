@@ -2,9 +2,6 @@ HELP.md
 target/
 .project
 .classpath
-mvnw
-mvnw.cmd
 .settings
-.mvn/
 .gitattributes
 
