@@ -1,11 +1,12 @@
 package com.renato.aeroporto_api.controller;
 
 import com.renato.aeroporto_api.model.Aeroporto;
+import com.renato.aeroporto_api.model.Aviao;
 import com.renato.aeroporto_api.service.ServiceAeroporto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.List;
+import java.util.Map;
 
 @RestController
 @RequestMapping("/aeroporto")
@@ -20,18 +21,31 @@ public class ControllerAeroporto {
     }
 
     @GetMapping
-    public List<Aeroporto> getAeroportoInfo() {
+    public Map<String, Aeroporto> getAeroportoInfo() {
         return aeroportoService.getAeroportoInfo();
     }
 
-    @PatchMapping("/{index}")
-    public String updateAeroporto(@PathVariable("index") int index,
+    @PatchMapping("/{nomeAeroporto}")
+    public String updateAeroporto(@PathVariable("nomeAeroporto") String nomeAeroporto,
                                   @RequestBody Aeroporto aeroporto) {
-        return aeroportoService.updateAeroporto(index, aeroporto);
+        return aeroportoService.updateAeroporto(nomeAeroporto, aeroporto);
     }
 
-    @DeleteMapping("/{index}")
-    public String deleteAeroporto(@PathVariable("index") int index) {
-        return aeroportoService.deleteAeroporto(index);
+    @DeleteMapping("/{nomeAeroporto}")
+    public String deleteAeroporto(@PathVariable("nomeAeroporto") String nomeAeroporto) {
+        return aeroportoService.deleteAeroporto(nomeAeroporto);
     }
+
+    @PutMapping("/aviao/{numeroDeSerie}")
+    public String updateAviao(@PathVariable("numeroDeSerie") Integer numeroDeSerie,
+                              @RequestBody Aviao aviaoAtualizado) {
+        return aeroportoService.updateAviao(numeroDeSerie, aviaoAtualizado);
+    }
+    
+    @PutMapping("/{nomeAeroporto}")
+    public Aeroporto replaceAeroporto(@PathVariable("nomeAeroporto") String nomeAeroporto,
+                                      @RequestBody Aeroporto novoAeroporto) {
+        return aeroportoService.replaceAeroporto(nomeAeroporto, novoAeroporto);
+    }
+
 }
