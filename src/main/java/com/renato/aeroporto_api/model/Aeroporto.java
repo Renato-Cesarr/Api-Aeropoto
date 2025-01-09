@@ -2,6 +2,9 @@ package com.renato.aeroporto_api.model;
 
 import java.util.List;
 
+import javax.validation.constraints.NotNull;
+
+
 public class Aeroporto {
 	private String nomeAeroporto;
 	private LocalizacaoAeroporto localizacaoAeroporto;
@@ -12,10 +15,10 @@ public class Aeroporto {
 	private TorreDeControle torreDeControle;
 	private Aviao aviao;
 
+ 	@NotNull
 	public String getNomeAeroporto() {
 		return nomeAeroporto;
 	}
-
 	public void setNomeAeroporto(String nomeAeroporto) {
 		this.nomeAeroporto = nomeAeroporto;
 	}
@@ -75,5 +78,6 @@ public class Aeroporto {
 	public void setAviao(Aviao aviao) {
 		this.aviao = aviao;
 	}
+	
 
 }

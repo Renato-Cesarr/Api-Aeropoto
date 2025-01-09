@@ -1,11 +1,14 @@
 package com.renato.aeroporto_api.model;
 
+import javax.validation.constraints.NotNull;
+
 public class Carga {
 	private Integer numeroIdentificadorCarga;
 	private Double pesoTotalCarga;
 	private String statusDaCarga; // possivel enum
 	private TipoDeCarga tipoDeCarga;
 
+	@NotNull
 	public Integer getNumeroIdentificadorCarga() {
 		return numeroIdentificadorCarga;
 	}
