@@ -3,18 +3,24 @@ package com.renato.aeroporto_api.model;
 import java.util.List;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
 import jakarta.persistence.Enumerated;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
-
+@JsonPropertyOrder({
+    "numeroBilhete",
+    "nome",
+    "assento",
+    "statusEmbarque",
+    "carga"
+})
 @Table(name = "TB_PASSAGEIRO")
 @Entity(name = "Passageiro")
 public class Passageiro {
@@ -37,9 +43,9 @@ public class Passageiro {
 	@Enumerated(EnumType.STRING)
 	private StatusEmbarque statusEmbarque;
 	
-    @ManyToOne
+    /*@ManyToOne
     @JoinColumn(name = "fk_aviao", nullable = false)
-    private Aviao aviao;
+    private Aviao aviao; */
 
 	@OneToMany(targetEntity = TorreDeControle.class)
 	@JoinColumn(name = "fk_carga")
@@ -88,11 +94,11 @@ public class Passageiro {
 	public enum StatusEmbarque {
 		CHECK_IN, EMBARCADO, NAO_EMBARCADO, CANCELADO;
 	}
-	public Aviao getAviao() {
+	/*public Aviao getAviao() {
 		return aviao;
 	}
 
 	public void setAviao(Aviao aviao) {
 		this.aviao = aviao;
-	}
+	} */
 }

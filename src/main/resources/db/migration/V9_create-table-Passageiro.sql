@@ -5,5 +5,5 @@ CREATE TABLE TB_PASSAGEIRO (
     statusEmbarque VARCHAR(20) NOT NULL,
     fk_carga INTEGER NOT NULL,
     fk_aviao INTEGER NOT NULL,
-    FOREIGN KEY (fk_aviao) REFERENCES TB_AVIAO(numeroDeSerie)  
+    FOREIGN KEY (fk_carga) REFERENCES TB_CARGA(numeroIdentificadorCarga)  
 );

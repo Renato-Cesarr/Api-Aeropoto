@@ -4,6 +4,7 @@ import java.util.List;
 
 import com.fasterxml.jackson.annotation.JsonAutoDetect;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -16,6 +17,18 @@ import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
+
+@JsonPropertyOrder({
+    "codigoIATA", 
+    "nomeAeroporto", 
+    "permitidoPousoAeronaves", 
+    "portoesDeEmbarque", 
+    "capacidadeDeArmazenamentoDeCombustivel", 
+    "limiteMaximoAeronaves", 
+    "localizacaoAeroporto", 
+    "torreDeControle", 
+    "aviao"
+})
 
 @Table(name = "TB_AEROPORTO")
 @Entity(name = "Aeroporto")

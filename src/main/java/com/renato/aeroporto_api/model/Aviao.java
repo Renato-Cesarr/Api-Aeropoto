@@ -1,7 +1,10 @@
 package com.renato.aeroporto_api.model;
 
 import java.util.List;
+
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
@@ -10,7 +13,17 @@ import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
-
+@JsonPropertyOrder({
+    "numeroDeSerie",
+    "modelo",
+    "fabricante",
+    "capacidadeMaximaKg",
+    "capacidadeMaximaPessoas",
+    "piloto",
+    "tripulacao",
+    "flyAware",
+    "passageiro"
+})
 @Table(name = "TB_AVIAO")
 @Entity(name = "Aviao")
 

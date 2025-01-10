@@ -1,6 +1,6 @@
 CREATE TABLE TB_AEROPORTO (
     codigoIATA SERIAL PRIMARY KEY,
-    nomeAeroporto VARCHAR(255) NOT NULL,
+    nomeAeroporto VARCHAR(50) NOT NULL,
     permitidoPousoAeronaves BOOLEAN UNIQUE NOT NULL,
     portoesDeEmbarque JSON NOT NULL,
     capacidadeDeArmazenamentoDeCombustivel DOUBLE PRECISION,

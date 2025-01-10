@@ -1,6 +1,7 @@
 package com.renato.aeroporto_api.model;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
@@ -12,7 +13,12 @@ import jakarta.persistence.JoinColumn;
 import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 import jakarta.validation.constraints.NotNull;
-
+@JsonPropertyOrder({
+    "numeroIdentificadorCarga",
+    "pesoTotalCarga",
+    "statusDaCarga",
+    "tipoDeCarga"
+})
 @Table(name = "TB_CARGA")
 @Entity(name = "Carga")
 public class Carga {
