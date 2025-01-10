@@ -24,8 +24,8 @@ public class Aeroporto {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@JsonProperty("códigoIATA")
-	private Integer códigoIATA;
+	@JsonProperty("codigoIATA")
+	private Integer codigoIATA;
 
 	@JsonProperty("nomeAeroporto")
 	@NotNull
@@ -128,12 +128,12 @@ public class Aeroporto {
 		this.aviao = aviao;
 	}
 
-	public Integer getCódigoIATA() {
-		return códigoIATA;
+	public Integer getCodigoIATA() {
+		return codigoIATA;
 	}
 
-	public void setCódigoIATA(Integer códigoIATA) {
-		this.códigoIATA = códigoIATA;
+	public void setCodigoIATA(Integer códigoIATA) {
+		this.codigoIATA = códigoIATA;
 	}
 
 }
