@@ -2,20 +2,47 @@ package com.renato.aeroporto_api.model;
 
 import java.util.Date;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
+import jakarta.persistence.Entity;
+import jakarta.persistence.Enumerated;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
+import jakarta.validation.constraints.NotNull;
+
+@Table(name = "TB_LICENCA_DE_PILOTO_ANAC")
+@Entity(name = "LicencaDePilotoANAC")
 public class LicencaDePilotoANAC {
-
-	private Integer numeroDaLincenca;
+	
+	@Id
+	@JsonProperty("numeroDaLicenca")
+	@NotNull(message = "Numero da licença é obrigatório")
+	private Integer numeroDaLicenca;
+	
+	@JsonProperty("tipoDaLicenca")
+	@NotNull(message = "Tipo da licença é obrigatório")
 	private String tipoDaLicenca;
+	
+	@JsonProperty("dataEmissao")
+	@NotNull(message = "Data de emissão é obrigatória")
 	private Date dataEmissao;
+	
+	@JsonProperty("dataValidade")
+	@NotNull(message = "Data de validade é obrigatória")
 	private Date dataValidade;
-	private String situacao; // possivel enum
+	
+	@JsonProperty("situacao")
+	@Enumerated(EnumType.STRING)
+	@NotNull(message = "Situação é obrigatória")
+	private SituacaoLicenca situacao;
 
-	public Integer getNumeroDaLincenca() {
-		return numeroDaLincenca;
+	public Integer getNumeroDaLicenca() {
+		return numeroDaLicenca;
 	}
 
-	public void setNumeroDaLincenca(Integer numeroDaLincenca) {
-		this.numeroDaLincenca = numeroDaLincenca;
+	public void setNumeroDaLicenca(Integer numeroDaLicenca) {
+		this.numeroDaLicenca = numeroDaLicenca;
 	}
 
 	public String getTipoDaLicenca() {
@@ -42,12 +69,18 @@ public class LicencaDePilotoANAC {
 		this.dataValidade = dataValidade;
 	}
 
-	public String getSituacao() {
+	public SituacaoLicenca getSituacao() {
 		return situacao;
 	}
 
-	public void setSituacao(String situacao) {
+	public void setSituacao(SituacaoLicenca situacao) {
 		this.situacao = situacao;
 	}
 
+	public enum SituacaoLicenca {
+		ATIVA,
+		SUSPENSA,
+		CANCELADA,
+		VENCIDA;
+	}
 }

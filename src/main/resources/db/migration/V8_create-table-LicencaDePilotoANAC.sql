@@ -1,0 +1,7 @@
+CREATE TABLE TB_LICENCA_DE_PILOTO_ANAC (
+    numeroDaLicenca SERIAL PRIMARY KEY,
+    tipoDaLicenca VARCHAR(25) NOT NULL,
+    dataEmissao DATE NOT NULL,
+    dataValidade DATE NOT NULL,
+    situacao VARCHAR(20) NOT NULL CHECK (situacao IN ('ATIVA', 'SUSPENSA', 'CANCELADA', 'VENCIDA'))
+);

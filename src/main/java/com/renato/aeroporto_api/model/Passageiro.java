@@ -1,12 +1,63 @@
 package com.renato.aeroporto_api.model;
 
+import java.util.List;
+
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+
+import jakarta.persistence.Entity;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
+import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.OneToMany;
+import jakarta.persistence.Table;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
+@JsonPropertyOrder({
+    "numeroBilhete",
+    "nome",
+    "assento",
+    "statusEmbarque",
+    "carga"
+})
+@Table(name = "TB_PASSAGEIRO")
+@Entity(name = "Passageiro")
 public class Passageiro {
 
-	private String nome;
+	@Id
+	@JsonProperty("numeroBilhete")
+	@NotNull(message = "Número do bilhete é obrigatório")
 	private Integer numeroBilhete;
+
+	@JsonProperty("nome")
+	@NotBlank(message = "Nome é obrigatório")
+	private String nome;
+
+	@JsonProperty("assento")
+	@NotBlank(message = "Assento é obrigatório")
 	private String assento;
-	private String statusEmbarque; // possivel enum
-	private Carga carga;
+
+	@JsonProperty("statusEmbarque")
+	@NotNull(message = "Status de embarque é obrigatório")
+	@Enumerated(EnumType.STRING)
+	private StatusEmbarque statusEmbarque;
+	
+    /*@ManyToOne
+    @JoinColumn(name = "fk_aviao", nullable = false)
+    private Aviao aviao; */
+
+	@OneToMany(targetEntity = TorreDeControle.class)
+	@JoinColumn(name = "fk_carga")
+	private List<Carga> carga;
+
+	public List<Carga> getCarga() {
+		return carga;
+	}
+
+	public void setCarga(List<Carga> carga) {
+		this.carga = carga;
+	}
 
 	public String getNome() {
 		return nome;
@@ -32,19 +83,22 @@ public class Passageiro {
 		this.assento = assento;
 	}
 
-	public String getStatusEmbarque() {
+	public StatusEmbarque getStatusEmbarque() {
 		return statusEmbarque;
 	}
 
-	public void setStatusEmbarque(String statusEmbarque) {
+	public void setStatusEmbarque(StatusEmbarque statusEmbarque) {
 		this.statusEmbarque = statusEmbarque;
 	}
 
-	public Carga getCarga() {
-		return carga;
+	public enum StatusEmbarque {
+		CHECK_IN, EMBARCADO, NAO_EMBARCADO, CANCELADO;
+	}
+	/*public Aviao getAviao() {
+		return aviao;
 	}
 
-	public void setCarga(Carga carga) {
-		this.carga = carga;
-	}
+	public void setAviao(Aviao aviao) {
+		this.aviao = aviao;
+	} */
 }

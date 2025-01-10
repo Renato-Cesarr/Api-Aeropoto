@@ -1,0 +1,7 @@
+CREATE TABLE TB_FLWAWARE (
+    idRota SERIAL PRIMARY KEY,
+    numeroDaRota INT NOT NULL,
+    origem VARCHAR(50) NOT NULL,
+    destino VARCHAR(50) NOT NULL,
+    tempoEstimadoVoo DOUBLE PRECISION NOT NULL
+);
