@@ -1,8 +1,8 @@
-CREATE TABLE TB_tripulacao (
-    idTripulacao INTEGER PRIMARY KEY,
-    nome VARCHAR(50) NOT NULL,
-    funcao VARCHAR(25) NOT NULL,
-    numeroVoo INTEGER NOT NULL,
+CREATE TABLE tb_tripulacao (
+    id_tripulacao SERIAL PRIMARY KEY,
+    funcao VARCHAR(255) NOT NULL,
+    horas_de_voo INT NOT NULL,
     licenciamento VARCHAR(25) NOT NULL,
-    horasDeVoo INTEGER NOT NULL
+    nome VARCHAR(75) NOT NULL,
+    numero_voo INT NOT NULL
 );

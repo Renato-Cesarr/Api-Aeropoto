@@ -14,76 +14,76 @@ import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 
-@Table(name = "TB_PILOTO")
+@Table(name = "tb_piloto") 
 @Entity(name = "Piloto")
 public class Piloto {
 
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@JsonProperty("idPiloto")
-	private Integer idPiloto;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @JsonProperty("idPiloto")
+    private Integer idPiloto;
 
-	@JsonProperty("nome")
-	@NotBlank(message = "Nome é obrigatório")
-	private String nome;
+    @JsonProperty("nome")
+    @NotBlank(message = "Nome é obrigatório")
+    private String nome;
 
-	@JsonProperty("horasDeVoo")
-	@NotNull(message = "Horas de voo são obrigatórias")
-	@Min(value = 0, message = "Horas de voo não podem ser negativas")
-	private Integer horasDeVoo;
+    @JsonProperty("horasDeVoo")
+    @NotNull(message = "Horas de voo são obrigatórias")
+    @Min(value = 0, message = "Horas de voo não podem ser negativas")
+    private Integer horasDeVoo;
 
-	@JsonProperty("statusDeSaude")
-	@NotNull(message = "Status de saúde é obrigatório")
-	@Enumerated(EnumType.STRING)
-	private StatusDeSaude statusDeSaude;
-	
-	@OneToOne(targetEntity = LicencaDePilotoANAC.class)
-	@JoinColumn(name = "fk_LicencaDePilotoANAC")
-	@JsonProperty("LicencaDePilotoANAC")
-	@NotNull(message = "Licenca De Piloto nao pode ser vazio")
-	private LicencaDePilotoANAC licencaDePilotoANAC;
+    @JsonProperty("statusDeSaude")
+    @NotNull(message = "Status de saúde é obrigatório")
+    @Enumerated(EnumType.STRING)
+    private StatusDeSaude statusDeSaude;
 
-	public Integer getIdPiloto() {
-		return idPiloto;
-	}
+    @OneToOne(targetEntity = LicencaDePilotoANAC.class)
+    @JoinColumn(name = "fk_licenca_de_pilotoanac")
+    @JsonProperty("LicencaDePilotoANAC")
+    @NotNull(message = "Licença de Piloto não pode ser vazio")
+    private LicencaDePilotoANAC licencaDePilotoANAC;
 
-	public void setIdPiloto(Integer idPiloto) {
-		this.idPiloto = idPiloto;
-	}
+    public Integer getIdPiloto() {
+        return idPiloto;
+    }
 
-	public String getNome() {
-		return nome;
-	}
+    public void setIdPiloto(Integer idPiloto) {
+        this.idPiloto = idPiloto;
+    }
 
-	public void setNome(String nome) {
-		this.nome = nome;
-	}
+    public String getNome() {
+        return nome;
+    }
 
-	public LicencaDePilotoANAC getLicencaDePilotoANAC() {
-		return licencaDePilotoANAC;
-	}
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
 
-	public void setLicencaDePilotoANAC(LicencaDePilotoANAC licencaDePilotoANAC) {
-		this.licencaDePilotoANAC = licencaDePilotoANAC;
-	}
+    public Integer getHorasDeVoo() {
+        return horasDeVoo;
+    }
 
-	public Integer getHorasDeVoo() {
-		return horasDeVoo;
-	}
+    public void setHorasDeVoo(Integer horasDeVoo) {
+        this.horasDeVoo = horasDeVoo;
+    }
 
-	public void setHorasDeVoo(Integer horasDeVoo) {
-		this.horasDeVoo = horasDeVoo;
-	}
+    public StatusDeSaude getStatusDeSaude() {
+        return statusDeSaude;
+    }
 
-	public StatusDeSaude getStatusDeSaude() {
-		return statusDeSaude;
-	}
+    public void setStatusDeSaude(StatusDeSaude statusDeSaude) {
+        this.statusDeSaude = statusDeSaude;
+    }
 
-	public void setStatusDeSaude(StatusDeSaude statusDeSaude) {
-		this.statusDeSaude = statusDeSaude;
-	}
+    public LicencaDePilotoANAC getLicencaDePilotoANAC() {
+        return licencaDePilotoANAC;
+    }
 
-	public enum StatusDeSaude {
-		APTO, INAPTO, EM_RECUPERACAO;
-	}
+    public void setLicencaDePilotoANAC(LicencaDePilotoANAC licencaDePilotoANAC) {
+        this.licencaDePilotoANAC = licencaDePilotoANAC;
+    }
+
+    public enum StatusDeSaude {
+        APTO, INAPTO, EM_RECUPERACAO;
+    }
 }

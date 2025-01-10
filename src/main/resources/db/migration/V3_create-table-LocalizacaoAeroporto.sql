@@ -1,7 +1,7 @@
-CREATE TABLE TB_LOCALIZACAO_AEROPORTO (
-    idLocalizacao SERIAL PRIMARY KEY,
-    endereco VARCHAR(75) NOT NULL,
+CREATE TABLE tb_localizacao_aeroporto (
+    id_localizacao SERIAL PRIMARY KEY,
+    cep VARCHAR(15) NOT NULL,
     cidade VARCHAR(25) NOT NULL,
-    estado VARCHAR(15) NOT NULL,
-    cep VARCHAR(9) NOT NULL
+    endereco VARCHAR(75) NOT NULL,
+    estado VARCHAR(15) NOT NULL
 );

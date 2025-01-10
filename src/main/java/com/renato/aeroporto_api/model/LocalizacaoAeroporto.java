@@ -8,71 +8,69 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 import jakarta.validation.constraints.NotBlank;
-import jakarta.validation.constraints.NotNull;
 
-@Table(name = "TB_LOCALIZACAO_AEROPORTO")
+@Table(name = "tb_localizacao_aeroporto") 
 @Entity(name = "LocalizacaoAeroporto")
 public class LocalizacaoAeroporto {
-	
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @JsonProperty("idLocalizacao")
-	private Integer idLocalizacao;
-	
-	@JsonProperty("endereco")
-	@NotBlank(message = "Endereço é obrigatório")
-	private String endereco;
-	
-	@JsonProperty("cidade")
-	@NotBlank(message = "Cidade é obrigatória")
-	private String cidade;
-	
-	@JsonProperty("estado")
-	@NotBlank(message = "estado é obrigatório")
-	private String estado;
-	
-	@JsonProperty("cep")
-	@NotBlank(message = "cep é obrigatório")
-	private String cep;
+    private Integer idLocalizacao;
 
-	public String getEndereco() {
-		return endereco;
-	}
+    @JsonProperty("endereco")
+    @NotBlank(message = "Endereço é obrigatório")
+    private String endereco;
 
-	public void setEndereco(String endereco) {
-		this.endereco = endereco;
-	}
+    @JsonProperty("cidade")
+    @NotBlank(message = "Cidade é obrigatória")
+    private String cidade;
 
-	public String getCidade() {
-		return cidade;
-	}
+    @JsonProperty("estado")
+    @NotBlank(message = "Estado é obrigatório")
+    private String estado;
 
-	public void setCidade(String cidade) {
-		this.cidade = cidade;
-	}
+    @JsonProperty("cep")
+    @NotBlank(message = "CEP é obrigatório")
+    private String cep;
 
-	public String getEstado() {
-		return estado;
-	}
+    public Integer getIdLocalizacao() {
+        return idLocalizacao;
+    }
 
-	public void setEstado(String estado) {
-		this.estado = estado;
-	}
+    public void setIdLocalizacao(Integer idLocalizacao) {
+        this.idLocalizacao = idLocalizacao;
+    }
 
-	public String getCep() {
-		return cep;
-	}
+    public String getEndereco() {
+        return endereco;
+    }
 
-	public void setCep(String cep) {
-		this.cep = cep;
-	}
-	
-	public Integer getIdLocalizacao() {
-		return idLocalizacao;
-	}
+    public void setEndereco(String endereco) {
+        this.endereco = endereco;
+    }
 
-	public void setIdLocalizacao(Integer idLocalizacao) {
-		this.idLocalizacao = idLocalizacao;
-	}
+    public String getCidade() {
+        return cidade;
+    }
 
+    public void setCidade(String cidade) {
+        this.cidade = cidade;
+    }
+
+    public String getEstado() {
+        return estado;
+    }
+
+    public void setEstado(String estado) {
+        this.estado = estado;
+    }
+
+    public String getCep() {
+        return cep;
+    }
+
+    public void setCep(String cep) {
+        this.cep = cep;
+    }
 }

@@ -52,7 +52,7 @@ public class ServiceAeroporto {
         throw new AeroportoNotFoundException("Aeroporto não encontrado: " + nomeAeroporto);
     }
 
-    public String updateAviao(Integer numeroDeSerie, Aviao aviaoAtualizado) {
+  /*  public String updateAviao(Integer numeroDeSerie, Aviao aviaoAtualizado) {
         for (Aeroporto aeroporto : aeroportos.values()) {
             Aviao aviao = (Aviao) aeroporto.getAviao();
             if (aviao != null && aviao.getNumeroDeSerie().equals(numeroDeSerie)) {
@@ -63,7 +63,7 @@ public class ServiceAeroporto {
         }
         logger.warn("Avião não encontrado com número de série: {}", numeroDeSerie);
         throw new AviaoNotFoundException("Avião com o número de série informado não encontrado: " + numeroDeSerie);
-    }
+    }*/
 
     private void updateCamposSimples(Aviao aviao, Aviao aviaoAtualizado) {
         Map<String, Consumer<Aviao>> fieldUpdaters = new HashMap<>();

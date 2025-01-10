@@ -1,6 +1,7 @@
-CREATE TABLE TB_TORRE_DE_CONTROLE (
-	nome VARCHAR(25) NOT NULL PRIMARY KEY,
-	trafegoAereoAtual INTEGER NOT NULL,
-	equipamentoComunicacao VARCHAR(25) NOT NULL
-	
-)
+CREATE TABLE tb_torre_de_controle (
+    nome VARCHAR(255) PRIMARY KEY,
+    equipamento_comunicacao VARCHAR(50) NOT NULL,
+    trafego_aereo_atual INT NOT NULL,
+    fk_aeroporto INT,
+    CONSTRAINT fk_torre_aeroporto FOREIGN KEY (fk_aeroporto) REFERENCES tb_aeroporto(codigoiata)
+);
