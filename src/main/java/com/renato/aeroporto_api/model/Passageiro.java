@@ -1,10 +1,15 @@
 package com.renato.aeroporto_api.model;
 
+import java.util.List;
+
 import com.fasterxml.jackson.annotation.JsonProperty;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
 import jakarta.persistence.Enumerated;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import jakarta.validation.constraints.NotBlank;
@@ -31,10 +36,22 @@ public class Passageiro {
 	@NotNull(message = "Status de embarque é obrigatório")
 	@Enumerated(EnumType.STRING)
 	private StatusEmbarque statusEmbarque;
+	
+    @ManyToOne
+    @JoinColumn(name = "fk_aviao", nullable = false)
+    private Aviao aviao;
 
-	@OneToMany
-	@JsonProperty("fk_carga")
-	private Carga carga;
+	@OneToMany(targetEntity = TorreDeControle.class)
+	@JoinColumn(name = "fk_carga")
+	private List<Carga> carga;
+
+	public List<Carga> getCarga() {
+		return carga;
+	}
+
+	public void setCarga(List<Carga> carga) {
+		this.carga = carga;
+	}
 
 	public String getNome() {
 		return nome;
@@ -68,15 +85,14 @@ public class Passageiro {
 		this.statusEmbarque = statusEmbarque;
 	}
 
-	public Carga getCarga() {
-		return carga;
-	}
-
-	public void setCarga(Carga carga) {
-		this.carga = carga;
-	}
-
 	public enum StatusEmbarque {
 		CHECK_IN, EMBARCADO, NAO_EMBARCADO, CANCELADO;
+	}
+	public Aviao getAviao() {
+		return aviao;
+	}
+
+	public void setAviao(Aviao aviao) {
+		this.aviao = aviao;
 	}
 }

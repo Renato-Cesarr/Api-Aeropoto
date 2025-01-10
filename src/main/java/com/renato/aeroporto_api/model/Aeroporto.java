@@ -55,14 +55,30 @@ public class Aeroporto {
 	@NotNull
 	@OneToMany(targetEntity = TorreDeControle.class)
 	@JoinColumn(name = "fk_torreDeControle")
-	private TorreDeControle torreDeControle;
+	private List<TorreDeControle> torreDeControle;
 
+
+	public List<TorreDeControle> getTorreDeControle() {
+		return torreDeControle;
+	}
+
+	public void setTorreDeControle(List<TorreDeControle> torreDeControle) {
+		this.torreDeControle = torreDeControle;
+	}
 
 	@NotNull
 	@OneToMany(targetEntity = Aviao.class)
 	@JoinColumn(name = "fk_aviao")
-	private Aviao aviao;
+	private List<Aviao> aviao;
 
+
+	public List<Aviao> getAviao() {
+		return aviao;
+	}
+
+	public void setAviao(List<Aviao> aviao) {
+		this.aviao = aviao;
+	}
 
 	public String getNomeAeroporto() {
 		return nomeAeroporto;
@@ -110,22 +126,6 @@ public class Aeroporto {
 
 	public void setCapacidadeDeArmazenamentoDeCombustivel(Double capacidadeDeArmazenamentoDeCombustivel) {
 		this.capacidadeDeArmazenamentoDeCombustivel = capacidadeDeArmazenamentoDeCombustivel;
-	}
-
-	public TorreDeControle getTorreDeControle() {
-		return torreDeControle;
-	}
-
-	public void setTorreDeControle(TorreDeControle torreDeControle) {
-		this.torreDeControle = torreDeControle;
-	}
-
-	public Aviao getAviao() {
-		return aviao;
-	}
-
-	public void setAviao(Aviao aviao) {
-		this.aviao = aviao;
 	}
 
 	public Integer getCodigoIATA() {

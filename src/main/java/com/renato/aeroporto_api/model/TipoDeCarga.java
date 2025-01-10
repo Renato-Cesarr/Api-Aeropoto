@@ -12,8 +12,8 @@ public class TipoDeCarga {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @JsonProperty("ticketDaCarga")
-    private Integer ticketDaCarga; 
-    
+    private Integer ticketDaCarga;
+
     @JsonProperty("categoriaCarga")
     @NotBlank(message = "Categoria da carga é obrigatória")
     private String categoriaCarga;
@@ -28,8 +28,7 @@ public class TipoDeCarga {
     @Column(name = "classificacaoPericulosidade")
     @JsonProperty("classificacaoPericulosidade")
     @NotNull(message = "Classificação de periculosidade é obrigatória")
-    private Boolean classificacaoPericulosidade;
-
+    private ClassificacaoPericulosidade classificacaoPericulosidade;
 
     public Integer getTicketDaCarga() {
         return ticketDaCarga;
@@ -63,4 +62,17 @@ public class TipoDeCarga {
         this.temperaturaDaCarga = temperaturaDaCarga;
     }
 
+    public ClassificacaoPericulosidade getClassificacaoPericulosidade() {
+        return classificacaoPericulosidade;
+    }
+
+    public void setClassificacaoPericulosidade(ClassificacaoPericulosidade classificacaoPericulosidade) {
+        this.classificacaoPericulosidade = classificacaoPericulosidade;
+    }
+
+    public enum ClassificacaoPericulosidade {
+        BAIXA,
+        MEDIA,
+        ALTA
+    }
 }

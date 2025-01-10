@@ -26,12 +26,6 @@ public class Piloto {
 	@JsonProperty("nome")
 	@NotBlank(message = "Nome é obrigatório")
 	private String nome;
-	
-	@OneToOne(targetEntity = LicencaDePilotoANAC.class)
-	@JoinColumn(name = "fk_LicencaDePilotoANAC")
-	@JsonProperty("LicencaDePilotoANAC")
-	@NotNull(message = "Licenca De Piloto nao pode ser vazio")
-	private LicencaDePilotoANAC licencaDePilotoANAC;
 
 	@JsonProperty("horasDeVoo")
 	@NotNull(message = "Horas de voo são obrigatórias")
@@ -42,6 +36,12 @@ public class Piloto {
 	@NotNull(message = "Status de saúde é obrigatório")
 	@Enumerated(EnumType.STRING)
 	private StatusDeSaude statusDeSaude;
+	
+	@OneToOne(targetEntity = LicencaDePilotoANAC.class)
+	@JoinColumn(name = "fk_LicencaDePilotoANAC")
+	@JsonProperty("LicencaDePilotoANAC")
+	@NotNull(message = "Licenca De Piloto nao pode ser vazio")
+	private LicencaDePilotoANAC licencaDePilotoANAC;
 
 	public Integer getIdPiloto() {
 		return idPiloto;

@@ -54,7 +54,7 @@ public class ServiceAeroporto {
 
     public String updateAviao(Integer numeroDeSerie, Aviao aviaoAtualizado) {
         for (Aeroporto aeroporto : aeroportos.values()) {
-            Aviao aviao = aeroporto.getAviao();
+            Aviao aviao = (Aviao) aeroporto.getAviao();
             if (aviao != null && aviao.getNumeroDeSerie().equals(numeroDeSerie)) {
                 updateCamposSimples(aviao, aviaoAtualizado);
                 logger.info("Avião atualizado com sucesso! Número de série: {}", numeroDeSerie);

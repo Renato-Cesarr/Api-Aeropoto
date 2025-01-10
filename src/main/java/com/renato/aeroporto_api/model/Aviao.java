@@ -1,7 +1,7 @@
 package com.renato.aeroporto_api.model;
 
+import java.util.List;
 import com.fasterxml.jackson.annotation.JsonProperty;
-
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
@@ -48,18 +48,23 @@ public class Aviao {
 	@NotNull(message = "piloto nao pode ser vazio")
 	private Tripulacao tripulacao;
 	
-	@OneToOne(targetEntity =  FlyAware.class)
-	@JoinColumn(name = "fk_flyAware")
-	@JsonProperty("flwAware")
-	@NotNull(message = "FlwAware nao pode ser vazio")
-	private FlyAware flyAware;
-	
+    @NotNull(message = "FlyAware nao pode ser vazio")
+    @OneToOne(targetEntity = FlyAware.class)
+    @JoinColumn(name = "fk_flyaware")
+    private FlyAware flyAware;
+    
+	@NotNull
 	@OneToMany(targetEntity = Passageiro.class)
 	@JoinColumn(name = "fk_passageiro")
-	@JsonProperty("fk_passageiro")
-	@NotNull(message = "fk_passageiro nao pode ser vazio")
-	private Passageiro passageiro;
-	
+	private List<Passageiro> passageiro;
+
+	public List<Passageiro> getPassageiro() {
+		return passageiro;
+	}
+
+	public void setPassageiro(List<Passageiro> passageiro) {
+		this.passageiro = passageiro;
+	}
 
 	public String getModelo() {
 		return modelo;
@@ -125,11 +130,4 @@ public class Aviao {
 		this.flyAware = flyAware;
 	}
 
-	public Passageiro getPassageiro() {
-		return passageiro;
-	}
-
-	public void setPassageiro(Passageiro passageiro) {
-		this.passageiro = passageiro;
-	}
 }
