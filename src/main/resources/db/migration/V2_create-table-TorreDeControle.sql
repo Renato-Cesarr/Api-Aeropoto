@@ -1,0 +1,6 @@
+CREATE TABLE TB_TORRE_DE_CONTROLE (
+	nome VARCHAR(25) NOT NULL PRIMARY KEY,
+	trafegoAereoAtual INTEGER NOT NULL,
+	equipamentoComunicacao VARCHAR(25) NOT NULL
+	
+)

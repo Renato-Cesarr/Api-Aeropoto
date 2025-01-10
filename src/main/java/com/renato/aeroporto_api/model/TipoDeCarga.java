@@ -19,18 +19,16 @@ public class TipoDeCarga {
     private String categoriaCarga;
 
     @JsonProperty("cargaFragil")
-    @NotNull(message = "A informação sobre carga frágil é obrigatória")
     private Boolean cargaFragil;
 
     @JsonProperty("temperaturaDaCarga")
-    @NotNull(message = "Temperatura da carga é obrigatória")
     private Double temperaturaDaCarga;
 
     @Enumerated(EnumType.STRING)
     @Column(name = "classificacaoPericulosidade")
     @JsonProperty("classificacaoPericulosidade")
     @NotNull(message = "Classificação de periculosidade é obrigatória")
-    private ClassificacaoPericulosidade classificacaoPericulosidade;
+    private Boolean classificacaoPericulosidade;
 
 
     public Integer getTicketDaCarga() {
@@ -65,16 +63,4 @@ public class TipoDeCarga {
         this.temperaturaDaCarga = temperaturaDaCarga;
     }
 
-    public ClassificacaoPericulosidade getClassificacaoPericulosidade() {
-        return classificacaoPericulosidade;
-    }
-
-    public void setClassificacaoPericulosidade(ClassificacaoPericulosidade classificacaoPericulosidade) {
-        this.classificacaoPericulosidade = classificacaoPericulosidade;
-    }
-
-    public enum ClassificacaoPericulosidade {
-        PERIGOSA, 
-        NAO_PERIGOSA
-    }
 }

@@ -8,6 +8,7 @@ import jakarta.persistence.Enumerated;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 import jakarta.validation.constraints.NotNull;
 
@@ -27,7 +28,8 @@ public class Carga {
     @Enumerated(EnumType.STRING)
     private StatusCarga statusDaCarga;
 
-    @JsonProperty("tipoDeCarga")
+	@OneToOne(targetEntity = TipoDeCarga.class)
+    @JsonProperty("fk_tipoDeCarga")
     private TipoDeCarga tipoDeCarga;
 
     @NotNull

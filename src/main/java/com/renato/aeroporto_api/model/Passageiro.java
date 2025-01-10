@@ -33,7 +33,7 @@ public class Passageiro {
 	private StatusEmbarque statusEmbarque;
 
 	@OneToMany
-	@JsonProperty("carga")
+	@JsonProperty("fk_carga")
 	private Carga carga;
 
 	public String getNome() {
