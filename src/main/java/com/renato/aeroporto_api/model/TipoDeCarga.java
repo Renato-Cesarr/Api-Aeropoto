@@ -6,7 +6,7 @@ import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 
 @Entity
-@Table(name = "TB_TIPO_DE_CARGA")
+@Table(name = "tb_tipo_de_carga")
 public class TipoDeCarga {
 
     @Id
@@ -25,7 +25,7 @@ public class TipoDeCarga {
     private Double temperaturaDaCarga;
 
     @Enumerated(EnumType.STRING)
-    @Column(name = "classificacaoPericulosidade")
+    @Column(name = "classificacao_periculosidade") 
     @JsonProperty("classificacaoPericulosidade")
     @NotNull(message = "Classificação de periculosidade é obrigatória")
     private ClassificacaoPericulosidade classificacaoPericulosidade;

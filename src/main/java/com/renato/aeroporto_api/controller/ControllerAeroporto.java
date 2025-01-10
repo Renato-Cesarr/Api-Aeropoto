@@ -36,11 +36,11 @@ public class ControllerAeroporto {
         return aeroportoService.deleteAeroporto(nomeAeroporto);
     }
 
-    @PutMapping("/aviao/{numeroDeSerie}")
+   /* @PutMapping("/aviao/{numeroDeSerie}")
     public String updateAviao(@PathVariable("numeroDeSerie") Integer numeroDeSerie,
                               @RequestBody Aviao aviaoAtualizado) {
         return aeroportoService.updateAviao(numeroDeSerie, aviaoAtualizado);
-    }
+    } */
     
     @PutMapping("/{nomeAeroporto}")
     public Aeroporto replaceAeroporto(@PathVariable("nomeAeroporto") String nomeAeroporto,

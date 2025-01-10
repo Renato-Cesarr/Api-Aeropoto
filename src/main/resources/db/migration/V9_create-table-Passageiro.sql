@@ -1,9 +1,10 @@
-CREATE TABLE TB_PASSAGEIRO (
-    numeroBilhete INT PRIMARY KEY NOT NULL,
-    nome VARCHAR(50) NOT NULL,
-    assento VARCHAR(10) NOT NULL,
-    statusEmbarque VARCHAR(20) NOT NULL,
-    fk_carga INTEGER NOT NULL,
-    fk_aviao INTEGER NOT NULL,
-    FOREIGN KEY (fk_carga) REFERENCES TB_CARGA(numeroIdentificadorCarga)  
+CREATE TABLE tb_passageiro (
+    numero_bilhete INT PRIMARY KEY,
+    assento VARCHAR(255) NOT NULL,
+    nome VARCHAR(75) NOT NULL,
+    status_embarque VARCHAR(15) NOT NULL CHECK (status_embarque IN ('CHECK_IN', 'EMBARCADO', 'NAO_EMBARCADO', 'CANCELADO')),
+    fk_aviao INT NOT NULL,
+    fk_carga INT,
+    CONSTRAINT fk_passageiro_aviao FOREIGN KEY (fk_aviao) REFERENCES tb_aviao(numero_de_serie),
+    CONSTRAINT fk_passageiro_carga FOREIGN KEY (fk_carga) REFERENCES tb_carga(numero_identificador_carga)
 );

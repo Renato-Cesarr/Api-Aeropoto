@@ -1,18 +1,14 @@
 package com.renato.aeroporto_api.model;
 
 import java.util.List;
+import jakarta.persistence.*;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 
+import com.fasterxml.jackson.annotation.JsonAutoDetect;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.OneToMany;
-import jakarta.persistence.OneToOne;
-import jakarta.persistence.Table;
-import jakarta.validation.constraints.NotBlank;
-import jakarta.validation.constraints.NotNull;
 @JsonPropertyOrder({
     "numeroDeSerie",
     "modelo",
@@ -25,122 +21,143 @@ import jakarta.validation.constraints.NotNull;
     "passageiro"
 })
 @Table(name = "TB_AVIAO")
-@Entity(name = "Aviao")
-
+@Entity
+@JsonAutoDetect(fieldVisibility = JsonAutoDetect.Visibility.ANY)
 public class Aviao {
-	@Id
-	@JsonProperty("numeroDeSerie")
-	@NotNull(message ="Numero de serie é obrigatorio")
-	private Integer numeroDeSerie;
 
-	@JsonProperty("modelo")
-	@NotBlank(message = "Numero modelo obrigatorio")
-	private String modelo;
-	
-	@JsonProperty("fabricante")
-	@NotBlank(message = "Nome fabricante obrigatorio")
-	private String fabricante;
-	
-	@JsonProperty("capacidadeMaximaKg")
-	@NotNull(message = "Capacidade maxima de Kg obrigatorio")
-	private Double capacidadeMaximaKg;
-	
-	@JsonProperty("capacidadeMaximaPessoas")
-	@NotBlank(message = "Capacidade maxima pessoas obrigatorio")
-	private Integer capacidadeMaximaPessoas;
-	
-	@OneToOne(targetEntity = Piloto.class)
-	@JoinColumn(name = "fk_piloto")
-	@JsonProperty("piloto")
-	@NotNull(message = "piloto nao pode ser vazio")
-	private Piloto piloto;
-	
-	@OneToOne(targetEntity = Tripulacao.class)
-	@JoinColumn(name = "fk_tripulacao")
-	@JsonProperty("tripulacao")
-	@NotNull(message = "piloto nao pode ser vazio")
-	private Tripulacao tripulacao;
-	
-    @NotNull(message = "FlyAware nao pode ser vazio")
-    @OneToOne(targetEntity = FlyAware.class)
-    @JoinColumn(name = "fk_flyaware")
+    @Id
+    @Column(name = "numero_de_serie")
+    @JsonProperty("numeroDeSerie")
+    @NotNull(message = "Número de série é obrigatório")
+    private Integer numeroDeSerie;
+
+    @NotNull
+    @Column(name = "modelo", nullable = false, length = 255)
+    @JsonProperty("modelo")
+    @NotBlank(message = "Modelo é obrigatório")
+    private String modelo;
+
+    @NotNull
+    @Column(name = "fabricante", nullable = false, length = 255)
+    @JsonProperty("fabricante")
+    @NotBlank(message = "Fabricante é obrigatório")
+    private String fabricante;
+
+    @NotNull
+    @Column(name = "capacidade_maxima_kg", nullable = false)
+    @JsonProperty("capacidadeMaximaKg")
+    private Double capacidadeMaximaKg;
+
+    @NotNull
+    @Column(name = "capacidade_maxima_pessoas", nullable = false)
+    @JsonProperty("capacidadeMaximaPessoas")
+    private Integer capacidadeMaximaPessoas;
+
+    @NotNull
+    @OneToOne
+    @JoinColumn(name = "fk_piloto", unique = true, nullable = false)
+    @JsonProperty("piloto")
+    private Piloto piloto;
+
+    @NotNull
+    @OneToOne
+    @JoinColumn(name = "fk_tripulacao", unique = true, nullable = false)
+    @JsonProperty("tripulacao")
+    private Tripulacao tripulacao;
+
+    @NotNull
+    @OneToOne
+    @JoinColumn(name = "fk_fly_aware", unique = true, nullable = false)
+    @JsonProperty("flyAware")
     private FlyAware flyAware;
-    
-	@NotNull
-	@OneToMany(targetEntity = Passageiro.class)
-	@JoinColumn(name = "fk_passageiro")
-	private List<Passageiro> passageiro;
 
-	public List<Passageiro> getPassageiro() {
-		return passageiro;
+    @OneToMany(targetEntity = Passageiro.class)
+    @JoinColumn(name = "fk_aviao")
+    @JsonProperty("passageiro")
+    private List<Passageiro> passageiro;
+
+    @ManyToOne
+    @JoinColumn(name = "fk_aeroporto")
+    @JsonProperty("aeroporto")
+    private Aeroporto aeroporto;
+
+    public Aeroporto getAeroporto() {
+		return aeroporto;
 	}
 
-	public void setPassageiro(List<Passageiro> passageiro) {
-		this.passageiro = passageiro;
-	}
-
-	public String getModelo() {
-		return modelo;
-	}
-
-	public void setModelo(String modelo) {
-		this.modelo = modelo;
-	}
-
-	public String getFabricante() {
-		return fabricante;
-	}
-
-	public void setFabricante(String fabricante) {
-		this.fabricante = fabricante;
+	public void setAeroporto(Aeroporto aeroporto) {
+		this.aeroporto = aeroporto;
 	}
 
 	public Integer getNumeroDeSerie() {
-		return numeroDeSerie;
-	}
+        return numeroDeSerie;
+    }
 
-	public void setNumeroDeSerie(Integer numeroDeSerie) {
-		this.numeroDeSerie = numeroDeSerie;
-	}
+    public void setNumeroDeSerie(Integer numeroDeSerie) {
+        this.numeroDeSerie = numeroDeSerie;
+    }
 
-	public Double getCapacidadeMaximaKg() {
-		return capacidadeMaximaKg;
-	}
+    public String getModelo() {
+        return modelo;
+    }
 
-	public void setCapacidadeMaximaKg(Double capacidadeMaximaKg) {
-		this.capacidadeMaximaKg = capacidadeMaximaKg;
-	}
+    public void setModelo(String modelo) {
+        this.modelo = modelo;
+    }
 
-	public Integer getCapacidadeMaximaPessoas() {
-		return capacidadeMaximaPessoas;
-	}
+    public String getFabricante() {
+        return fabricante;
+    }
 
-	public void setCapacidadeMaximaPessoas(Integer capacidadeMaximaPessoas) {
-		this.capacidadeMaximaPessoas = capacidadeMaximaPessoas;
-	}
+    public void setFabricante(String fabricante) {
+        this.fabricante = fabricante;
+    }
 
-	public Piloto getPiloto() {
-		return piloto;
-	}
+    public Double getCapacidadeMaximaKg() {
+        return capacidadeMaximaKg;
+    }
 
-	public void setPiloto(Piloto piloto) {
-		this.piloto = piloto;
-	}
+    public void setCapacidadeMaximaKg(Double capacidadeMaximaKg) {
+        this.capacidadeMaximaKg = capacidadeMaximaKg;
+    }
 
-	public Tripulacao getTripulacao() {
-		return tripulacao;
-	}
+    public Integer getCapacidadeMaximaPessoas() {
+        return capacidadeMaximaPessoas;
+    }
 
-	public void setTripulacao(Tripulacao tripulacao) {
-		this.tripulacao = tripulacao;
-	}
+    public void setCapacidadeMaximaPessoas(Integer capacidadeMaximaPessoas) {
+        this.capacidadeMaximaPessoas = capacidadeMaximaPessoas;
+    }
 
-	public FlyAware getFlyAware() {
-		return flyAware;
-	}
+    public Piloto getPiloto() {
+        return piloto;
+    }
 
-	public void setFlyAware(FlyAware flyAware) {
-		this.flyAware = flyAware;
-	}
+    public void setPiloto(Piloto piloto) {
+        this.piloto = piloto;
+    }
 
+    public Tripulacao getTripulacao() {
+        return tripulacao;
+    }
+
+    public void setTripulacao(Tripulacao tripulacao) {
+        this.tripulacao = tripulacao;
+    }
+
+    public FlyAware getFlyAware() {
+        return flyAware;
+    }
+
+    public void setFlyAware(FlyAware flyAware) {
+        this.flyAware = flyAware;
+    }
+
+    public List<Passageiro> getPassageiro() {
+        return passageiro;
+    }
+
+    public void setPassageiro(List<Passageiro> passageiro) {
+        this.passageiro = passageiro;
+    }
 }

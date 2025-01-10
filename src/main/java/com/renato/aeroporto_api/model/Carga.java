@@ -12,14 +12,14 @@ import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
-import jakarta.validation.constraints.NotNull;
+
 @JsonPropertyOrder({
     "numeroIdentificadorCarga",
     "pesoTotalCarga",
     "statusDaCarga",
     "tipoDeCarga"
 })
-@Table(name = "TB_CARGA")
+@Table(name = "tb_carga")
 @Entity(name = "Carga")
 public class Carga {
 
@@ -29,17 +29,16 @@ public class Carga {
     private Integer numeroIdentificadorCarga;
 
     @JsonProperty("pesoTotalCarga")
-    private Double pesoTotalCarga;
+    private Float pesoTotalCarga;
 
     @JsonProperty("statusDaCarga")
     @Enumerated(EnumType.STRING)
     private StatusCarga statusDaCarga;
 
-	@OneToOne(targetEntity = TipoDeCarga.class)
-	@JoinColumn(name = "fk_fk_tipoDeCarga")
-	private TipoDeCarga tipoDeCarga;
+    @OneToOne(targetEntity = TipoDeCarga.class)
+    @JoinColumn(name = "tipo_de_carga_ticket_da_carga") 
+    private TipoDeCarga tipoDeCarga;
 
-    @NotNull
     public Integer getNumeroIdentificadorCarga() {
         return numeroIdentificadorCarga;
     }
@@ -48,11 +47,11 @@ public class Carga {
         this.numeroIdentificadorCarga = numeroIdentificadorCarga;
     }
 
-    public Double getPesoTotalCarga() {
+    public Float getPesoTotalCarga() {
         return pesoTotalCarga;
     }
 
-    public void setPesoTotalCarga(Double pesoTotalCarga) {
+    public void setPesoTotalCarga(Float pesoTotalCarga) {
         this.pesoTotalCarga = pesoTotalCarga;
     }
 

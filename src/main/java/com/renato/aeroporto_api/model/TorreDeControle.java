@@ -1,51 +1,60 @@
 package com.renato.aeroporto_api.model;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
-
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 
-@Table(name = "TB_TORRE_DE_CONTROLE")
+@Table(name = "tb_torre_de_controle")
 @Entity(name = "TorreDeControle")
 public class TorreDeControle {
 
-	@Id
-	@JsonProperty("nome")
-	@NotBlank(message = "Informe um nome para torre de controle")
-	private String nome;
+    @Id
+    @JsonProperty("nome")
+    @NotBlank(message = "Informe um nome para torre de controle")
+    private String nome;
 
-	@JsonProperty
-	@NotNull(message = "Informe o trafico atual")
-	private Integer trafegoAereoAtual;
+    @JsonProperty
+    @NotNull(message = "Informe o trafico atual")
+    private Integer trafegoAereoAtual;
 
-	@JsonProperty
-	@NotBlank(message = "Infome o equipamento de comunicação")
-	private String equipamentoComunicacao;
+    @JsonProperty
+    @NotBlank(message = "Informe o equipamento de comunicação")
+    private String equipamentoComunicacao;
 
-	public String getNome() {
-		return nome;
-	}
+    @ManyToOne
+    @JoinColumn(name = "fk_aeroporto", referencedColumnName = "codigoIATA") 
+    private Aeroporto aeroporto;
 
-	public void setNome(String nome) {
-		this.nome = nome;
-	}
+    public Aeroporto getAeroporto() {
+        return aeroporto;
+    }
 
-	public Integer getTrafegoAereoAtual() {
-		return trafegoAereoAtual;
-	}
+    public void setAeroporto(Aeroporto aeroporto) {
+        this.aeroporto = aeroporto;
+    }
 
-	public void setTrafegoAereoAtual(Integer trafegoAereoAtual) {
-		this.trafegoAereoAtual = trafegoAereoAtual;
-	}
+    public String getNome() {
+        return nome;
+    }
 
-	public String getEquipamentoComunicacao() {
-		return equipamentoComunicacao;
-	}
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
 
-	public void setEquipamentoComunicacao(String equipamentoComunicacao) {
-		this.equipamentoComunicacao = equipamentoComunicacao;
-	}
+    public Integer getTrafegoAereoAtual() {
+        return trafegoAereoAtual;
+    }
+
+    public void setTrafegoAereoAtual(Integer trafegoAereoAtual) {
+        this.trafegoAereoAtual = trafegoAereoAtual;
+    }
+
+    public String getEquipamentoComunicacao() {
+        return equipamentoComunicacao;
+    }
+
+    public void setEquipamentoComunicacao(String equipamentoComunicacao) {
+        this.equipamentoComunicacao = equipamentoComunicacao;
+    }
 }

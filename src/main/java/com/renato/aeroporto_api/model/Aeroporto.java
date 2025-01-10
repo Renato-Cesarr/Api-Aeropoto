@@ -6,147 +6,130 @@ import com.fasterxml.jackson.annotation.JsonAutoDetect;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.OneToMany;
-import jakarta.persistence.OneToOne;
-import jakarta.persistence.Table;
-import jakarta.validation.constraints.NotBlank;
+import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
 
 @JsonPropertyOrder({
-    "codigoIATA", 
-    "nomeAeroporto", 
-    "permitidoPousoAeronaves", 
-    "portoesDeEmbarque", 
-    "capacidadeDeArmazenamentoDeCombustivel", 
-    "limiteMaximoAeronaves", 
-    "localizacaoAeroporto", 
-    "torreDeControle", 
-    "aviao"
+    "codigoIATA",
+    "nomeAeroporto",
+    "permitidoPousoAeronaves",
+    "portoesDeEmbarque",
+    "capacidadeDeArmazenamentoDeCombustivel",
+    "limiteMaximoAeronaves",
+    "localizacaoAeroporto",
+    "avioes"
 })
-
 @Table(name = "TB_AEROPORTO")
-@Entity(name = "Aeroporto")
+@Entity
 @JsonAutoDetect(fieldVisibility = JsonAutoDetect.Visibility.ANY)
 public class Aeroporto {
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@JsonProperty("codigoIATA")
-	private Integer codigoIATA;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "codigoiata")
+    @JsonProperty("codigoIATA")
+    private Integer codigoIATA;
 
-	@JsonProperty("nomeAeroporto")
-	@NotNull
-	private String nomeAeroporto;
+    @NotNull
+    @Column(name = "nome_aeroporto", nullable = false, length = 255)
+    @JsonProperty("nomeAeroporto")
+    private String nomeAeroporto;
 
-	@JsonProperty("permitidoPousoAeronaves")
-	@Column(unique = true)
-	@NotBlank
-	private Boolean permitidoPousoAeronaves;
+    @NotNull
+    @Column(name = "permitido_pouso_aeronaves", nullable = false)
+    @JsonProperty("permitidoPousoAeronaves")
+    private Boolean permitidoPousoAeronaves;
 
-	@JsonProperty("portoesDeEmbarque")
-	@NotBlank(message = "{informe pelo menos 1 portão}")
-	private List<Integer> portoesDeEmbarque;
+    @NotNull
+    @ElementCollection
+    @CollectionTable(
+        name = "PORTOES_EMBARQUE",
+        joinColumns = @JoinColumn(name = "fk_aeroporto")
+    )
+    @Column(name = "portoes_de_embarque", nullable = false)
+    @JsonProperty("portoesDeEmbarque")
+    private List<Integer> portoesDeEmbarque;
 
-	@JsonProperty("capacidadeDeArmazenamentoDeCombustivel")
-	private Double capacidadeDeArmazenamentoDeCombustivel;
+    @Column(name = "capacidade_de_armazenamento_de_combustivel")
+    @JsonProperty("capacidadeDeArmazenamentoDeCombustivel")
+    private Double capacidadeDeArmazenamentoDeCombustivel;
 
-	@JsonProperty("limiteMaximoAeronaves")
-	private Integer limiteMaximoAeronaves;
+    @Column(name = "limite_maximo_aeronaves")
+    @JsonProperty("limiteMaximoAeronaves")
+    private Integer limiteMaximoAeronaves;
 
-	@NotNull
-	@OneToOne(targetEntity = LocalizacaoAeroporto.class)
-	@JoinColumn(name = "fk_localizacaoAeroporto")
-	private LocalizacaoAeroporto localizacaoAeroporto;
+    @NotNull
+    @OneToOne
+    @JoinColumn(name = "fk_localizacao_aeroporto", unique = true, nullable = false)
+    @JsonProperty("localizacaoAeroporto")
+    private LocalizacaoAeroporto localizacaoAeroporto;
 
-
-	@NotNull
-	@OneToMany(targetEntity = TorreDeControle.class)
-	@JoinColumn(name = "fk_torreDeControle")
-	private List<TorreDeControle> torreDeControle;
-
-
-	public List<TorreDeControle> getTorreDeControle() {
-		return torreDeControle;
+    @OneToMany(mappedBy = "aeroporto", cascade = CascadeType.ALL, orphanRemoval = true)
+    @JsonProperty("avioes")
+    private List<Aviao> avioes;
+    
+    public List<Aviao> getAvioes() {
+		return avioes;
 	}
 
-	public void setTorreDeControle(List<TorreDeControle> torreDeControle) {
-		this.torreDeControle = torreDeControle;
+	public void setAvioes(List<Aviao> avioes) {
+		this.avioes = avioes;
 	}
 
-	@NotNull
-	@OneToMany(targetEntity = Aviao.class)
-	@JoinColumn(name = "fk_aviao")
-	private List<Aviao> aviao;
 
+    public Integer getCodigoIATA() {
+        return codigoIATA;
+    }
 
-	public List<Aviao> getAviao() {
-		return aviao;
-	}
+    public void setCodigoIATA(Integer codigoIATA) {
+        this.codigoIATA = codigoIATA;
+    }
 
-	public void setAviao(List<Aviao> aviao) {
-		this.aviao = aviao;
-	}
+    public String getNomeAeroporto() {
+        return nomeAeroporto;
+    }
 
-	public String getNomeAeroporto() {
-		return nomeAeroporto;
-	}
+    public void setNomeAeroporto(String nomeAeroporto) {
+        this.nomeAeroporto = nomeAeroporto;
+    }
 
-	public void setNomeAeroporto(String nomeAeroporto) {
-		this.nomeAeroporto = nomeAeroporto;
-	}
+    public Boolean getPermitidoPousoAeronaves() {
+        return permitidoPousoAeronaves;
+    }
 
-	public LocalizacaoAeroporto getLocalizacaoAeroporto() {
-		return localizacaoAeroporto;
-	}
+    public void setPermitidoPousoAeronaves(Boolean permitidoPousoAeronaves) {
+        this.permitidoPousoAeronaves = permitidoPousoAeronaves;
+    }
 
-	public void setLocalizacaoAeroporto(LocalizacaoAeroporto localizacaoAeroporto) {
-		this.localizacaoAeroporto = localizacaoAeroporto;
-	}
+    public List<Integer> getPortoesDeEmbarque() {
+        return portoesDeEmbarque;
+    }
 
-	public Boolean getPermitidoPousoAeronaves() {
-		return permitidoPousoAeronaves;
-	}
+    public void setPortoesDeEmbarque(List<Integer> portoesDeEmbarque) {
+        this.portoesDeEmbarque = portoesDeEmbarque;
+    }
 
-	public void setPermitidoPousoAeronaves(Boolean permitidoPousoAeronaves) {
-		this.permitidoPousoAeronaves = permitidoPousoAeronaves;
-	}
+    public Double getCapacidadeDeArmazenamentoDeCombustivel() {
+        return capacidadeDeArmazenamentoDeCombustivel;
+    }
 
-	public List<Integer> getPortoesDeEmbarque() {
-		return portoesDeEmbarque;
-	}
+    public void setCapacidadeDeArmazenamentoDeCombustivel(Double capacidadeDeArmazenamentoDeCombustivel) {
+        this.capacidadeDeArmazenamentoDeCombustivel = capacidadeDeArmazenamentoDeCombustivel;
+    }
 
-	public void setPortoesDeEmbarque(List<Integer> portoesDeEmbarque) {
-		this.portoesDeEmbarque = portoesDeEmbarque;
-	}
+    public Integer getLimiteMaximoAeronaves() {
+        return limiteMaximoAeronaves;
+    }
 
-	public Integer getLimiteMaximoAeronaves() {
-		return limiteMaximoAeronaves;
-	}
+    public void setLimiteMaximoAeronaves(Integer limiteMaximoAeronaves) {
+        this.limiteMaximoAeronaves = limiteMaximoAeronaves;
+    }
 
-	public void setLimiteMaximoAeronaves(Integer limiteMaximoAeronaves) {
-		this.limiteMaximoAeronaves = limiteMaximoAeronaves;
-	}
+    public LocalizacaoAeroporto getLocalizacaoAeroporto() {
+        return localizacaoAeroporto;
+    }
 
-	public Double getCapacidadeDeArmazenamentoDeCombustivel() {
-		return capacidadeDeArmazenamentoDeCombustivel;
-	}
-
-	public void setCapacidadeDeArmazenamentoDeCombustivel(Double capacidadeDeArmazenamentoDeCombustivel) {
-		this.capacidadeDeArmazenamentoDeCombustivel = capacidadeDeArmazenamentoDeCombustivel;
-	}
-
-	public Integer getCodigoIATA() {
-		return codigoIATA;
-	}
-
-	public void setCodigoIATA(Integer códigoIATA) {
-		this.codigoIATA = códigoIATA;
-	}
-
+    public void setLocalizacaoAeroporto(LocalizacaoAeroporto localizacaoAeroporto) {
+        this.localizacaoAeroporto = localizacaoAeroporto;
+    }
 }
