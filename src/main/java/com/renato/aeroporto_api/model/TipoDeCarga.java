@@ -18,10 +18,10 @@ public class TipoDeCarga {
     @Column(name = "carga_fragil")
     private Boolean cargaFragil;
 
-    @Column(name = "categoria_carga", nullable = false)
+    @Column(name = "categoria_carga")
     private String categoriaCarga;
 
-    @Column(name = "classificacao_periculosidade", nullable = false)
+    @Column(name = "classificacao_periculosidade")
     private ClassificacaoPericulosidade classificacaoPericulosidade;
 
     @Column(name = "temperatura_da_carga")

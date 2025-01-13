@@ -2,6 +2,7 @@ package com.renato.aeroporto_api.model;
 
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIdentityInfo;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import jakarta.persistence.CascadeType;
@@ -51,9 +52,9 @@ public class Aeroporto {
     private LocalizacaoAeroporto localizacaoAeroporto;
 
     @OneToMany(mappedBy = "aeroporto", cascade = CascadeType.ALL, fetch = FetchType.LAZY, orphanRemoval = true)
+    @JsonBackReference
     private List<Aviao> avioes;
 
-    // Getters e Setters
     public Long getCodigoIATA() {
         return codigoIATA;
     }

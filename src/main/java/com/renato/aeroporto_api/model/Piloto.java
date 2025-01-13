@@ -5,6 +5,7 @@ import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
 import jakarta.persistence.Enumerated;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
@@ -30,7 +31,7 @@ public class Piloto {
     @Enumerated(EnumType.STRING)
     private StatusSaude statusDeSaude;
 
-    @ManyToOne(cascade = CascadeType.PERSIST)
+    @ManyToOne(cascade = {CascadeType.PERSIST, CascadeType.MERGE}, fetch = FetchType.LAZY)
     @JoinColumn(name = "fk_licenca_de_piloto_anac") 
     private LicencaDePilotoAnac licencaDePilotoAnac;
 
@@ -55,7 +56,7 @@ public class Piloto {
     }
 
     public String getNome() {
-        return nome;
+        return nome; 
     }
 
     public void setNome(String nome) {
