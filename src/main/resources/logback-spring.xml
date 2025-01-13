@@ -1,0 +1,43 @@
+<configuration>
+    <appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} %-5level %-40logger{0}%msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <appender name="API_LOGGER" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <fileNamePattern>logs/%d{yyyy-MM-dd}/application.log</fileNamePattern>
+            <maxHistory>30</maxHistory>
+        </rollingPolicy>
+        <encoder>
+            <pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} %-5level %-40logger{0}%msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <appender name="SPRING_LOG" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <fileNamePattern>logs/%d{yyyy-MM-dd}/spring.log</fileNamePattern>
+            <maxHistory>30</maxHistory>
+        </rollingPolicy>
+        <encoder>
+            <pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} %-5level %-40logger{0}%msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <logger name="com.renato.aeroporto_api.logger.LoggerApi" level="TRACE" additivity="false">
+        <appender-ref ref="API_LOGGER"/>
+        <appender-ref ref="CONSOLE"/>
+    </logger>
+
+    <logger name="org.springframework" level="INFO" additivity="false">
+        <appender-ref ref="CONSOLE"/>
+        <appender-ref ref="SPRING_LOG"/>
+    </logger>
+
+    <root level="INFO">
+        <appender-ref ref="CONSOLE"/>
+        <appender-ref ref="SPRING_LOG"/>
+    </root>
+
+</configuration>
