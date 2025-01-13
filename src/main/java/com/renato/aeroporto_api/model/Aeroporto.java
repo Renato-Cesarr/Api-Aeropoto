@@ -2,86 +2,63 @@ package com.renato.aeroporto_api.model;
 
 import java.util.List;
 
-import com.fasterxml.jackson.annotation.JsonAutoDetect;
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
+import jakarta.persistence.CascadeType;
+import jakarta.persistence.Column;
+import jakarta.persistence.ElementCollection;
+import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToMany;
+import jakarta.persistence.Table;
 
-import jakarta.persistence.*;
-import jakarta.validation.constraints.NotNull;
-
-@JsonPropertyOrder({
-    "codigoIATA",
-    "nomeAeroporto",
-    "permitidoPousoAeronaves",
-    "portoesDeEmbarque",
-    "capacidadeDeArmazenamentoDeCombustivel",
-    "limiteMaximoAeronaves",
-    "localizacaoAeroporto",
-    "avioes"
-})
-@Table(name = "TB_AEROPORTO")
 @Entity
-@JsonAutoDetect(fieldVisibility = JsonAutoDetect.Visibility.ANY)
+@Table(name = "tb_aeroporto")
+@JsonIdentityInfo(
+    generator = ObjectIdGenerators.PropertyGenerator.class,
+    property = "codigoIATA"
+)
 public class Aeroporto {
 
-	@Id
+    @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "codigoiata")
-    @JsonProperty("codigoIATA")
-    private Integer codigoIATA;
+    private Long codigoIATA;
 
-    @NotNull
-    @Column(name = "nome_aeroporto", nullable = false, length = 255)
-    @JsonProperty("nomeAeroporto")
+    @Column(name = "nome_aeroporto", nullable = false)
     private String nomeAeroporto;
 
-    @NotNull
     @Column(name = "permitido_pouso_aeronaves", nullable = false)
-    @JsonProperty("permitidoPousoAeronaves")
     private Boolean permitidoPousoAeronaves;
 
-    @NotNull
-    @ElementCollection
-    @CollectionTable(
-        name = "PORTOES_EMBARQUE",
-        joinColumns = @JoinColumn(name = "fk_aeroporto")
-    )
-    @Column(name = "portoes_de_embarque", nullable = false)
-    @JsonProperty("portoesDeEmbarque")
-    private List<Integer> portoesDeEmbarque;
-
     @Column(name = "capacidade_de_armazenamento_de_combustivel")
-    @JsonProperty("capacidadeDeArmazenamentoDeCombustivel")
     private Double capacidadeDeArmazenamentoDeCombustivel;
 
     @Column(name = "limite_maximo_aeronaves")
-    @JsonProperty("limiteMaximoAeronaves")
     private Integer limiteMaximoAeronaves;
 
-    @NotNull
-    @OneToOne
-    @JoinColumn(name = "fk_localizacao_aeroporto", unique = true, nullable = false)
-    @JsonProperty("localizacaoAeroporto")
+    @ElementCollection
+    @Column(name = "portoes_de_embarque")
+    private List<Integer> portoesDeEmbarque;
+
+    @ManyToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "fk_localizacao_aeroporto", unique = true)
     private LocalizacaoAeroporto localizacaoAeroporto;
 
-    @OneToMany(mappedBy = "aeroporto", cascade = CascadeType.ALL, orphanRemoval = true)
-    @JsonProperty("avioes")
+    @OneToMany(mappedBy = "aeroporto", cascade = CascadeType.ALL, fetch = FetchType.LAZY, orphanRemoval = true)
     private List<Aviao> avioes;
-    
-    public List<Aviao> getAvioes() {
-		return avioes;
-	}
 
-	public void setAvioes(List<Aviao> avioes) {
-		this.avioes = avioes;
-	}
-
-
-    public Integer getCodigoIATA() {
+    // Getters e Setters
+    public Long getCodigoIATA() {
         return codigoIATA;
     }
 
-    public void setCodigoIATA(Integer codigoIATA) {
+    public void setCodigoIATA(Long codigoIATA) {
         this.codigoIATA = codigoIATA;
     }
 
@@ -101,14 +78,6 @@ public class Aeroporto {
         this.permitidoPousoAeronaves = permitidoPousoAeronaves;
     }
 
-    public List<Integer> getPortoesDeEmbarque() {
-        return portoesDeEmbarque;
-    }
-
-    public void setPortoesDeEmbarque(List<Integer> portoesDeEmbarque) {
-        this.portoesDeEmbarque = portoesDeEmbarque;
-    }
-
     public Double getCapacidadeDeArmazenamentoDeCombustivel() {
         return capacidadeDeArmazenamentoDeCombustivel;
     }
@@ -125,11 +94,27 @@ public class Aeroporto {
         this.limiteMaximoAeronaves = limiteMaximoAeronaves;
     }
 
+    public List<Integer> getPortoesDeEmbarque() {
+        return portoesDeEmbarque;
+    }
+
+    public void setPortoesDeEmbarque(List<Integer> portoesDeEmbarque) {
+        this.portoesDeEmbarque = portoesDeEmbarque;
+    }
+
     public LocalizacaoAeroporto getLocalizacaoAeroporto() {
         return localizacaoAeroporto;
     }
 
     public void setLocalizacaoAeroporto(LocalizacaoAeroporto localizacaoAeroporto) {
         this.localizacaoAeroporto = localizacaoAeroporto;
+    }
+
+    public List<Aviao> getAvioes() {
+        return avioes;
+    }
+
+    public void setAvioes(List<Aviao> avioes) {
+        this.avioes = avioes;
     }
 }
