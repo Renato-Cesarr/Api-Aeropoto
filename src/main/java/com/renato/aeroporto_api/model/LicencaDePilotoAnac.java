@@ -1,13 +1,7 @@
 package com.renato.aeroporto_api.model;
 
 import java.time.LocalDateTime;
-
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 
 @Entity
 @Table(name = "tb_licenca_de_piloto_anac")
@@ -17,16 +11,17 @@ public class LicencaDePilotoAnac {
     @Column(name = "numero_da_licenca")
     private Long numeroDaLicenca;
 
-    @Column(name = "data_emissao", nullable = false)
+    @Column(name = "data_emissao")
     private LocalDateTime dataEmissao;
 
-    @Column(name = "data_validade", nullable = false)
+    @Column(name = "data_validade")
     private LocalDateTime dataValidade;
 
-    @Column(name = "situacao", nullable = false)
+    @Column(name = "situacao")
+    @Enumerated(EnumType.STRING)
     private SituacaoLicenca situacao;
 
-    @Column(name = "tipo_da_licenca", nullable = false)
+    @Column(name = "tipo_da_licenca")
     private String tipoDaLicenca;
 
     public enum SituacaoLicenca {

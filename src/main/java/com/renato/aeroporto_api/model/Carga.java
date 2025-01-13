@@ -27,12 +27,12 @@ public class Carga {
     @Column(name = "status_da_carga")
     private StatusCarga statusDaCarga;
 
-    @ManyToOne(cascade = CascadeType.PERSIST, fetch = FetchType.LAZY)
-    @JoinColumn(name = "tipo_de_carga_ticket_da_carga")
+    @ManyToOne(cascade = {CascadeType.PERSIST, CascadeType.MERGE}, fetch = FetchType.LAZY)
+    @JoinColumn(name = "fk_ticket_da_carga")
     @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
     private TipoDeCarga tipoDeCarga;
     
-    public enum StatusCarga {
+    public enum StatusCarga { 
         EM_PROCESSO, ENTREGUE, PENDENTE;
     }
 

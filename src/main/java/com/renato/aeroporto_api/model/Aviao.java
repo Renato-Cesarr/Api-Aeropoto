@@ -90,7 +90,7 @@ public class Aviao {
     }
 
     public String getFabricante() {
-        return fabricante;
+        return fabricante; 
     }
 
     public void setFabricante(String fabricante) {
