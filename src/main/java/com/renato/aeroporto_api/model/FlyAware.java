@@ -1,76 +1,70 @@
 package com.renato.aeroporto_api.model;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
-
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
-import jakarta.validation.constraints.NotBlank;
-import jakarta.validation.constraints.NotNull;
 
-@Table(name = "tb_flwaware") 
-@Entity(name = "FlyAware")
+@Entity
+@Table(name = "tb_flwaware")
 public class FlyAware {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @JsonProperty("idRota")
-    private Integer idRota;
+    @Column(name = "id_rota")
+    private Long idRota;
 
-    @JsonProperty("numeroDaRota")
-    @NotNull(message = "Numero da rota é obrigatório")
-    private Integer numeroDaRota;
-
-    @JsonProperty("origem")
-    @NotBlank(message = "Origem do destino é obrigatória")
-    private String origem;
-
-    @JsonProperty("destino")
-    @NotBlank(message = "Destino é obrigatório")
+    @Column(name = "destino", nullable = false)
     private String destino;
 
-    @JsonProperty("tempoEstimadoVoo")
-    @NotNull(message = "Tempo de voo é obrigatório")
-    private Float tempoEstimadoVoo; 
+    @Column(name = "numero_da_rota", nullable = false)
+    private Integer numeroDaRota;
 
-    public Integer getIdRota() {
-        return idRota;
-    }
+    @Column(name = "origem", nullable = false)
+    private String origem;
 
-    public void setIdRota(Integer idRota) {
-        this.idRota = idRota;
-    }
+    @Column(name = "tempo_estimado_voo", nullable = false)
+    private Double tempoEstimadoVoo;
 
-    public Integer getNumeroDaRota() {
-        return numeroDaRota;
-    }
+	public Long getIdRota() {
+		return idRota;
+	}
 
-    public void setNumeroDaRota(Integer numeroDaRota) {
-        this.numeroDaRota = numeroDaRota;
-    }
+	public void setIdRota(Long idRota) {
+		this.idRota = idRota;
+	}
 
-    public String getOrigem() {
-        return origem;
-    }
+	public String getDestino() {
+		return destino;
+	}
 
-    public void setOrigem(String origem) {
-        this.origem = origem;
-    }
+	public void setDestino(String destino) {
+		this.destino = destino;
+	}
 
-    public String getDestino() {
-        return destino;
-    }
+	public Integer getNumeroDaRota() {
+		return numeroDaRota;
+	}
 
-    public void setDestino(String destino) {
-        this.destino = destino;
-    }
+	public void setNumeroDaRota(Integer numeroDaRota) {
+		this.numeroDaRota = numeroDaRota;
+	}
 
-    public Float getTempoEstimadoVoo() {
-        return tempoEstimadoVoo;
-    }
+	public String getOrigem() {
+		return origem;
+	}
 
-    public void setTempoEstimadoVoo(Float tempoEstimadoVoo) {
-        this.tempoEstimadoVoo = tempoEstimadoVoo;
-    }
+	public void setOrigem(String origem) {
+		this.origem = origem;
+	}
+
+	public Double getTempoEstimadoVoo() {
+		return tempoEstimadoVoo;
+	}
+
+	public void setTempoEstimadoVoo(Double tempoEstimadoVoo) {
+		this.tempoEstimadoVoo = tempoEstimadoVoo;
+	}
+
 }

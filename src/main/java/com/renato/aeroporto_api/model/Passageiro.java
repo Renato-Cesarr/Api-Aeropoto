@@ -1,73 +1,54 @@
 package com.renato.aeroporto_api.model;
 
-import java.util.List;
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-
+import jakarta.persistence.CascadeType;
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
-import jakarta.persistence.EnumType;
-import jakarta.persistence.Enumerated;
+import jakarta.persistence.FetchType;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
-import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
-import jakarta.validation.constraints.NotBlank;
-import jakarta.validation.constraints.NotNull;
 
-@JsonPropertyOrder({
-    "numeroBilhete",
-    "nome",
-    "assento",
-    "statusEmbarque",
-    "carga",
-    "aviao"
-})
-@Table(name = "tb_passageiro") 
-@Entity(name = "Passageiro")
+@Entity
+@Table(name = "tb_passageiro")
 public class Passageiro {
 
     @Id
-    @JsonProperty("numeroBilhete")
-    @NotNull(message = "Número do bilhete é obrigatório")
-    private Integer numeroBilhete;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "numero_bilhete")
+    private Long numeroBilhete;
 
-    @JsonProperty("nome")
-    @NotBlank(message = "Nome é obrigatório")
-    private String nome;
-
-    @JsonProperty("assento")
-    @NotBlank(message = "Assento é obrigatório")
+    @Column(name = "assento", nullable = false)
     private String assento;
 
-    @JsonProperty("statusEmbarque")
-    @NotNull(message = "Status de embarque é obrigatório")
-    @Enumerated(EnumType.STRING)
-    private StatusEmbarque statusEmbarque;
+    @Column(name = "nome", nullable = false)
+    private String nome;
 
-    @OneToMany(targetEntity = Carga.class)
-    @JoinColumn(name = "fk_carga")
-    private List<Carga> carga;
+    @Column(name = "status_embarque")
+    private String statusEmbarque;
 
-    @ManyToOne
-    @JoinColumn(name = "fk_aviao", referencedColumnName = "numero_de_serie") 
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "fk_aviao")
+    @JsonBackReference  
+    @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})  
     private Aviao aviao;
+    
+    @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @JoinColumn(name = "fk_carga")
+    @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})  
+    private Carga carga;
 
-    public Integer getNumeroBilhete() {
+    public Long getNumeroBilhete() {
         return numeroBilhete;
     }
 
-    public void setNumeroBilhete(Integer numeroBilhete) {
+    public void setNumeroBilhete(Long numeroBilhete) {
         this.numeroBilhete = numeroBilhete;
-    }
-
-    public String getNome() {
-        return nome;
-    }
-
-    public void setNome(String nome) {
-        this.nome = nome;
     }
 
     public String getAssento() {
@@ -78,20 +59,20 @@ public class Passageiro {
         this.assento = assento;
     }
 
-    public StatusEmbarque getStatusEmbarque() {
+    public String getNome() {
+        return nome;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
+    public String getStatusEmbarque() {
         return statusEmbarque;
     }
 
-    public void setStatusEmbarque(StatusEmbarque statusEmbarque) {
+    public void setStatusEmbarque(String statusEmbarque) {
         this.statusEmbarque = statusEmbarque;
-    }
-
-    public List<Carga> getCarga() {
-        return carga;
-    }
-
-    public void setCarga(List<Carga> carga) {
-        this.carga = carga;
     }
 
     public Aviao getAviao() {
@@ -102,7 +83,11 @@ public class Passageiro {
         this.aviao = aviao;
     }
 
-    public enum StatusEmbarque {
-        CHECK_IN, EMBARCADO, NAO_EMBARCADO, CANCELADO;
-    }
+	public Carga getCarga() {
+		return carga;
+	}
+
+	public void setCarga(Carga carga) {
+		this.carga = carga;
+	}
 }

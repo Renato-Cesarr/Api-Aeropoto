@@ -1,84 +1,81 @@
 package com.renato.aeroporto_api.model;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
-import jakarta.persistence.*;
-import jakarta.validation.constraints.NotBlank;
-import jakarta.validation.constraints.NotNull;
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
 
-@Table(name = "tb_tripulacao") 
-@Entity(name = "Tripulacao")
+@Entity
+@Table(name = "tb_tripulacao")
 public class Tripulacao {
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @JsonProperty("idTripulacao")
-    private Integer idTripulacao;
+    @Column(name = "id_tripulacao")
+    private Long idTripulacao;
 
-    @JsonProperty("nome")
-    @NotBlank(message = "Nome é obrigatório")
-    private String nome;
-
-    @JsonProperty("funcao")
-    @NotBlank(message = "Informe a função do tripulante")
+    @Column(name = "funcao", nullable = false)
     private String funcao;
 
-    @JsonProperty("numeroVoo")
-    @NotNull(message = "Informe o número do voo atual")
-    private Integer numeroVoo;
-
-    @JsonProperty("licenciamento")
-    @NotBlank(message = "Informe o licenciamento do tripulante")
-    private String licenciamento;
-
-    @JsonProperty("horasDeVoo")
-    @NotNull(message = "Informe as horas de voo do tripulante")
+    @Column(name = "horas_de_voo", nullable = false)
     private Integer horasDeVoo;
 
-    public Integer getIdTripulacao() {
-        return idTripulacao;
-    }
+    @Column(name = "licenciamento", nullable = false)
+    private String licenciamento;
 
-    public void setIdTripulacao(Integer idTripulacao) {
-        this.idTripulacao = idTripulacao;
-    }
+    @Column(name = "nome", nullable = false)
+    private String nome;
 
-    public String getNome() {
-        return nome;
-    }
+    @Column(name = "numero_voo", nullable = false)
+    private Integer numeroVoo;
 
-    public void setNome(String nome) {
-        this.nome = nome;
-    }
+	public Long getIdTripulacao() {
+		return idTripulacao;
+	}
 
-    public String getFuncao() {
-        return funcao;
-    }
+	public void setIdTripulacao(Long idTripulacao) {
+		this.idTripulacao = idTripulacao;
+	}
 
-    public void setFuncao(String funcao) {
-        this.funcao = funcao;
-    }
+	public String getFuncao() {
+		return funcao;
+	}
 
-    public Integer getNumeroVoo() {
-        return numeroVoo;
-    }
+	public void setFuncao(String funcao) {
+		this.funcao = funcao;
+	}
 
-    public void setNumeroVoo(Integer numeroVoo) {
-        this.numeroVoo = numeroVoo;
-    }
+	public Integer getHorasDeVoo() {
+		return horasDeVoo;
+	}
 
-    public String getLicenciamento() {
-        return licenciamento;
-    }
+	public void setHorasDeVoo(Integer horasDeVoo) {
+		this.horasDeVoo = horasDeVoo;
+	}
 
-    public void setLicenciamento(String licenciamento) {
-        this.licenciamento = licenciamento;
-    }
+	public String getLicenciamento() {
+		return licenciamento;
+	}
 
-    public Integer getHorasDeVoo() {
-        return horasDeVoo;
-    }
+	public void setLicenciamento(String licenciamento) {
+		this.licenciamento = licenciamento;
+	}
 
-    public void setHorasDeVoo(Integer horasDeVoo) {
-        this.horasDeVoo = horasDeVoo;
-    }
+	public String getNome() {
+		return nome;
+	}
+
+	public void setNome(String nome) {
+		this.nome = nome;
+	}
+
+	public Integer getNumeroVoo() {
+		return numeroVoo;
+	}
+
+	public void setNumeroVoo(Integer numeroVoo) {
+		this.numeroVoo = numeroVoo;
+	}
+
 }

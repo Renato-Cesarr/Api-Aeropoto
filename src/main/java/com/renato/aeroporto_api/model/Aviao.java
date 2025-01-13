@@ -1,116 +1,76 @@
 package com.renato.aeroporto_api.model;
 
 import java.util.List;
-import jakarta.persistence.*;
-import jakarta.validation.constraints.NotBlank;
-import jakarta.validation.constraints.NotNull;
 
-import com.fasterxml.jackson.annotation.JsonAutoDetect;
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 
-@JsonPropertyOrder({
-    "numeroDeSerie",
-    "modelo",
-    "fabricante",
-    "capacidadeMaximaKg",
-    "capacidadeMaximaPessoas",
-    "piloto",
-    "tripulacao",
-    "flyAware",
-    "passageiro"
-})
-@Table(name = "TB_AVIAO")
+import jakarta.persistence.CascadeType;
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToMany;
+import jakarta.persistence.Table;
+
 @Entity
-@JsonAutoDetect(fieldVisibility = JsonAutoDetect.Visibility.ANY)
+@Table(name = "tb_aviao")
+@JsonIdentityInfo(
+    generator = ObjectIdGenerators.PropertyGenerator.class,
+    property = "numeroDeSerie"
+)
 public class Aviao {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "numero_de_serie")
-    @JsonProperty("numeroDeSerie")
-    @NotNull(message = "Número de série é obrigatório")
-    private Integer numeroDeSerie;
+    private Long numeroDeSerie;
 
-    @NotNull
-    @Column(name = "modelo", nullable = false, length = 255)
-    @JsonProperty("modelo")
-    @NotBlank(message = "Modelo é obrigatório")
-    private String modelo;
-
-    @NotNull
-    @Column(name = "fabricante", nullable = false, length = 255)
-    @JsonProperty("fabricante")
-    @NotBlank(message = "Fabricante é obrigatório")
-    private String fabricante;
-
-    @NotNull
     @Column(name = "capacidade_maxima_kg", nullable = false)
-    @JsonProperty("capacidadeMaximaKg")
     private Double capacidadeMaximaKg;
 
-    @NotNull
     @Column(name = "capacidade_maxima_pessoas", nullable = false)
-    @JsonProperty("capacidadeMaximaPessoas")
     private Integer capacidadeMaximaPessoas;
 
-    @NotNull
-    @OneToOne
-    @JoinColumn(name = "fk_piloto", unique = true, nullable = false)
-    @JsonProperty("piloto")
-    private Piloto piloto;
+    @Column(name = "fabricante", nullable = false)
+    private String fabricante;
 
-    @NotNull
-    @OneToOne
-    @JoinColumn(name = "fk_tripulacao", unique = true, nullable = false)
-    @JsonProperty("tripulacao")
-    private Tripulacao tripulacao;
+    @Column(name = "modelo", nullable = false)
+    private String modelo;
 
-    @NotNull
-    @OneToOne
-    @JoinColumn(name = "fk_fly_aware", unique = true, nullable = false)
-    @JsonProperty("flyAware")
+    @OneToMany(mappedBy = "aviao", cascade = CascadeType.ALL, fetch = FetchType.LAZY, orphanRemoval = true)
+    @JsonManagedReference  
+    private List<Passageiro> passageiros;
+
+    @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @JoinColumn(name = "fk_fly_aware", nullable = false)
+    @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})  
     private FlyAware flyAware;
 
-    @OneToMany(targetEntity = Passageiro.class)
-    @JoinColumn(name = "fk_aviao")
-    @JsonProperty("passageiro")
-    private List<Passageiro> passageiro;
+    @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @JoinColumn(name = "fk_piloto", nullable = false)
+    private Piloto piloto;
 
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @JoinColumn(name = "fk_tripulacao", nullable = false)
+    private Tripulacao tripulacao;
+
+    @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     @JoinColumn(name = "fk_aeroporto")
-    @JsonProperty("aeroporto")
     private Aeroporto aeroporto;
 
-    public Aeroporto getAeroporto() {
-		return aeroporto;
-	}
-
-	public void setAeroporto(Aeroporto aeroporto) {
-		this.aeroporto = aeroporto;
-	}
-
-	public Integer getNumeroDeSerie() {
+    public Long getNumeroDeSerie() {
         return numeroDeSerie;
     }
 
-    public void setNumeroDeSerie(Integer numeroDeSerie) {
+    public void setNumeroDeSerie(Long numeroDeSerie) {
         this.numeroDeSerie = numeroDeSerie;
-    }
-
-    public String getModelo() {
-        return modelo;
-    }
-
-    public void setModelo(String modelo) {
-        this.modelo = modelo;
-    }
-
-    public String getFabricante() {
-        return fabricante;
-    }
-
-    public void setFabricante(String fabricante) {
-        this.fabricante = fabricante;
     }
 
     public Double getCapacidadeMaximaKg() {
@@ -129,6 +89,38 @@ public class Aviao {
         this.capacidadeMaximaPessoas = capacidadeMaximaPessoas;
     }
 
+    public String getFabricante() {
+        return fabricante;
+    }
+
+    public void setFabricante(String fabricante) {
+        this.fabricante = fabricante;
+    }
+
+    public String getModelo() {
+        return modelo;
+    }
+
+    public void setModelo(String modelo) {
+        this.modelo = modelo;
+    }
+
+    public List<Passageiro> getPassageiros() {
+        return passageiros;
+    }
+
+    public void setPassageiros(List<Passageiro> passageiros) {
+        this.passageiros = passageiros;
+    }
+
+    public FlyAware getFlyAware() {
+        return flyAware;
+    }
+
+    public void setFlyAware(FlyAware flyAware) {
+        this.flyAware = flyAware;
+    }
+
     public Piloto getPiloto() {
         return piloto;
     }
@@ -145,19 +137,11 @@ public class Aviao {
         this.tripulacao = tripulacao;
     }
 
-    public FlyAware getFlyAware() {
-        return flyAware;
+    public Aeroporto getAeroporto() {
+        return aeroporto;
     }
 
-    public void setFlyAware(FlyAware flyAware) {
-        this.flyAware = flyAware;
-    }
-
-    public List<Passageiro> getPassageiro() {
-        return passageiro;
-    }
-
-    public void setPassageiro(List<Passageiro> passageiro) {
-        this.passageiro = passageiro;
+    public void setAeroporto(Aeroporto aeroporto) {
+        this.aeroporto = aeroporto;
     }
 }
