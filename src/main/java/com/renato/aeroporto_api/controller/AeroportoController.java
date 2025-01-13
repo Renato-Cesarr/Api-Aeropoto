@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.renato.aeroporto_api.logger.LoggerApi;
 import com.renato.aeroporto_api.model.Aviao;
 import com.renato.aeroporto_api.service.AeroportoService;
 
@@ -20,47 +21,77 @@ import com.renato.aeroporto_api.service.AeroportoService;
 @RequestMapping("/aviao")
 public class AeroportoController {
 
-	@Autowired
-	private AeroportoService aeroportoService;
+    @Autowired
+    private AeroportoService aeroportoService;
 
-	@PostMapping("/salvar-todos")
-	public ResponseEntity<List<Aviao>> salvarTodosAvioes(@RequestBody List<Aviao> avioes) {
-		List<Aviao> avioesSalvos = aeroportoService.salvarTodos(avioes);
-		return ResponseEntity.ok(avioesSalvos);
-	}
-	
-	@PutMapping("/atualizar/{id}")
-	public ResponseEntity<Aviao> atualizar(@PathVariable Long id, @RequestBody Aviao aviao) {
-	    aviao.setNumeroDeSerie(id);  // Definir o número de série no objeto Aviao recebido no corpo da requisição
-	    Aviao aviaoAtualizado = aeroportoService.atualizar(aviao);
-	    return ResponseEntity.ok(aviaoAtualizado);
-	}
+    @PostMapping("/salvar-todos")
+    public ResponseEntity<List<Aviao>> salvarTodosAvioes(@RequestBody List<Aviao> avioes) {
+        LoggerApi.logRequest("Recebida solicitação para salvar todos os aviões.");
+        
+        if (avioes == null || avioes.isEmpty()) {
+            LoggerApi.logRequestError("A lista de aviões está vazia ou nula.");
+            return ResponseEntity.badRequest().build();
+        }
 
+        avioes.forEach(aviao -> {
+            if (aviao.getModelo() == null || aviao.getFabricante() == null) {
+                LoggerApi.logRequestError("Modelo ou fabricante ausentes em um dos aviões.");
+            }
+        });
 
+        List<Aviao> avioesSalvos = aeroportoService.salvarTodos(avioes);
+        LoggerApi.logRequestDetails("Aviões salvos com sucesso: " + avioesSalvos);
+        return ResponseEntity.ok(avioesSalvos);
+    }
 
+    @PutMapping("/atualizar/{id}")
+    public ResponseEntity<Aviao> atualizar(@PathVariable Long id, @RequestBody Aviao aviao) {
+        LoggerApi.logRequest("Recebida solicitação para atualizar o avião com ID: " + id);
 
-	@GetMapping("/todos")
-	public ResponseEntity<List<Aviao>> buscarTodosAvioes() {
-		List<Aviao> avioes = aeroportoService.buscarTodos();
-		return ResponseEntity.ok(avioes);
-	}
+        if (aviao == null) {
+            LoggerApi.logRequestError("O corpo do avião está nulo.");
+            return ResponseEntity.badRequest().build();
+        }
 
-	@GetMapping("/{id}")
-	public ResponseEntity<Aviao> buscarAviaoPorId(@PathVariable Long id) {
-		Aviao aviao = aeroportoService.buscarPorId(id);
-		if (aviao == null) {
-			return ResponseEntity.notFound().build();
-		}
-		return ResponseEntity.ok(aviao);
-	}
+        aviao.setNumeroDeSerie(id);
+        Aviao aviaoAtualizado = aeroportoService.atualizar(aviao);
+        LoggerApi.logRequestDetails("Avião atualizado com sucesso: " + aviaoAtualizado);
+        return ResponseEntity.ok(aviaoAtualizado);
+    }
 
-	@DeleteMapping("/apagar/{numeroDeSerie}")
-	public ResponseEntity<Void> apagarAviao(@PathVariable Long numeroDeSerie) {
-		boolean apagado = aeroportoService.apagarAviao(numeroDeSerie);
-		if (!apagado) {
-			return ResponseEntity.notFound().build();
-		}
-		return ResponseEntity.noContent().build();
-	}
-	
+    @GetMapping("/todos")
+    public ResponseEntity<List<Aviao>> buscarTodosAvioes() {
+        LoggerApi.logRequest("Recebida solicitação para buscar todos os aviões.");
+        List<Aviao> avioes = aeroportoService.buscarTodos();
+        LoggerApi.logRequestDetails("Aviões encontrados: " + avioes.size());
+        return ResponseEntity.ok(avioes);
+    }
+
+    @GetMapping("/{id}")
+    public ResponseEntity<Aviao> buscarAviaoPorId(@PathVariable Long id) {
+        LoggerApi.logRequest("Recebida solicitação para buscar o avião com ID: " + id);
+        Aviao aviao = aeroportoService.buscarPorId(id);
+
+        if (aviao == null) {
+            LoggerApi.logRequestError("Avião não encontrado com ID: " + id);
+            return ResponseEntity.notFound().build();
+        }
+
+        LoggerApi.logRequestDetails("Avião encontrado: " + aviao);
+        return ResponseEntity.ok(aviao);
+    }
+
+    @DeleteMapping("/apagar/{numeroDeSerie}")
+    public ResponseEntity<Void> apagarAviao(@PathVariable Long numeroDeSerie) {
+        LoggerApi.logRequest("Recebida solicitação para apagar o avião com número de série: " + numeroDeSerie);
+        boolean apagado = aeroportoService.apagarAviao(numeroDeSerie);
+
+        if (!apagado) {
+            LoggerApi.logRequestError("Avião não encontrado para exclusão com número de série: " + numeroDeSerie);
+            return ResponseEntity.notFound().build();
+        }
+
+        LoggerApi.logRequestDetails("Avião com número de série " + numeroDeSerie + " foi apagado.");
+        return ResponseEntity.noContent().build();
+    }
 }
