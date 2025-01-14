@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import org.junit.Assert;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.runner.RunWith;
@@ -135,7 +136,7 @@ class ControllerAeroportoTest {
 	}
 
 	@Test
-	void testCadastrarAeroporto() {
+	void cadastrarAeroportoTest() {
 		ResponseEntity<String> response = restTemplate.exchange("/aviao/salvar-todos", HttpMethod.POST,
 				new HttpEntity<>(listaAavioes), String.class);
 		Assert.assertEquals(HttpStatus.OK, response.getStatusCode());
@@ -143,7 +144,7 @@ class ControllerAeroportoTest {
 	}
 
 	@Test
-	void testUpdateAeroporto() {
+	void atualizarAeroportoTest() {
 	    Long numeroSerie = 4L;
 	    Aviao aviaoParaAtualizar = listaAavioes.get(0);  // Pega o primeiro avião da lista para enviar
 	    ResponseEntity<Aviao> response = restTemplate.exchange("/aviao/atualizar/" + numeroSerie,
@@ -152,7 +153,7 @@ class ControllerAeroportoTest {
 	}
 	
 	@Test
-	void testUpdateAeroportoNaoEncontrado() {
+	void atualizarAeroportoNaoEncontradoTest() {
 		Long numeroSerieInvalido = 999L;
 		Aviao aviaoParaTentativaAtualizacao = listaAavioes.get(0);
 		ResponseEntity<Aviao> response = restTemplate.exchange("/aviao/atualizar/" + numeroSerieInvalido,
@@ -161,22 +162,21 @@ class ControllerAeroportoTest {
 	}
 
 	@Test
-	void testGetAeroportoInfo() {
+	void getAeroportoInfoTest() {
 		ResponseEntity<String> response = restTemplate.exchange("/aviao/todos", HttpMethod.GET, null, String.class);
 		Assert.assertEquals(HttpStatus.OK, response.getStatusCode());
 	}
 
 	@Test
-	void testBuscarAviaoPorId() {
+	void buscarAviaoPorIdTest() {
 		ResponseEntity<String> response = restTemplate.exchange("/aviao/2", HttpMethod.GET, null, String.class);
 		Assert.assertEquals(HttpStatus.OK, response.getStatusCode());
 	}
 	
 	@Test
-	void testApagarAviao() {
-		restTemplate.delete("/apagar/"+1L);
-		ResponseEntity<Aviao> response = restTemplate.getForEntity("/apagar/"+1L, Aviao.class);
-		Assert.assertEquals(HttpStatus.NOT_FOUND, response.getStatusCode());
-	}
+    void aviaoApagarTest() {
+        ResponseEntity<Void> response = restTemplate.exchange("/aviao/apagar/1", HttpMethod.DELETE, null, Void.class);
+        Assertions.assertEquals(HttpStatus.NO_CONTENT, response.getStatusCode());
+    }
 
 }

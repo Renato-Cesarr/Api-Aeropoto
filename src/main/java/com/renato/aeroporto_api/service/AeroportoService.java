@@ -71,12 +71,12 @@ public class AeroportoService {
             Optional<Aviao> aviaoExistente = aviaoRepository.findById(numeroDeSerie);
 
             if (aviaoExistente.isPresent()) {
-                aviaoRepository.delete(aviaoExistente.get()); // nao pude usar a validação de existencia por conta do tipo de dado do metodo.
+                aviaoRepository.delete(aviaoExistente.get()); 
                 LoggerApi.logRequestDetails("Avião excluído com sucesso.");
                 return true;
-            }
+           }
             LoggerApi.logRequestError("Avião não encontrado para exclusão com número de série: " + numeroDeSerie);
-            throw new AviaoNotFoundException("Avião não encontrado para exclusão com número de série: " + numeroDeSerie);
+           throw new AviaoNotFoundException("Avião não encontrado para exclusão com número de série: " + numeroDeSerie);
         } catch (InvalidNumeroDeSerieException | AviaoNotFoundException ex) {
             LoggerApi.logRequestError(ex.getMessage());
             throw ex;

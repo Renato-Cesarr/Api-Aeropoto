@@ -1,12 +1,15 @@
 package com.renato.aeroporto_api.exception;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
+
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
 import org.junit.Assert;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.runner.RunWith;
@@ -35,6 +38,7 @@ import com.renato.aeroporto_api.model.Localizacao;
 import com.renato.aeroporto_api.model.Piloto.StatusSaude;
 import com.renato.aeroporto_api.model.TipoDeCarga.ClassificacaoPericulosidade;
 import com.renato.aeroporto_api.repository.AeroportoRepository;
+import com.renato.aeroporto_api.service.AeroportoService;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
@@ -45,12 +49,11 @@ public class ExceptionsTest {
 	private TestRestTemplate restTemplate;
 
 	@Autowired
-	private AeroportoRepository aeroportoRepository;
+	AeroportoService service;
 
 	private List<Aviao> listaAavioes;
-	
-	private List<Aviao> listaAavioesVazia;
 
+	private List<Aviao> listaAavioesVazia;
 
 	@BeforeEach
 	public void setUp() {
@@ -136,7 +139,7 @@ public class ExceptionsTest {
 		dadosAeroporto.setNome("Aeroporto Internacional do Rio de Janeiro");
 		dadosAeroporto.setPermitidoPousoAeronaves(true);
 		dadosAeroporto.setPortoesDeEmbarque(numeroPortoesDeEmbarque);
-		dadosAeroporto.setCodigoIATA(3L);
+		dadosAeroporto.setCodigoIATA(1L);
 		aviao1.setAeroporto(dadosAeroporto);
 	}
 
@@ -146,34 +149,56 @@ public class ExceptionsTest {
 				new HttpEntity<>(listaAavioes), String.class);
 		assertEquals(HttpStatus.BAD_REQUEST, response.getStatusCode());
 	}
-	
+
 	@Test
 	void testInternalServerErrorException() {
 		ResponseEntity<String> response = restTemplate.exchange("/aviao/teste", HttpMethod.PUT,
 				new HttpEntity<>(listaAavioes), String.class);
 		assertEquals(HttpStatus.METHOD_NOT_ALLOWED, response.getStatusCode());
-		
 
 	}
-	
+
 	@Test
 	void testNotFoundException() {
-		ResponseEntity<Aviao> response = restTemplate.exchange("/aviao/"+ 999999L, HttpMethod.GET, null, Aviao.class);
+		ResponseEntity<Aviao> response = restTemplate.exchange("/aviao/" + 999999L, HttpMethod.GET, null, Aviao.class);
 		assertEquals(HttpStatus.NOT_FOUND, response.getStatusCode());
 	}
-	
+
 	@Test
 	void testMethodNotAllowedException() {
 		ResponseEntity<String> response = restTemplate.exchange("/aviao/teste", HttpMethod.PUT,
 				new HttpEntity<>(listaAavioes), String.class);
 		assertEquals(HttpStatus.METHOD_NOT_ALLOWED, response.getStatusCode());
 	}
-	
+
 	@Test
 	void testCadastroComAviaoVazio() {
 		ResponseEntity<String> response = restTemplate.exchange("/aviao/salvar-todos", HttpMethod.POST,
 				new HttpEntity<>(listaAavioesVazia), String.class);
 		assertEquals(HttpStatus.BAD_REQUEST, response.getStatusCode());
+	}
+
+	@Test
+	void testInvalidNumeroDeSerieException() {
+		Aviao aviao = new Aviao();
+		InvalidNumeroDeSerieException thrown = assertThrows(InvalidNumeroDeSerieException.class,
+				() -> service.atualizar(aviao));
+
+		Assertions.assertEquals(InvalidNumeroDeSerieException.class, thrown.getClass());
+	}
+
+	@Test
+	void testAviaoNotFoundException() {
+		AviaoNotFoundException thrown = assertThrows(AviaoNotFoundException.class,
+				() -> service.deletar(999999L));
+		Assertions.assertEquals(AviaoNotFoundException.class, thrown.getClass());
+	}
+	
+	@Test
+	void test() {
+		AviaoNotFoundException thrown = assertThrows(AviaoNotFoundException.class,
+				() -> service.cadastrar(listaAavioes));
+		Assertions.assertEquals(AviaoNotFoundException.class, thrown.getClass());
 	}
 
 }
