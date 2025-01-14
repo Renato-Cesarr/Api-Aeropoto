@@ -144,10 +144,20 @@ class ControllerAeroportoTest {
 
 	@Test
 	void testUpdateAeroporto() {
-		Long numeroserie = 4L;
-		ResponseEntity<Aviao> response = restTemplate.exchange("/aviao/atualizar/"+ numeroserie,
-				HttpMethod.PUT, new HttpEntity<>(listaAavioes), Aviao.class);
-		Assert.assertEquals(HttpStatus.OK, response.getStatusCode());
+	    Long numeroSerie = 4L;
+	    Aviao aviaoParaAtualizar = listaAavioes.get(0);  // Pega o primeiro avião da lista para enviar
+	    ResponseEntity<Aviao> response = restTemplate.exchange("/aviao/atualizar/" + numeroSerie,
+	            HttpMethod.PUT, new HttpEntity<>(aviaoParaAtualizar), Aviao.class);
+	    Assert.assertEquals(HttpStatus.OK, response.getStatusCode());
+	}
+	
+	@Test
+	void testUpdateAeroportoNaoEncontrado() {
+		Long numeroSerieInvalido = 999L;
+		Aviao aviaoParaTentativaAtualizacao = listaAavioes.get(0);
+		ResponseEntity<Aviao> response = restTemplate.exchange("/aviao/atualizar/" + numeroSerieInvalido,
+				HttpMethod.PUT, new HttpEntity<>(aviaoParaTentativaAtualizacao), Aviao.class);
+		Assert.assertEquals(HttpStatus.NOT_FOUND, response.getStatusCode());
 	}
 
 	@Test
