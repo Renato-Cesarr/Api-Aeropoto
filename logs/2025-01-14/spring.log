@@ -1,68 +1,557 @@
-2025-01-14 12:18:09.186 INFO  AeroportoApiApplication                 Starting AeroportoApiApplication using Java 21.0.5 with PID 28919 (/opt/dev/projects/aeroporto-api/aeroporto-api/target/classes started by isabella in /opt/dev/projects/aeroporto-api/aeroporto-api)
-2025-01-14 12:18:09.187 INFO  AeroportoApiApplication                 No active profile set, falling back to 1 default profile: "default"
-2025-01-14 12:18:09.564 INFO  RepositoryConfigurationDelegate         Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2025-01-14 12:18:09.587 INFO  RepositoryConfigurationDelegate         Finished Spring Data repository scanning in 20 ms. Found 2 JPA repository interfaces.
-2025-01-14 12:18:09.824 INFO  TomcatWebServer                         Tomcat initialized with port 8080 (http)
-2025-01-14 12:18:09.828 INFO  StandardService                         Starting service [Tomcat]
-2025-01-14 12:18:09.829 INFO  StandardEngine                          Starting Servlet engine: [Apache Tomcat/10.1.34]
-2025-01-14 12:18:09.854 INFO  [/]                                     Initializing Spring embedded WebApplicationContext
-2025-01-14 12:18:09.854 INFO  ServletWebServerApplicationContext      Root WebApplicationContext: initialization completed in 663 ms
-2025-01-14 12:18:09.941 INFO  LogHelper                               HHH000204: Processing PersistenceUnitInfo [name: default]
-2025-01-14 12:18:09.944 INFO  RegionFactoryInitiator                  HHH000026: Second-level cache disabled
-2025-01-14 12:18:09.957 INFO  SpringPersistenceUnitInfo               No LoadTimeWeaver setup: ignoring JPA class transformer
-2025-01-14 12:18:09.959 INFO  HikariDataSource                        HikariPool-3 - Starting...
-2025-01-14 12:18:09.988 INFO  HikariPool                              HikariPool-3 - Added connection org.postgresql.jdbc.PgConnection@6804de90
-2025-01-14 12:18:09.988 INFO  HikariDataSource                        HikariPool-3 - Start completed.
-2025-01-14 12:18:09.998 WARN  deprecation                             HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
-2025-01-14 12:18:10.007 INFO  pooling                                 HHH10001005: Database info:
-	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-3)']
+2025-01-14 12:20:11.004 INFO  AeroportoApiApplication                 Starting AeroportoApiApplication using Java 21.0.5 with PID 28919 (/opt/dev/projects/aeroporto-api/aeroporto-api/target/classes started by isabella in /opt/dev/projects/aeroporto-api/aeroporto-api)
+2025-01-14 12:20:11.005 INFO  AeroportoApiApplication                 No active profile set, falling back to 1 default profile: "default"
+2025-01-14 12:20:11.015 WARN  AnnotationConfigServletWebServerApplicationContextException encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanDefinitionStoreException: I/O failure while processing configuration class [com.renato.aeroporto_api.AeroportoApiApplication]
+2025-01-14 12:20:11.020 ERROR SpringApplication                       Application run failed
+org.springframework.beans.factory.BeanDefinitionStoreException: I/O failure while processing configuration class [com.renato.aeroporto_api.AeroportoApiApplication]
+	at org.springframework.context.annotation.ConfigurationClassParser.processConfigurationClass(ConfigurationClassParser.java:272)
+	at org.springframework.context.annotation.ConfigurationClassParser.parse(ConfigurationClassParser.java:193)
+	at org.springframework.context.annotation.ConfigurationClassParser.parse(ConfigurationClassParser.java:171)
+	at org.springframework.context.annotation.ConfigurationClassPostProcessor.processConfigBeanDefinitions(ConfigurationClassPostProcessor.java:418)
+	at org.springframework.context.annotation.ConfigurationClassPostProcessor.postProcessBeanDefinitionRegistry(ConfigurationClassPostProcessor.java:290)
+	at org.springframework.context.support.PostProcessorRegistrationDelegate.invokeBeanDefinitionRegistryPostProcessors(PostProcessorRegistrationDelegate.java:349)
+	at org.springframework.context.support.PostProcessorRegistrationDelegate.invokeBeanFactoryPostProcessors(PostProcessorRegistrationDelegate.java:118)
+	at org.springframework.context.support.AbstractApplicationContext.invokeBeanFactoryPostProcessors(AbstractApplicationContext.java:791)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:609)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:146)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:752)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:439)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:318)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1361)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1350)
+	at com.renato.aeroporto_api.AeroportoApiApplication.main(AeroportoApiApplication.java:10)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:50)
+Caused by: java.io.FileNotFoundException: class path resource [com/renato/aeroporto_api/controller/AeroportoController.class] cannot be opened because it does not exist
+	at org.springframework.core.io.ClassPathResource.getInputStream(ClassPathResource.java:215)
+	at org.springframework.core.type.classreading.SimpleMetadataReader.getClassReader(SimpleMetadataReader.java:54)
+	at org.springframework.core.type.classreading.SimpleMetadataReader.<init>(SimpleMetadataReader.java:48)
+	at org.springframework.core.type.classreading.SimpleMetadataReaderFactory.getMetadataReader(SimpleMetadataReaderFactory.java:103)
+	at org.springframework.boot.type.classreading.ConcurrentReferenceCachingMetadataReaderFactory.createMetadataReader(ConcurrentReferenceCachingMetadataReaderFactory.java:98)
+	at org.springframework.boot.type.classreading.ConcurrentReferenceCachingMetadataReaderFactory.getMetadataReader(ConcurrentReferenceCachingMetadataReaderFactory.java:85)
+	at org.springframework.core.type.classreading.SimpleMetadataReaderFactory.getMetadataReader(SimpleMetadataReaderFactory.java:81)
+	at org.springframework.boot.type.classreading.ConcurrentReferenceCachingMetadataReaderFactory.getMetadataReader(ConcurrentReferenceCachingMetadataReaderFactory.java:75)
+	at org.springframework.context.annotation.ConfigurationClassParser.parse(ConfigurationClassParser.java:204)
+	at org.springframework.context.annotation.ConfigurationClassParser.doProcessConfigurationClass(ConfigurationClassParser.java:340)
+	at org.springframework.context.annotation.ConfigurationClassParser.processConfigurationClass(ConfigurationClassParser.java:267)
+	... 18 common frames omitted
+2025-01-14 12:20:12.447 INFO  AeroportoApiApplication                 Starting AeroportoApiApplication using Java 21.0.5 with PID 28919 (/opt/dev/projects/aeroporto-api/aeroporto-api/target/classes started by isabella in /opt/dev/projects/aeroporto-api/aeroporto-api)
+2025-01-14 12:20:12.447 INFO  AeroportoApiApplication                 No active profile set, falling back to 1 default profile: "default"
+2025-01-14 12:20:12.532 INFO  RepositoryConfigurationDelegate         Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-01-14 12:20:12.538 INFO  RepositoryConfigurationDelegate         Finished Spring Data repository scanning in 6 ms. Found 2 JPA repository interfaces.
+2025-01-14 12:20:12.595 INFO  TomcatWebServer                         Tomcat initialized with port 8080 (http)
+2025-01-14 12:20:12.596 INFO  StandardService                         Starting service [Tomcat]
+2025-01-14 12:20:12.596 INFO  StandardEngine                          Starting Servlet engine: [Apache Tomcat/10.1.34]
+2025-01-14 12:20:12.602 INFO  [/]                                     Initializing Spring embedded WebApplicationContext
+2025-01-14 12:20:12.602 INFO  ServletWebServerApplicationContext      Root WebApplicationContext: initialization completed in 154 ms
+2025-01-14 12:20:12.625 INFO  LogHelper                               HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-01-14 12:20:12.626 INFO  RegionFactoryInitiator                  HHH000026: Second-level cache disabled
+2025-01-14 12:20:12.632 INFO  SpringPersistenceUnitInfo               No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-01-14 12:20:12.632 INFO  HikariDataSource                        HikariPool-5 - Starting...
+2025-01-14 12:20:12.641 INFO  HikariPool                              HikariPool-5 - Added connection org.postgresql.jdbc.PgConnection@7815a175
+2025-01-14 12:20:12.642 INFO  HikariDataSource                        HikariPool-5 - Start completed.
+2025-01-14 12:20:12.644 WARN  deprecation                             HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-01-14 12:20:12.645 INFO  pooling                                 HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-5)']
 	Database driver: undefined/unknown
 	Database version: 17.2
 	Autocommit mode: undefined/unknown
 	Isolation level: undefined/unknown
 	Minimum pool size: undefined/unknown
 	Maximum pool size: undefined/unknown
-2025-01-14 12:18:10.720 INFO  JtaPlatformInitiator                    HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
-2025-01-14 12:18:10.873 INFO  LocalContainerEntityManagerFactoryBean  Initialized JPA EntityManagerFactory for persistence unit 'default'
-2025-01-14 12:18:11.075 WARN  JpaBaseConfiguration$JpaWebConfigurationspring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2025-01-14 12:18:11.235 INFO  OptionalLiveReloadServer                LiveReload server is running on port 35729
-2025-01-14 12:18:11.276 INFO  TomcatWebServer                         Tomcat started on port 8080 (http) with context path '/'
-2025-01-14 12:18:11.286 INFO  AeroportoApiApplication                 Started AeroportoApiApplication in 2.172 seconds (process running for 457.532)
-2025-01-14 12:18:11.293 INFO  ConditionEvaluationDeltaLoggingListener Condition evaluation unchanged
-2025-01-14 12:18:37.676 INFO  LocalDevToolsAutoConfiguration$RestartingClassPathChangeChangedEventListenerRestarting due to 1 class path change (0 additions, 0 deletions, 1 modification)
-2025-01-14 12:18:37.678 INFO  GracefulShutdown                        Commencing graceful shutdown. Waiting for active requests to complete
-2025-01-14 12:18:37.681 INFO  GracefulShutdown                        Graceful shutdown complete
-2025-01-14 12:18:37.685 INFO  LocalContainerEntityManagerFactoryBean  Closing JPA EntityManagerFactory for persistence unit 'default'
-2025-01-14 12:18:37.686 INFO  HikariDataSource                        HikariPool-3 - Shutdown initiated...
-2025-01-14 12:18:37.691 INFO  HikariDataSource                        HikariPool-3 - Shutdown completed.
-2025-01-14 12:18:37.749 INFO  AeroportoApiApplication                 Starting AeroportoApiApplication using Java 21.0.5 with PID 28919 (/opt/dev/projects/aeroporto-api/aeroporto-api/target/classes started by isabella in /opt/dev/projects/aeroporto-api/aeroporto-api)
-2025-01-14 12:18:37.749 INFO  AeroportoApiApplication                 No active profile set, falling back to 1 default profile: "default"
-2025-01-14 12:18:37.881 INFO  RepositoryConfigurationDelegate         Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2025-01-14 12:18:37.890 INFO  RepositoryConfigurationDelegate         Finished Spring Data repository scanning in 8 ms. Found 2 JPA repository interfaces.
-2025-01-14 12:18:37.954 INFO  TomcatWebServer                         Tomcat initialized with port 8080 (http)
-2025-01-14 12:18:37.955 INFO  StandardService                         Starting service [Tomcat]
-2025-01-14 12:18:37.955 INFO  StandardEngine                          Starting Servlet engine: [Apache Tomcat/10.1.34]
-2025-01-14 12:18:37.961 INFO  [/]                                     Initializing Spring embedded WebApplicationContext
-2025-01-14 12:18:37.962 INFO  ServletWebServerApplicationContext      Root WebApplicationContext: initialization completed in 211 ms
-2025-01-14 12:18:37.986 INFO  LogHelper                               HHH000204: Processing PersistenceUnitInfo [name: default]
-2025-01-14 12:18:37.987 INFO  RegionFactoryInitiator                  HHH000026: Second-level cache disabled
-2025-01-14 12:18:37.991 INFO  SpringPersistenceUnitInfo               No LoadTimeWeaver setup: ignoring JPA class transformer
-2025-01-14 12:18:37.992 INFO  HikariDataSource                        HikariPool-4 - Starting...
-2025-01-14 12:18:37.999 INFO  HikariPool                              HikariPool-4 - Added connection org.postgresql.jdbc.PgConnection@2e23c691
-2025-01-14 12:18:37.999 INFO  HikariDataSource                        HikariPool-4 - Start completed.
-2025-01-14 12:18:38.001 WARN  deprecation                             HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
-2025-01-14 12:18:38.002 INFO  pooling                                 HHH10001005: Database info:
-	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-4)']
+2025-01-14 12:20:12.803 INFO  JtaPlatformInitiator                    HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-01-14 12:20:12.881 INFO  LocalContainerEntityManagerFactoryBean  Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-01-14 12:20:12.971 WARN  JpaBaseConfiguration$JpaWebConfigurationspring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-01-14 12:20:13.029 INFO  OptionalLiveReloadServer                LiveReload server is running on port 35729
+2025-01-14 12:20:13.044 INFO  TomcatWebServer                         Tomcat started on port 8080 (http) with context path '/'
+2025-01-14 12:20:13.047 INFO  AeroportoApiApplication                 Started AeroportoApiApplication in 0.617 seconds (process running for 579.293)
+2025-01-14 12:20:13.049 INFO  ConditionEvaluationDeltaLoggingListener Condition evaluation unchanged
+2025-01-14 12:22:07.496 INFO  Version                                 HV000001: Hibernate Validator 8.0.2.Final
+2025-01-14 12:22:07.590 INFO  ExceptionsTest                          Starting ExceptionsTest using Java 21.0.5 with PID 30929 (started by isabella in /opt/dev/projects/aeroporto-api/aeroporto-api)
+2025-01-14 12:22:07.591 INFO  ExceptionsTest                          The following 1 profile is active: "test"
+2025-01-14 12:22:08.389 INFO  RepositoryConfigurationDelegate         Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-01-14 12:22:08.463 INFO  RepositoryConfigurationDelegate         Finished Spring Data repository scanning in 60 ms. Found 2 JPA repository interfaces.
+2025-01-14 12:22:09.159 INFO  TomcatWebServer                         Tomcat initialized with port 0 (http)
+2025-01-14 12:22:09.175 INFO  Http11NioProtocol                       Initializing ProtocolHandler ["http-nio-auto-1"]
+2025-01-14 12:22:09.178 INFO  StandardService                         Starting service [Tomcat]
+2025-01-14 12:22:09.178 INFO  StandardEngine                          Starting Servlet engine: [Apache Tomcat/10.1.34]
+2025-01-14 12:22:09.232 INFO  [/]                                     Initializing Spring embedded WebApplicationContext
+2025-01-14 12:22:09.233 INFO  ServletWebServerApplicationContext      Root WebApplicationContext: initialization completed in 1616 ms
+2025-01-14 12:22:09.431 INFO  LogHelper                               HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-01-14 12:22:09.495 INFO  Version                                 HHH000412: Hibernate ORM core version 6.6.4.Final
+2025-01-14 12:22:09.532 INFO  RegionFactoryInitiator                  HHH000026: Second-level cache disabled
+2025-01-14 12:22:09.822 INFO  SpringPersistenceUnitInfo               No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-01-14 12:22:09.854 INFO  HikariDataSource                        HikariPool-1 - Starting...
+2025-01-14 12:22:10.048 INFO  HikariPool                              HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@53633321
+2025-01-14 12:22:10.050 INFO  HikariDataSource                        HikariPool-1 - Start completed.
+2025-01-14 12:22:10.105 WARN  deprecation                             HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-01-14 12:22:10.135 INFO  pooling                                 HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
 	Database driver: undefined/unknown
 	Database version: 17.2
 	Autocommit mode: undefined/unknown
 	Isolation level: undefined/unknown
 	Minimum pool size: undefined/unknown
 	Maximum pool size: undefined/unknown
-2025-01-14 12:18:38.157 INFO  JtaPlatformInitiator                    HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
-2025-01-14 12:18:38.249 INFO  LocalContainerEntityManagerFactoryBean  Initialized JPA EntityManagerFactory for persistence unit 'default'
-2025-01-14 12:18:38.321 WARN  JpaBaseConfiguration$JpaWebConfigurationspring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2025-01-14 12:18:38.379 INFO  OptionalLiveReloadServer                LiveReload server is running on port 35729
-2025-01-14 12:18:38.392 INFO  TomcatWebServer                         Tomcat started on port 8080 (http) with context path '/'
-2025-01-14 12:18:38.396 INFO  AeroportoApiApplication                 Started AeroportoApiApplication in 0.666 seconds (process running for 484.641)
-2025-01-14 12:18:38.397 INFO  ConditionEvaluationDeltaLoggingListener Condition evaluation unchanged
+2025-01-14 12:22:11.325 INFO  JtaPlatformInitiator                    HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-01-14 12:22:11.454 INFO  LocalContainerEntityManagerFactoryBean  Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-01-14 12:22:11.765 WARN  JpaBaseConfiguration$JpaWebConfigurationspring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-01-14 12:22:12.261 INFO  Http11NioProtocol                       Starting ProtocolHandler ["http-nio-auto-1"]
+2025-01-14 12:22:12.276 INFO  TomcatWebServer                         Tomcat started on port 44283 (http) with context path '/'
+2025-01-14 12:22:12.283 INFO  ExceptionsTest                          Started ExceptionsTest in 5.289 seconds (process running for 6.444)
+2025-01-14 12:22:12.864 INFO  [/]                                     Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-01-14 12:22:12.864 INFO  DispatcherServlet                       Initializing Servlet 'dispatcherServlet'
+2025-01-14 12:22:12.865 INFO  DispatcherServlet                       Completed initialization in 1 ms
+2025-01-14 12:22:12.964 ERROR [dispatcherServlet]                     Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed: com.renato.aeroporto_api.exception.AviaoNotFoundException: Avião não encontrado com o ID: 8] with root cause
+com.renato.aeroporto_api.exception.AviaoNotFoundException: Avião não encontrado com o ID: 8
+	at com.renato.aeroporto_api.service.AeroportoService.lambda$0(AeroportoService.java:50)
+	at java.base/java.util.Optional.orElseThrow(Optional.java:403)
+	at com.renato.aeroporto_api.service.AeroportoService.listarPorId(AeroportoService.java:50)
+	at com.renato.aeroporto_api.controller.AeroportoController.buscarAviaoPorId(AeroportoController.java:73)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:257)
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:190)
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:118)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:986)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:891)
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1088)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:978)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1014)
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:903)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:564)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:885)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:195)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:167)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:483)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:115)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:344)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:397)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:905)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1741)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1190)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+2025-01-14 12:22:13.056 WARN  DefaultHandlerExceptionResolver         Resolved [org.springframework.web.HttpRequestMethodNotSupportedException: Request method 'PUT' is not supported]
+2025-01-14 12:22:13.084 WARN  DefaultHandlerExceptionResolver         Resolved [org.springframework.web.method.annotation.MethodArgumentTypeMismatchException: Method parameter 'id': Failed to convert value of type 'java.lang.String' to required type 'java.lang.Long'; For input string: "P"]
+2025-01-14 12:22:13.097 WARN  DefaultHandlerExceptionResolver         Resolved [org.springframework.web.HttpRequestMethodNotSupportedException: Request method 'PUT' is not supported]
+2025-01-14 12:22:13.213 INFO  GracefulShutdown                        Commencing graceful shutdown. Waiting for active requests to complete
+2025-01-14 12:22:13.219 INFO  GracefulShutdown                        Graceful shutdown complete
+2025-01-14 12:22:13.223 INFO  LocalContainerEntityManagerFactoryBean  Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-01-14 12:22:13.226 INFO  HikariDataSource                        HikariPool-1 - Shutdown initiated...
+2025-01-14 12:22:13.228 INFO  HikariDataSource                        HikariPool-1 - Shutdown completed.
+2025-01-14 12:23:10.130 INFO  Version                                 HV000001: Hibernate Validator 8.0.2.Final
+2025-01-14 12:23:10.250 INFO  AeroportoApiApplication                 Starting AeroportoApiApplication using Java 21.0.5 with PID 31044 (/opt/dev/projects/aeroporto-api/aeroporto-api/target/classes started by isabella in /opt/dev/projects/aeroporto-api/aeroporto-api)
+2025-01-14 12:23:10.251 INFO  AeroportoApiApplication                 No active profile set, falling back to 1 default profile: "default"
+2025-01-14 12:23:10.318 INFO  DevToolsPropertyDefaultsPostProcessor   Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2025-01-14 12:23:10.318 INFO  DevToolsPropertyDefaultsPostProcessor   For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2025-01-14 12:23:11.182 INFO  RepositoryConfigurationDelegate         Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-01-14 12:23:11.243 INFO  RepositoryConfigurationDelegate         Finished Spring Data repository scanning in 50 ms. Found 2 JPA repository interfaces.
+2025-01-14 12:23:11.845 INFO  TomcatWebServer                         Tomcat initialized with port 8080 (http)
+2025-01-14 12:23:11.858 INFO  Http11NioProtocol                       Initializing ProtocolHandler ["http-nio-8080"]
+2025-01-14 12:23:11.863 INFO  StandardService                         Starting service [Tomcat]
+2025-01-14 12:23:11.864 INFO  StandardEngine                          Starting Servlet engine: [Apache Tomcat/10.1.34]
+2025-01-14 12:23:11.898 INFO  [/]                                     Initializing Spring embedded WebApplicationContext
+2025-01-14 12:23:11.899 INFO  ServletWebServerApplicationContext      Root WebApplicationContext: initialization completed in 1580 ms
+2025-01-14 12:23:12.109 INFO  LogHelper                               HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-01-14 12:23:12.170 INFO  Version                                 HHH000412: Hibernate ORM core version 6.6.4.Final
+2025-01-14 12:23:12.207 INFO  RegionFactoryInitiator                  HHH000026: Second-level cache disabled
+2025-01-14 12:23:12.526 INFO  SpringPersistenceUnitInfo               No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-01-14 12:23:12.557 INFO  HikariDataSource                        HikariPool-1 - Starting...
+2025-01-14 12:23:12.752 INFO  HikariPool                              HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@64e1f07a
+2025-01-14 12:23:12.754 INFO  HikariDataSource                        HikariPool-1 - Start completed.
+2025-01-14 12:23:12.792 WARN  deprecation                             HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-01-14 12:23:12.810 INFO  pooling                                 HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 17.2
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2025-01-14 12:23:14.096 INFO  JtaPlatformInitiator                    HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-01-14 12:23:14.264 INFO  LocalContainerEntityManagerFactoryBean  Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-01-14 12:23:14.534 WARN  JpaBaseConfiguration$JpaWebConfigurationspring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-01-14 12:23:14.934 INFO  OptionalLiveReloadServer                LiveReload server is running on port 35729
+2025-01-14 12:23:14.945 INFO  Http11NioProtocol                       Starting ProtocolHandler ["http-nio-8080"]
+2025-01-14 12:23:14.958 INFO  TomcatWebServer                         Tomcat started on port 8080 (http) with context path '/'
+2025-01-14 12:23:14.966 INFO  AeroportoApiApplication                 Started AeroportoApiApplication in 5.4 seconds (process running for 5.907)
+2025-01-14 12:23:34.533 INFO  Version                                 HV000001: Hibernate Validator 8.0.2.Final
+2025-01-14 12:23:34.646 INFO  AeroportoApiApplication                 Starting AeroportoApiApplication using Java 21.0.5 with PID 31121 (/opt/dev/projects/aeroporto-api/aeroporto-api/target/classes started by isabella in /opt/dev/projects/aeroporto-api/aeroporto-api)
+2025-01-14 12:23:34.647 INFO  AeroportoApiApplication                 No active profile set, falling back to 1 default profile: "default"
+2025-01-14 12:23:34.724 INFO  DevToolsPropertyDefaultsPostProcessor   Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2025-01-14 12:23:34.725 INFO  DevToolsPropertyDefaultsPostProcessor   For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2025-01-14 12:23:35.570 INFO  RepositoryConfigurationDelegate         Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-01-14 12:23:35.637 INFO  RepositoryConfigurationDelegate         Finished Spring Data repository scanning in 54 ms. Found 2 JPA repository interfaces.
+2025-01-14 12:23:36.258 INFO  TomcatWebServer                         Tomcat initialized with port 8080 (http)
+2025-01-14 12:23:36.272 INFO  Http11NioProtocol                       Initializing ProtocolHandler ["http-nio-8080"]
+2025-01-14 12:23:36.275 INFO  StandardService                         Starting service [Tomcat]
+2025-01-14 12:23:36.275 INFO  StandardEngine                          Starting Servlet engine: [Apache Tomcat/10.1.34]
+2025-01-14 12:23:36.323 INFO  [/]                                     Initializing Spring embedded WebApplicationContext
+2025-01-14 12:23:36.324 INFO  ServletWebServerApplicationContext      Root WebApplicationContext: initialization completed in 1597 ms
+2025-01-14 12:23:36.549 INFO  LogHelper                               HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-01-14 12:23:36.603 INFO  Version                                 HHH000412: Hibernate ORM core version 6.6.4.Final
+2025-01-14 12:23:36.639 INFO  RegionFactoryInitiator                  HHH000026: Second-level cache disabled
+2025-01-14 12:23:36.932 INFO  SpringPersistenceUnitInfo               No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-01-14 12:23:36.974 INFO  HikariDataSource                        HikariPool-1 - Starting...
+2025-01-14 12:23:37.172 INFO  HikariPool                              HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@773c3acc
+2025-01-14 12:23:37.174 INFO  HikariDataSource                        HikariPool-1 - Start completed.
+2025-01-14 12:23:37.215 WARN  deprecation                             HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-01-14 12:23:37.235 INFO  pooling                                 HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 17.2
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2025-01-14 12:23:38.594 INFO  JtaPlatformInitiator                    HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-01-14 12:23:38.759 INFO  LocalContainerEntityManagerFactoryBean  Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-01-14 12:23:39.062 WARN  JpaBaseConfiguration$JpaWebConfigurationspring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-01-14 12:23:39.443 WARN  OptionalLiveReloadServer                Unable to start LiveReload server
+2025-01-14 12:23:39.455 INFO  Http11NioProtocol                       Starting ProtocolHandler ["http-nio-8080"]
+2025-01-14 12:23:39.459 WARN  AnnotationConfigServletWebServerApplicationContextException encountered during context initialization - cancelling refresh attempt: org.springframework.context.ApplicationContextException: Failed to start bean 'webServerStartStop'
+2025-01-14 12:23:39.461 INFO  LocalContainerEntityManagerFactoryBean  Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-01-14 12:23:39.463 INFO  HikariDataSource                        HikariPool-1 - Shutdown initiated...
+2025-01-14 12:23:39.466 INFO  HikariDataSource                        HikariPool-1 - Shutdown completed.
+2025-01-14 12:23:39.479 INFO  ConditionEvaluationReportLogger         
+
+Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
+2025-01-14 12:23:39.498 ERROR SpringApplication                       Application run failed
+org.springframework.context.ApplicationContextException: Failed to start bean 'webServerStartStop'
+	at org.springframework.context.support.DefaultLifecycleProcessor.doStart(DefaultLifecycleProcessor.java:326)
+	at org.springframework.context.support.DefaultLifecycleProcessor$LifecycleGroup.start(DefaultLifecycleProcessor.java:510)
+	at java.base/java.lang.Iterable.forEach(Iterable.java:75)
+	at org.springframework.context.support.DefaultLifecycleProcessor.startBeans(DefaultLifecycleProcessor.java:295)
+	at org.springframework.context.support.DefaultLifecycleProcessor.onRefresh(DefaultLifecycleProcessor.java:240)
+	at org.springframework.context.support.AbstractApplicationContext.finishRefresh(AbstractApplicationContext.java:1006)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:630)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:146)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:752)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:439)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:318)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1361)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1350)
+	at com.renato.aeroporto_api.AeroportoApiApplication.main(AeroportoApiApplication.java:10)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:50)
+Caused by: org.springframework.boot.web.server.WebServerException: Unable to start embedded Tomcat server
+	at org.springframework.boot.web.embedded.tomcat.TomcatWebServer.start(TomcatWebServer.java:251)
+	at org.springframework.boot.web.servlet.context.WebServerStartStopLifecycle.start(WebServerStartStopLifecycle.java:44)
+	at org.springframework.context.support.DefaultLifecycleProcessor.doStart(DefaultLifecycleProcessor.java:323)
+	... 16 common frames omitted
+Caused by: java.lang.IllegalArgumentException: standardService.connector.startFailed
+	at org.apache.catalina.core.StandardService.addConnector(StandardService.java:222)
+	at org.springframework.boot.web.embedded.tomcat.TomcatWebServer.addPreviouslyRemovedConnectors(TomcatWebServer.java:310)
+	at org.springframework.boot.web.embedded.tomcat.TomcatWebServer.start(TomcatWebServer.java:236)
+	... 18 common frames omitted
+Caused by: org.apache.catalina.LifecycleException: Protocol handler start failed
+	at org.apache.catalina.connector.Connector.startInternal(Connector.java:1061)
+	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:164)
+	at org.apache.catalina.core.StandardService.addConnector(StandardService.java:219)
+	... 20 common frames omitted
+Caused by: java.net.BindException: Endereço já em uso
+	at java.base/sun.nio.ch.Net.bind0(Native Method)
+	at java.base/sun.nio.ch.Net.bind(Net.java:565)
+	at java.base/sun.nio.ch.ServerSocketChannelImpl.netBind(ServerSocketChannelImpl.java:344)
+	at java.base/sun.nio.ch.ServerSocketChannelImpl.bind(ServerSocketChannelImpl.java:301)
+	at org.apache.tomcat.util.net.NioEndpoint.initServerSocket(NioEndpoint.java:239)
+	at org.apache.tomcat.util.net.NioEndpoint.bind(NioEndpoint.java:194)
+	at org.apache.tomcat.util.net.AbstractEndpoint.bindWithCleanup(AbstractEndpoint.java:1304)
+	at org.apache.tomcat.util.net.AbstractEndpoint.start(AbstractEndpoint.java:1390)
+	at org.apache.coyote.AbstractProtocol.start(AbstractProtocol.java:644)
+	at org.apache.catalina.connector.Connector.startInternal(Connector.java:1058)
+	... 22 common frames omitted
+2025-01-14 12:23:48.898 INFO  Version                                 HV000001: Hibernate Validator 8.0.2.Final
+2025-01-14 12:23:48.983 INFO  ControllerAeroportoTest                 Starting ControllerAeroportoTest using Java 21.0.5 with PID 31184 (started by isabella in /opt/dev/projects/aeroporto-api/aeroporto-api)
+2025-01-14 12:23:48.984 INFO  ControllerAeroportoTest                 The following 1 profile is active: "test"
+2025-01-14 12:23:49.695 INFO  RepositoryConfigurationDelegate         Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-01-14 12:23:49.760 INFO  RepositoryConfigurationDelegate         Finished Spring Data repository scanning in 55 ms. Found 2 JPA repository interfaces.
+2025-01-14 12:23:50.303 INFO  TomcatWebServer                         Tomcat initialized with port 0 (http)
+2025-01-14 12:23:50.319 INFO  Http11NioProtocol                       Initializing ProtocolHandler ["http-nio-auto-1"]
+2025-01-14 12:23:50.321 INFO  StandardService                         Starting service [Tomcat]
+2025-01-14 12:23:50.322 INFO  StandardEngine                          Starting Servlet engine: [Apache Tomcat/10.1.34]
+2025-01-14 12:23:50.377 INFO  [/]                                     Initializing Spring embedded WebApplicationContext
+2025-01-14 12:23:50.378 INFO  ServletWebServerApplicationContext      Root WebApplicationContext: initialization completed in 1371 ms
+2025-01-14 12:23:50.558 INFO  LogHelper                               HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-01-14 12:23:50.618 INFO  Version                                 HHH000412: Hibernate ORM core version 6.6.4.Final
+2025-01-14 12:23:50.660 INFO  RegionFactoryInitiator                  HHH000026: Second-level cache disabled
+2025-01-14 12:23:50.939 INFO  SpringPersistenceUnitInfo               No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-01-14 12:23:50.966 INFO  HikariDataSource                        HikariPool-1 - Starting...
+2025-01-14 12:23:51.167 INFO  HikariPool                              HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@30a7dcd4
+2025-01-14 12:23:51.169 INFO  HikariDataSource                        HikariPool-1 - Start completed.
+2025-01-14 12:23:51.210 WARN  deprecation                             HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-01-14 12:23:51.231 INFO  pooling                                 HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 17.2
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2025-01-14 12:23:52.570 INFO  JtaPlatformInitiator                    HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-01-14 12:23:52.714 INFO  LocalContainerEntityManagerFactoryBean  Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-01-14 12:23:53.000 WARN  JpaBaseConfiguration$JpaWebConfigurationspring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-01-14 12:23:53.531 INFO  Http11NioProtocol                       Starting ProtocolHandler ["http-nio-auto-1"]
+2025-01-14 12:23:53.541 INFO  TomcatWebServer                         Tomcat started on port 36403 (http) with context path '/'
+2025-01-14 12:23:53.548 INFO  ControllerAeroportoTest                 Started ControllerAeroportoTest in 5.09 seconds (process running for 6.335)
+2025-01-14 12:23:54.159 INFO  [/]                                     Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-01-14 12:23:54.159 INFO  DispatcherServlet                       Initializing Servlet 'dispatcherServlet'
+2025-01-14 12:23:54.160 INFO  DispatcherServlet                       Completed initialization in 1 ms
+2025-01-14 12:23:54.216 WARN  DefaultHandlerExceptionResolver         Resolved [org.springframework.http.converter.HttpMessageNotReadableException: JSON parse error: Cannot deserialize value of type `com.renato.aeroporto_api.model.Aviao` from Array value (token `JsonToken.START_ARRAY`)]
+2025-01-14 12:23:54.607 INFO  AnnotationConfigContextLoaderUtils      Could not detect default configuration classes for test class [com.renato.aeroporto_api.exception.ExceptionsTest]: ExceptionsTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2025-01-14 12:23:54.612 INFO  SpringBootTestContextBootstrapper       Found @SpringBootConfiguration com.renato.aeroporto_api.AeroportoApiApplication for test class com.renato.aeroporto_api.exception.ExceptionsTest
+2025-01-14 12:23:54.651 WARN  DefaultHandlerExceptionResolver         Resolved [org.springframework.web.HttpRequestMethodNotSupportedException: Request method 'PUT' is not supported]
+2025-01-14 12:23:54.663 WARN  DefaultHandlerExceptionResolver         Resolved [org.springframework.web.method.annotation.MethodArgumentTypeMismatchException: Method parameter 'id': Failed to convert value of type 'java.lang.String' to required type 'java.lang.Long'; For input string: "P"]
+2025-01-14 12:23:54.673 WARN  DefaultHandlerExceptionResolver         Resolved [org.springframework.web.HttpRequestMethodNotSupportedException: Request method 'PUT' is not supported]
+2025-01-14 12:23:54.763 INFO  GracefulShutdown                        Commencing graceful shutdown. Waiting for active requests to complete
+2025-01-14 12:23:54.765 INFO  GracefulShutdown                        Graceful shutdown complete
+2025-01-14 12:23:54.768 INFO  LocalContainerEntityManagerFactoryBean  Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-01-14 12:23:54.770 INFO  HikariDataSource                        HikariPool-1 - Shutdown initiated...
+2025-01-14 12:23:54.775 INFO  HikariDataSource                        HikariPool-1 - Shutdown completed.
+2025-01-14 13:27:01.258 INFO  Version                                 HV000001: Hibernate Validator 8.0.2.Final
+2025-01-14 13:27:01.359 INFO  AeroportoApiApplication                 Starting AeroportoApiApplication using Java 21.0.5 with PID 32226 (/opt/dev/projects/aeroporto-api/aeroporto-api/target/classes started by isabella in /opt/dev/projects/aeroporto-api/aeroporto-api)
+2025-01-14 13:27:01.361 INFO  AeroportoApiApplication                 No active profile set, falling back to 1 default profile: "default"
+2025-01-14 13:27:01.427 INFO  DevToolsPropertyDefaultsPostProcessor   Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2025-01-14 13:27:01.427 INFO  DevToolsPropertyDefaultsPostProcessor   For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2025-01-14 13:27:02.244 INFO  RepositoryConfigurationDelegate         Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-01-14 13:27:02.321 INFO  RepositoryConfigurationDelegate         Finished Spring Data repository scanning in 63 ms. Found 2 JPA repository interfaces.
+2025-01-14 13:27:02.895 INFO  TomcatWebServer                         Tomcat initialized with port 8080 (http)
+2025-01-14 13:27:02.912 INFO  Http11NioProtocol                       Initializing ProtocolHandler ["http-nio-8080"]
+2025-01-14 13:27:02.915 INFO  StandardService                         Starting service [Tomcat]
+2025-01-14 13:27:02.915 INFO  StandardEngine                          Starting Servlet engine: [Apache Tomcat/10.1.34]
+2025-01-14 13:27:02.959 INFO  [/]                                     Initializing Spring embedded WebApplicationContext
+2025-01-14 13:27:02.960 INFO  ServletWebServerApplicationContext      Root WebApplicationContext: initialization completed in 1532 ms
+2025-01-14 13:27:03.139 INFO  LogHelper                               HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-01-14 13:27:03.195 INFO  Version                                 HHH000412: Hibernate ORM core version 6.6.4.Final
+2025-01-14 13:27:03.229 INFO  RegionFactoryInitiator                  HHH000026: Second-level cache disabled
+2025-01-14 13:27:03.503 INFO  SpringPersistenceUnitInfo               No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-01-14 13:27:03.533 INFO  HikariDataSource                        HikariPool-1 - Starting...
+2025-01-14 13:27:03.732 INFO  HikariPool                              HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@4547e3c6
+2025-01-14 13:27:03.734 INFO  HikariDataSource                        HikariPool-1 - Start completed.
+2025-01-14 13:27:03.774 WARN  deprecation                             HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-01-14 13:27:03.796 INFO  pooling                                 HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 17.2
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2025-01-14 13:27:04.942 INFO  JtaPlatformInitiator                    HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-01-14 13:27:05.072 INFO  LocalContainerEntityManagerFactoryBean  Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-01-14 13:27:05.343 WARN  JpaBaseConfiguration$JpaWebConfigurationspring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-01-14 13:27:05.764 WARN  OptionalLiveReloadServer                Unable to start LiveReload server
+2025-01-14 13:27:05.780 INFO  Http11NioProtocol                       Starting ProtocolHandler ["http-nio-8080"]
+2025-01-14 13:27:05.786 WARN  AnnotationConfigServletWebServerApplicationContextException encountered during context initialization - cancelling refresh attempt: org.springframework.context.ApplicationContextException: Failed to start bean 'webServerStartStop'
+2025-01-14 13:27:05.788 INFO  LocalContainerEntityManagerFactoryBean  Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-01-14 13:27:05.793 INFO  HikariDataSource                        HikariPool-1 - Shutdown initiated...
+2025-01-14 13:27:05.797 INFO  HikariDataSource                        HikariPool-1 - Shutdown completed.
+2025-01-14 13:27:05.813 INFO  ConditionEvaluationReportLogger         
+
+Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
+2025-01-14 13:27:05.835 ERROR SpringApplication                       Application run failed
+org.springframework.context.ApplicationContextException: Failed to start bean 'webServerStartStop'
+	at org.springframework.context.support.DefaultLifecycleProcessor.doStart(DefaultLifecycleProcessor.java:326)
+	at org.springframework.context.support.DefaultLifecycleProcessor$LifecycleGroup.start(DefaultLifecycleProcessor.java:510)
+	at java.base/java.lang.Iterable.forEach(Iterable.java:75)
+	at org.springframework.context.support.DefaultLifecycleProcessor.startBeans(DefaultLifecycleProcessor.java:295)
+	at org.springframework.context.support.DefaultLifecycleProcessor.onRefresh(DefaultLifecycleProcessor.java:240)
+	at org.springframework.context.support.AbstractApplicationContext.finishRefresh(AbstractApplicationContext.java:1006)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:630)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:146)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:752)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:439)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:318)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1361)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1350)
+	at com.renato.aeroporto_api.AeroportoApiApplication.main(AeroportoApiApplication.java:10)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:50)
+Caused by: org.springframework.boot.web.server.WebServerException: Unable to start embedded Tomcat server
+	at org.springframework.boot.web.embedded.tomcat.TomcatWebServer.start(TomcatWebServer.java:251)
+	at org.springframework.boot.web.servlet.context.WebServerStartStopLifecycle.start(WebServerStartStopLifecycle.java:44)
+	at org.springframework.context.support.DefaultLifecycleProcessor.doStart(DefaultLifecycleProcessor.java:323)
+	... 16 common frames omitted
+Caused by: java.lang.IllegalArgumentException: standardService.connector.startFailed
+	at org.apache.catalina.core.StandardService.addConnector(StandardService.java:222)
+	at org.springframework.boot.web.embedded.tomcat.TomcatWebServer.addPreviouslyRemovedConnectors(TomcatWebServer.java:310)
+	at org.springframework.boot.web.embedded.tomcat.TomcatWebServer.start(TomcatWebServer.java:236)
+	... 18 common frames omitted
+Caused by: org.apache.catalina.LifecycleException: Protocol handler start failed
+	at org.apache.catalina.connector.Connector.startInternal(Connector.java:1061)
+	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:164)
+	at org.apache.catalina.core.StandardService.addConnector(StandardService.java:219)
+	... 20 common frames omitted
+Caused by: java.net.BindException: Endereço já em uso
+	at java.base/sun.nio.ch.Net.bind0(Native Method)
+	at java.base/sun.nio.ch.Net.bind(Net.java:565)
+	at java.base/sun.nio.ch.ServerSocketChannelImpl.netBind(ServerSocketChannelImpl.java:344)
+	at java.base/sun.nio.ch.ServerSocketChannelImpl.bind(ServerSocketChannelImpl.java:301)
+	at org.apache.tomcat.util.net.NioEndpoint.initServerSocket(NioEndpoint.java:239)
+	at org.apache.tomcat.util.net.NioEndpoint.bind(NioEndpoint.java:194)
+	at org.apache.tomcat.util.net.AbstractEndpoint.bindWithCleanup(AbstractEndpoint.java:1304)
+	at org.apache.tomcat.util.net.AbstractEndpoint.start(AbstractEndpoint.java:1390)
+	at org.apache.coyote.AbstractProtocol.start(AbstractProtocol.java:644)
+	at org.apache.catalina.connector.Connector.startInternal(Connector.java:1058)
+	... 22 common frames omitted
+2025-01-14 13:28:17.183 INFO  Version                                 HV000001: Hibernate Validator 8.0.2.Final
+2025-01-14 13:28:17.317 INFO  AeroportoApiApplication                 Starting AeroportoApiApplication using Java 21.0.5 with PID 32309 (/opt/dev/projects/aeroporto-api/aeroporto-api/target/classes started by isabella in /opt/dev/projects/aeroporto-api/aeroporto-api)
+2025-01-14 13:28:17.319 INFO  AeroportoApiApplication                 No active profile set, falling back to 1 default profile: "default"
+2025-01-14 13:28:17.392 INFO  DevToolsPropertyDefaultsPostProcessor   Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2025-01-14 13:28:17.393 INFO  DevToolsPropertyDefaultsPostProcessor   For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2025-01-14 13:28:18.257 INFO  RepositoryConfigurationDelegate         Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-01-14 13:28:18.328 INFO  RepositoryConfigurationDelegate         Finished Spring Data repository scanning in 58 ms. Found 2 JPA repository interfaces.
+2025-01-14 13:28:18.963 INFO  TomcatWebServer                         Tomcat initialized with port 8080 (http)
+2025-01-14 13:28:18.980 INFO  Http11NioProtocol                       Initializing ProtocolHandler ["http-nio-8080"]
+2025-01-14 13:28:18.982 INFO  StandardService                         Starting service [Tomcat]
+2025-01-14 13:28:18.982 INFO  StandardEngine                          Starting Servlet engine: [Apache Tomcat/10.1.34]
+2025-01-14 13:28:19.035 INFO  [/]                                     Initializing Spring embedded WebApplicationContext
+2025-01-14 13:28:19.037 INFO  ServletWebServerApplicationContext      Root WebApplicationContext: initialization completed in 1642 ms
+2025-01-14 13:28:19.258 INFO  LogHelper                               HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-01-14 13:28:19.326 INFO  Version                                 HHH000412: Hibernate ORM core version 6.6.4.Final
+2025-01-14 13:28:19.363 INFO  RegionFactoryInitiator                  HHH000026: Second-level cache disabled
+2025-01-14 13:28:19.695 INFO  SpringPersistenceUnitInfo               No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-01-14 13:28:19.726 INFO  HikariDataSource                        HikariPool-1 - Starting...
+2025-01-14 13:28:19.964 INFO  HikariPool                              HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@76f2b40e
+2025-01-14 13:28:19.967 INFO  HikariDataSource                        HikariPool-1 - Start completed.
+2025-01-14 13:28:20.016 WARN  deprecation                             HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-01-14 13:28:20.038 INFO  pooling                                 HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 17.2
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2025-01-14 13:28:21.192 INFO  JtaPlatformInitiator                    HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-01-14 13:28:21.328 INFO  LocalContainerEntityManagerFactoryBean  Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-01-14 13:28:21.594 WARN  JpaBaseConfiguration$JpaWebConfigurationspring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-01-14 13:28:22.021 WARN  OptionalLiveReloadServer                Unable to start LiveReload server
+2025-01-14 13:28:22.033 INFO  Http11NioProtocol                       Starting ProtocolHandler ["http-nio-8080"]
+2025-01-14 13:28:22.037 WARN  AnnotationConfigServletWebServerApplicationContextException encountered during context initialization - cancelling refresh attempt: org.springframework.context.ApplicationContextException: Failed to start bean 'webServerStartStop'
+2025-01-14 13:28:22.039 INFO  LocalContainerEntityManagerFactoryBean  Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-01-14 13:28:22.042 INFO  HikariDataSource                        HikariPool-1 - Shutdown initiated...
+2025-01-14 13:28:22.044 INFO  HikariDataSource                        HikariPool-1 - Shutdown completed.
+2025-01-14 13:28:22.060 INFO  ConditionEvaluationReportLogger         
+
+Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
+2025-01-14 13:28:22.083 ERROR SpringApplication                       Application run failed
+org.springframework.context.ApplicationContextException: Failed to start bean 'webServerStartStop'
+	at org.springframework.context.support.DefaultLifecycleProcessor.doStart(DefaultLifecycleProcessor.java:326)
+	at org.springframework.context.support.DefaultLifecycleProcessor$LifecycleGroup.start(DefaultLifecycleProcessor.java:510)
+	at java.base/java.lang.Iterable.forEach(Iterable.java:75)
+	at org.springframework.context.support.DefaultLifecycleProcessor.startBeans(DefaultLifecycleProcessor.java:295)
+	at org.springframework.context.support.DefaultLifecycleProcessor.onRefresh(DefaultLifecycleProcessor.java:240)
+	at org.springframework.context.support.AbstractApplicationContext.finishRefresh(AbstractApplicationContext.java:1006)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:630)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:146)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:752)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:439)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:318)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1361)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1350)
+	at com.renato.aeroporto_api.AeroportoApiApplication.main(AeroportoApiApplication.java:10)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:50)
+Caused by: org.springframework.boot.web.server.WebServerException: Unable to start embedded Tomcat server
+	at org.springframework.boot.web.embedded.tomcat.TomcatWebServer.start(TomcatWebServer.java:251)
+	at org.springframework.boot.web.servlet.context.WebServerStartStopLifecycle.start(WebServerStartStopLifecycle.java:44)
+	at org.springframework.context.support.DefaultLifecycleProcessor.doStart(DefaultLifecycleProcessor.java:323)
+	... 16 common frames omitted
+Caused by: java.lang.IllegalArgumentException: standardService.connector.startFailed
+	at org.apache.catalina.core.StandardService.addConnector(StandardService.java:222)
+	at org.springframework.boot.web.embedded.tomcat.TomcatWebServer.addPreviouslyRemovedConnectors(TomcatWebServer.java:310)
+	at org.springframework.boot.web.embedded.tomcat.TomcatWebServer.start(TomcatWebServer.java:236)
+	... 18 common frames omitted
+Caused by: org.apache.catalina.LifecycleException: Protocol handler start failed
+	at org.apache.catalina.connector.Connector.startInternal(Connector.java:1061)
+	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:164)
+	at org.apache.catalina.core.StandardService.addConnector(StandardService.java:219)
+	... 20 common frames omitted
+Caused by: java.net.BindException: Endereço já em uso
+	at java.base/sun.nio.ch.Net.bind0(Native Method)
+	at java.base/sun.nio.ch.Net.bind(Net.java:565)
+	at java.base/sun.nio.ch.ServerSocketChannelImpl.netBind(ServerSocketChannelImpl.java:344)
+	at java.base/sun.nio.ch.ServerSocketChannelImpl.bind(ServerSocketChannelImpl.java:301)
+	at org.apache.tomcat.util.net.NioEndpoint.initServerSocket(NioEndpoint.java:239)
+	at org.apache.tomcat.util.net.NioEndpoint.bind(NioEndpoint.java:194)
+	at org.apache.tomcat.util.net.AbstractEndpoint.bindWithCleanup(AbstractEndpoint.java:1304)
+	at org.apache.tomcat.util.net.AbstractEndpoint.start(AbstractEndpoint.java:1390)
+	at org.apache.coyote.AbstractProtocol.start(AbstractProtocol.java:644)
+	at org.apache.catalina.connector.Connector.startInternal(Connector.java:1058)
+	... 22 common frames omitted
+2025-01-14 13:28:39.198 INFO  Version                                 HV000001: Hibernate Validator 8.0.2.Final
+2025-01-14 13:28:39.300 INFO  ControllerAeroportoTest                 Starting ControllerAeroportoTest using Java 21.0.5 with PID 32373 (started by isabella in /opt/dev/projects/aeroporto-api/aeroporto-api)
+2025-01-14 13:28:39.301 INFO  ControllerAeroportoTest                 The following 1 profile is active: "test"
+2025-01-14 13:28:40.111 INFO  RepositoryConfigurationDelegate         Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-01-14 13:28:40.189 INFO  RepositoryConfigurationDelegate         Finished Spring Data repository scanning in 64 ms. Found 2 JPA repository interfaces.
+2025-01-14 13:28:40.751 INFO  TomcatWebServer                         Tomcat initialized with port 0 (http)
+2025-01-14 13:28:40.767 INFO  Http11NioProtocol                       Initializing ProtocolHandler ["http-nio-auto-1"]
+2025-01-14 13:28:40.770 INFO  StandardService                         Starting service [Tomcat]
+2025-01-14 13:28:40.770 INFO  StandardEngine                          Starting Servlet engine: [Apache Tomcat/10.1.34]
+2025-01-14 13:28:40.821 INFO  [/]                                     Initializing Spring embedded WebApplicationContext
+2025-01-14 13:28:40.822 INFO  ServletWebServerApplicationContext      Root WebApplicationContext: initialization completed in 1493 ms
+2025-01-14 13:28:41.004 INFO  LogHelper                               HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-01-14 13:28:41.063 INFO  Version                                 HHH000412: Hibernate ORM core version 6.6.4.Final
+2025-01-14 13:28:41.105 INFO  RegionFactoryInitiator                  HHH000026: Second-level cache disabled
+2025-01-14 13:28:41.423 INFO  SpringPersistenceUnitInfo               No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-01-14 13:28:41.456 INFO  HikariDataSource                        HikariPool-1 - Starting...
+2025-01-14 13:28:41.655 INFO  HikariPool                              HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@7fda2507
+2025-01-14 13:28:41.657 INFO  HikariDataSource                        HikariPool-1 - Start completed.
+2025-01-14 13:28:41.698 WARN  deprecation                             HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-01-14 13:28:41.718 INFO  pooling                                 HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 17.2
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2025-01-14 13:28:43.022 INFO  JtaPlatformInitiator                    HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-01-14 13:28:43.156 INFO  LocalContainerEntityManagerFactoryBean  Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-01-14 13:28:43.428 WARN  JpaBaseConfiguration$JpaWebConfigurationspring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-01-14 13:28:43.954 INFO  Http11NioProtocol                       Starting ProtocolHandler ["http-nio-auto-1"]
+2025-01-14 13:28:43.964 INFO  TomcatWebServer                         Tomcat started on port 41099 (http) with context path '/'
+2025-01-14 13:28:43.972 INFO  ControllerAeroportoTest                 Started ControllerAeroportoTest in 5.266 seconds (process running for 6.496)
+2025-01-14 13:28:44.592 INFO  [/]                                     Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-01-14 13:28:44.592 INFO  DispatcherServlet                       Initializing Servlet 'dispatcherServlet'
+2025-01-14 13:28:44.593 INFO  DispatcherServlet                       Completed initialization in 1 ms
+2025-01-14 13:28:44.645 WARN  DefaultHandlerExceptionResolver         Resolved [org.springframework.http.converter.HttpMessageNotReadableException: JSON parse error: Cannot deserialize value of type `com.renato.aeroporto_api.model.Aviao` from Array value (token `JsonToken.START_ARRAY`)]
+2025-01-14 13:28:45.028 INFO  AnnotationConfigContextLoaderUtils      Could not detect default configuration classes for test class [com.renato.aeroporto_api.exception.ExceptionsTest]: ExceptionsTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2025-01-14 13:28:45.033 INFO  SpringBootTestContextBootstrapper       Found @SpringBootConfiguration com.renato.aeroporto_api.AeroportoApiApplication for test class com.renato.aeroporto_api.exception.ExceptionsTest
+2025-01-14 13:28:45.062 WARN  DefaultHandlerExceptionResolver         Resolved [org.springframework.web.HttpRequestMethodNotSupportedException: Request method 'PUT' is not supported]
+2025-01-14 13:28:45.074 WARN  DefaultHandlerExceptionResolver         Resolved [org.springframework.web.method.annotation.MethodArgumentTypeMismatchException: Method parameter 'id': Failed to convert value of type 'java.lang.String' to required type 'java.lang.Long'; For input string: "P"]
+2025-01-14 13:28:45.084 WARN  DefaultHandlerExceptionResolver         Resolved [org.springframework.web.HttpRequestMethodNotSupportedException: Request method 'PUT' is not supported]
+2025-01-14 13:28:45.175 INFO  GracefulShutdown                        Commencing graceful shutdown. Waiting for active requests to complete
+2025-01-14 13:28:45.176 INFO  GracefulShutdown                        Graceful shutdown complete
+2025-01-14 13:28:45.180 INFO  LocalContainerEntityManagerFactoryBean  Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-01-14 13:28:45.182 INFO  HikariDataSource                        HikariPool-1 - Shutdown initiated...
+2025-01-14 13:28:45.188 INFO  HikariDataSource                        HikariPool-1 - Shutdown completed.

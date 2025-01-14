@@ -1,7 +1,6 @@
 package com.renato.aeroporto_api.exception;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
-
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -26,13 +25,13 @@ import com.renato.aeroporto_api.model.Aviao;
 import com.renato.aeroporto_api.model.Carga;
 import com.renato.aeroporto_api.model.FlyAware;
 import com.renato.aeroporto_api.model.LicencaDePilotoAnac;
-import com.renato.aeroporto_api.model.LocalizacaoAeroporto;
 import com.renato.aeroporto_api.model.Passageiro;
 import com.renato.aeroporto_api.model.Piloto;
 import com.renato.aeroporto_api.model.TipoDeCarga;
 import com.renato.aeroporto_api.model.Tripulacao;
 import com.renato.aeroporto_api.model.Carga.StatusCarga;
 import com.renato.aeroporto_api.model.LicencaDePilotoAnac.SituacaoLicenca;
+import com.renato.aeroporto_api.model.Localizacao;
 import com.renato.aeroporto_api.model.Piloto.StatusSaude;
 import com.renato.aeroporto_api.model.TipoDeCarga.ClassificacaoPericulosidade;
 import com.renato.aeroporto_api.repository.AeroportoRepository;
@@ -54,7 +53,7 @@ public class ExceptionsTest {
 	public void setUp() {
 		LocalDateTime data = LocalDateTime.now();
 		// Dados da Localização
-		LocalizacaoAeroporto dadosLocalizacao = new LocalizacaoAeroporto();
+		Localizacao dadosLocalizacao = new Localizacao();
 		dadosLocalizacao.setCep("23456-789");
 		dadosLocalizacao.setCidade("Rio de Janeiro");
 		dadosLocalizacao.setEndereco("Avenida Santos Dumont, 2000");
@@ -130,8 +129,8 @@ public class ExceptionsTest {
 		dadosAeroporto.setAvioes(listaAavioes);
 		dadosAeroporto.setCapacidadeDeArmazenamentoDeCombustivel(120.5);
 		dadosAeroporto.setLimiteMaximoAeronaves(75);
-		dadosAeroporto.setLocalizacaoAeroporto(dadosLocalizacao);
-		dadosAeroporto.setNomeAeroporto("Aeroporto Internacional do Rio de Janeiro");
+		dadosAeroporto.setLocalizacao(dadosLocalizacao);
+		dadosAeroporto.setNome("Aeroporto Internacional do Rio de Janeiro");
 		dadosAeroporto.setPermitidoPousoAeronaves(true);
 		dadosAeroporto.setPortoesDeEmbarque(numeroPortoesDeEmbarque);
 		dadosAeroporto.setCodigoIATA(3L);
