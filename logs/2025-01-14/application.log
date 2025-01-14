@@ -637,3 +637,47 @@
 2025-01-14 15:56:23.677 INFO  LoggerApi                               Lista de aviões sendo salva no banco de dados.
 2025-01-14 15:57:16.167 INFO  LoggerApi                               Recebida solicitação para salvar todos os aviões.
 2025-01-14 15:57:16.167 INFO  LoggerApi                               Lista de aviões sendo salva no banco de dados.
+2025-01-14 16:16:52.097 INFO  LoggerApi                               Recebida solicitação para salvar todos os aviões.
+2025-01-14 16:16:52.098 INFO  LoggerApi                               Lista de aviões sendo salva no banco de dados.
+2025-01-14 16:19:55.728 INFO  LoggerApi                               Recebida solicitação para salvar todos os aviões.
+2025-01-14 16:19:55.729 INFO  LoggerApi                               Lista de aviões sendo salva no banco de dados.
+2025-01-14 16:22:05.553 INFO  LoggerApi                               Recebida solicitação para salvar todos os aviões.
+2025-01-14 16:22:05.554 INFO  LoggerApi                               Lista de aviões sendo salva no banco de dados.
+2025-01-14 16:22:05.639 DEBUG LoggerApi                               Aviões salvos com sucesso: [com.renato.aeroporto_api.model.Aviao@9f22470]
+2025-01-14 16:23:01.901 INFO  LoggerApi                               Recebida solicitação para apagar o avião com número de série: 1
+2025-01-14 16:23:01.902 INFO  LoggerApi                               Procurando avião para exclusão com número de série: 1
+2025-01-14 16:23:01.979 ERROR LoggerApi                               AVIÃO NÃO ENCONTRADO PARA EXCLUSÃO COM NÚMERO DE SÉRIE: 1
+2025-01-14 16:23:01.980 ERROR LoggerApi                               AVIÃO NÃO ENCONTRADO PARA EXCLUSÃO COM NÚMERO DE SÉRIE: 1
+2025-01-14 16:23:01.982 ERROR LoggerApi                               AVIÃO NÃO ENCONTRADO: AVIÃO NÃO ENCONTRADO PARA EXCLUSÃO COM NÚMERO DE SÉRIE: 1
+2025-01-14 16:23:02.160 INFO  LoggerApi                               Recebida solicitação para atualizar o avião com ID: 4
+2025-01-14 16:23:02.163 ERROR LoggerApi                               AVIÃO COM ID 4 NÃO ENCONTRADO.
+2025-01-14 16:23:02.188 INFO  LoggerApi                               Recebida solicitação para buscar todos os aviões.
+2025-01-14 16:23:02.188 INFO  LoggerApi                               Buscando todos os aviões no banco de dados.
+2025-01-14 16:23:02.281 DEBUG LoggerApi                               Aviões encontrados: 0
+2025-01-14 16:23:02.293 INFO  LoggerApi                               Recebida solicitação para buscar o avião com ID: 2
+2025-01-14 16:23:02.294 INFO  LoggerApi                               Buscando avião com ID: 2
+2025-01-14 16:23:02.297 ERROR LoggerApi                               AVIÃO NÃO ENCONTRADO: AVIÃO NÃO ENCONTRADO COM O ID: 2
+2025-01-14 16:23:02.310 INFO  LoggerApi                               Recebida solicitação para salvar todos os aviões.
+2025-01-14 16:23:02.310 INFO  LoggerApi                               Lista de aviões sendo salva no banco de dados.
+2025-01-14 16:23:02.416 DEBUG LoggerApi                               Aviões salvos com sucesso: [com.renato.aeroporto_api.model.Aviao@54b7ddf4]
+2025-01-14 16:23:02.441 INFO  LoggerApi                               Recebida solicitação para atualizar o avião com ID: 999
+2025-01-14 16:23:02.444 ERROR LoggerApi                               AVIÃO COM ID 999 NÃO ENCONTRADO.
+2025-01-14 16:23:02.472 INFO  LoggerApi                               Recebida solicitação para buscar o avião com ID: 999999
+2025-01-14 16:23:02.472 INFO  LoggerApi                               Buscando avião com ID: 999999
+2025-01-14 16:23:02.476 ERROR LoggerApi                               AVIÃO NÃO ENCONTRADO: AVIÃO NÃO ENCONTRADO COM O ID: 999999
+2025-01-14 16:23:02.528 ERROR LoggerApi                               ERRO AO PROCESSAR JSON: REQUIRED REQUEST BODY IS MISSING: PUBLIC ORG.SPRINGFRAMEWORK.HTTP.RESPONSEENTITY<JAVA.UTIL.LIST<COM.RENATO.AEROPORTO_API.MODEL.AVIAO>> COM.RENATO.AEROPORTO_API.CONTROLLER.AEROPORTOCONTROLLER.SALVARTODOSAVIOES(JAVA.UTIL.LIST<COM.RENATO.AEROPORTO_API.MODEL.AVIAO>)
+2025-01-14 16:23:02.540 INFO  LoggerApi                               Procurando avião para exclusão com número de série: 999999
+2025-01-14 16:23:02.543 ERROR LoggerApi                               AVIÃO NÃO ENCONTRADO PARA EXCLUSÃO COM NÚMERO DE SÉRIE: 999999
+2025-01-14 16:23:02.543 ERROR LoggerApi                               AVIÃO NÃO ENCONTRADO PARA EXCLUSÃO COM NÚMERO DE SÉRIE: 999999
+2025-01-14 16:23:02.552 INFO  LoggerApi                               Lista de aviões sendo salva no banco de dados.
+2025-01-14 16:25:12.832 INFO  LoggerApi                               Recebida solicitação para buscar todos os aviões.
+2025-01-14 16:25:12.832 INFO  LoggerApi                               Buscando todos os aviões no banco de dados.
+2025-01-14 16:25:12.941 DEBUG LoggerApi                               Aviões encontrados: 2
+2025-01-14 16:25:20.206 INFO  LoggerApi                               Recebida solicitação para atualizar o avião com ID: 1
+2025-01-14 16:25:20.215 INFO  LoggerApi                               Atualizando avião com ID: 1
+2025-01-14 16:25:20.266 DEBUG LoggerApi                               Avião atualizado com sucesso: com.renato.aeroporto_api.model.Aviao@3411a272
+2025-01-14 16:25:20.267 DEBUG LoggerApi                               Avião atualizado com sucesso: com.renato.aeroporto_api.model.Aviao@3411a272
+2025-01-14 16:26:47.331 INFO  LoggerApi                               Recebida solicitação para atualizar o avião com ID: 1
+2025-01-14 16:26:47.336 INFO  LoggerApi                               Atualizando avião com ID: 1
+2025-01-14 16:26:47.364 DEBUG LoggerApi                               Avião atualizado com sucesso: com.renato.aeroporto_api.model.Aviao@2b2f1cda
+2025-01-14 16:26:47.364 DEBUG LoggerApi                               Avião atualizado com sucesso: com.renato.aeroporto_api.model.Aviao@2b2f1cda

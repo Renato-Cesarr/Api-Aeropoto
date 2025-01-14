@@ -1,7 +1,7 @@
-HELP.md
+/aeroporto-api/logs
 target/
 .project
 .classpath
 .settings
 .gitattributes
-
+HELP.md

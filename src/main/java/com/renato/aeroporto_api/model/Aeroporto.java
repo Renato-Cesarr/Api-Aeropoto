@@ -34,7 +34,7 @@ public class Aeroporto {
     private Long codigoIATA;
 
     @Column(name = "nome_aeroporto", nullable = false)
-    private String nome;
+    private String nomeAeroporto;
 
     @Column(name = "permitido_pouso_aeronaves", nullable = false)
     private Boolean permitidoPousoAeronaves;
@@ -51,7 +51,7 @@ public class Aeroporto {
 
     @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "fk_localizacao_aeroporto", unique = true)
-    private Localizacao localizacao;
+    private Localizacao localizacaoAeroporto;
 
     @OneToMany(mappedBy = "aeroporto", cascade = CascadeType.ALL, fetch = FetchType.LAZY, orphanRemoval = true)
     @JsonBackReference
@@ -65,12 +65,12 @@ public class Aeroporto {
         this.codigoIATA = codigoIATA;
     }
 
-    public String getNome() {
-        return nome;
+    public String nomeAeroporto() {
+        return nomeAeroporto;
     }
 
-    public void setNome(String nome) {
-        this.nome = nome;
+    public void setNomeAeroporto(String nomeAeroporto) {
+        this.nomeAeroporto = nomeAeroporto;
     }
 
     public Boolean getPermitidoPousoAeronaves() {
@@ -105,12 +105,12 @@ public class Aeroporto {
         this.portoesDeEmbarque = portoesDeEmbarque;
     }
 
-    public Localizacao getLocalizacao() {
-        return localizacao;
+    public Localizacao getlocalizacaoAeroporto() {
+        return localizacaoAeroporto;
     }
 
-    public void setLocalizacao(Localizacao localizacaoAeroporto) {
-        this.localizacao = localizacaoAeroporto;
+    public void setlocalizacaoAeroporto(Localizacao localizacaoAeroporto) {
+        this.localizacaoAeroporto = localizacaoAeroporto;
     }
 
     public List<Aviao> getAvioes() {

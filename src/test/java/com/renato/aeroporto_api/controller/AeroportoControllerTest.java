@@ -127,8 +127,8 @@ class ControllerAeroportoTest {
 		dadosAeroporto.setAvioes(listaAavioes);
 		dadosAeroporto.setCapacidadeDeArmazenamentoDeCombustivel(120.5);
 		dadosAeroporto.setLimiteMaximoAeronaves(75);
-		dadosAeroporto.setLocalizacao(dadosLocalizacao);
-		dadosAeroporto.setNome("Aeroporto Internacional do Rio de Janeiro");
+		dadosAeroporto.setlocalizacaoAeroporto(dadosLocalizacao);
+		dadosAeroporto.setNomeAeroporto("Aeroporto Internacional do Rio de Janeiro");
 		dadosAeroporto.setPermitidoPousoAeronaves(true);
 		dadosAeroporto.setPortoesDeEmbarque(numeroPortoesDeEmbarque);
 		dadosAeroporto.setCodigoIATA(3L);

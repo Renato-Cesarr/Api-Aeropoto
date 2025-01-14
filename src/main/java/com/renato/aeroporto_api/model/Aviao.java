@@ -64,7 +64,6 @@ public class Aviao {
 
     @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     @JoinColumn(name = "fk_aeroporto")
-    @JsonBackReference
     private Aeroporto aeroporto;
 
     public Long getNumeroDeSerie() {
