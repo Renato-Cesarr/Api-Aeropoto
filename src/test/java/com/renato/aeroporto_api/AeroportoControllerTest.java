@@ -144,8 +144,9 @@ class ControllerAeroportoTest {
 
 	@Test
 	void testUpdateAeroporto() {
-		ResponseEntity<String> response = restTemplate.exchange("/aviao/atualizar/2",
-				HttpMethod.PUT, new HttpEntity<>(listaAavioes), String.class);
+		Long numeroserie = 4L;
+		ResponseEntity<Aviao> response = restTemplate.exchange("/aviao/atualizar/"+ numeroserie,
+				HttpMethod.PUT, new HttpEntity<>(listaAavioes), Aviao.class);
 		Assert.assertEquals(HttpStatus.OK, response.getStatusCode());
 	}
 
@@ -157,7 +158,7 @@ class ControllerAeroportoTest {
 
 	@Test
 	void testBuscarAviaoPorId() {
-		ResponseEntity<String> response = restTemplate.exchange("/aviao/1", HttpMethod.GET, null, String.class);
+		ResponseEntity<String> response = restTemplate.exchange("/aviao/2", HttpMethod.GET, null, String.class);
 		Assert.assertEquals(HttpStatus.OK, response.getStatusCode());
 	}
 	
