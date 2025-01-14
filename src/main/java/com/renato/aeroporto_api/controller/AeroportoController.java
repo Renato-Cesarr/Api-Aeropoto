@@ -39,7 +39,7 @@ public class AeroportoController {
             }
         });
 
-        List<Aviao> avioesSalvos = aeroportoService.salvarTodos(avioes);
+        List<Aviao> avioesSalvos = aeroportoService.cadastrar(avioes);
         LoggerApi.logRequestDetails("Aviões salvos com sucesso: " + avioesSalvos);
         return ResponseEntity.ok(avioesSalvos);
     }
@@ -62,7 +62,7 @@ public class AeroportoController {
     @GetMapping("/todos")
     public ResponseEntity<List<Aviao>> buscarTodosAvioes() {
         LoggerApi.logRequest("Recebida solicitação para buscar todos os aviões.");
-        List<Aviao> avioes = aeroportoService.buscarTodos();
+        List<Aviao> avioes = aeroportoService.listarTodos();
         LoggerApi.logRequestDetails("Aviões encontrados: " + avioes.size());
         return ResponseEntity.ok(avioes);
     }
@@ -70,7 +70,7 @@ public class AeroportoController {
     @GetMapping("/{id}")
     public ResponseEntity<Aviao> buscarAviaoPorId(@PathVariable Long id) {
         LoggerApi.logRequest("Recebida solicitação para buscar o avião com ID: " + id);
-        Aviao aviao = aeroportoService.buscarPorId(id);
+        Aviao aviao = aeroportoService.listarPorId(id);
 
         if (aviao == null) {
             LoggerApi.logRequestError("Avião não encontrado com ID: " + id);
@@ -84,7 +84,7 @@ public class AeroportoController {
     @DeleteMapping("/apagar/{numeroDeSerie}")
     public ResponseEntity<Void> apagarAviao(@PathVariable Long numeroDeSerie) {
         LoggerApi.logRequest("Recebida solicitação para apagar o avião com número de série: " + numeroDeSerie);
-        boolean apagado = aeroportoService.apagarAviao(numeroDeSerie);
+        boolean apagado = aeroportoService.deletar(numeroDeSerie);
 
         if (!apagado) {
             LoggerApi.logRequestError("Avião não encontrado para exclusão com número de série: " + numeroDeSerie);
