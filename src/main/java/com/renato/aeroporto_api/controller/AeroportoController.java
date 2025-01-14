@@ -1,6 +1,7 @@
 package com.renato.aeroporto_api.controller;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -15,6 +16,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.renato.aeroporto_api.logger.LoggerApi;
 import com.renato.aeroporto_api.model.Aviao;
+import com.renato.aeroporto_api.repository.AviaoRepository;
 import com.renato.aeroporto_api.service.AeroportoService;
 
 @RestController
@@ -23,6 +25,9 @@ public class AeroportoController {
 
     @Autowired
     private AeroportoService aeroportoService;
+    
+    @Autowired
+    private AviaoRepository aviaoRepository;
 
     @PostMapping("/salvar-todos")
     public ResponseEntity<List<Aviao>> salvarTodosAvioes(@RequestBody List<Aviao> avioes) {
@@ -54,10 +59,19 @@ public class AeroportoController {
         }
 
         aviao.setNumeroDeSerie(id);
+
+        Optional<Aviao> aviaoExistente = aviaoRepository.findById(id);
+        if (!aviaoExistente.isPresent()) {
+            LoggerApi.logRequestError("Avião com ID " + id + " não encontrado.");
+            return ResponseEntity.notFound().build();
+        }
+
         Aviao aviaoAtualizado = aeroportoService.atualizar(aviao);
         LoggerApi.logRequestDetails("Avião atualizado com sucesso: " + aviaoAtualizado);
+
         return ResponseEntity.ok(aviaoAtualizado);
     }
+
 
     @GetMapping("/todos")
     public ResponseEntity<List<Aviao>> buscarTodosAvioes() {
