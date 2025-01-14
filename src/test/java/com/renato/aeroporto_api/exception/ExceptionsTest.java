@@ -48,6 +48,9 @@ public class ExceptionsTest {
 	private AeroportoRepository aeroportoRepository;
 
 	private List<Aviao> listaAavioes;
+	
+	private List<Aviao> listaAavioesVazia;
+
 
 	@BeforeEach
 	public void setUp() {
@@ -155,7 +158,7 @@ public class ExceptionsTest {
 	
 	@Test
 	void testNotFoundException() {
-		ResponseEntity<Aviao> response = restTemplate.exchange("/aviao/8", HttpMethod.GET, null, Aviao.class);
+		ResponseEntity<Aviao> response = restTemplate.exchange("/aviao/"+ 999999L, HttpMethod.GET, null, Aviao.class);
 		assertEquals(HttpStatus.NOT_FOUND, response.getStatusCode());
 	}
 	
@@ -164,6 +167,13 @@ public class ExceptionsTest {
 		ResponseEntity<String> response = restTemplate.exchange("/aviao/teste", HttpMethod.PUT,
 				new HttpEntity<>(listaAavioes), String.class);
 		assertEquals(HttpStatus.METHOD_NOT_ALLOWED, response.getStatusCode());
+	}
+	
+	@Test
+	void testCadastroComAviaoVazio() {
+		ResponseEntity<String> response = restTemplate.exchange("/aviao/salvar-todos", HttpMethod.POST,
+				new HttpEntity<>(listaAavioesVazia), String.class);
+		assertEquals(HttpStatus.BAD_REQUEST, response.getStatusCode());
 	}
 
 }

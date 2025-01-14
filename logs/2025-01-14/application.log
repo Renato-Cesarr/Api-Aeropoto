@@ -100,3 +100,114 @@
 2025-01-14 09:27:54.366 INFO  LoggerApi                               Recebida solicitação para salvar todos os aviões.
 2025-01-14 09:27:54.366 INFO  LoggerApi                               Salvando lista de aviões no banco de dados.
 2025-01-14 09:27:54.418 DEBUG LoggerApi                               Aviões salvos com sucesso: [com.renato.aeroporto_api.model.Aviao@3ab5a392]
+2025-01-14 13:47:10.337 ERROR LoggerApi                               ERRO AO PROCESSAR JSON: JSON PARSE ERROR: CANNOT DESERIALIZE VALUE OF TYPE `COM.RENATO.AEROPORTO_API.MODEL.AVIAO` FROM ARRAY VALUE (TOKEN `JSONTOKEN.START_ARRAY`)
+2025-01-14 13:47:10.388 INFO  LoggerApi                               Recebida solicitação para buscar o avião com ID: 2
+2025-01-14 13:47:10.389 INFO  LoggerApi                               Buscando avião com ID: 2
+2025-01-14 13:47:10.468 DEBUG LoggerApi                               Avião encontrado: com.renato.aeroporto_api.model.Aviao@2d575fad
+2025-01-14 13:47:10.550 INFO  LoggerApi                               Recebida solicitação para buscar todos os aviões.
+2025-01-14 13:47:10.550 INFO  LoggerApi                               Buscando todos os aviões no banco de dados.
+2025-01-14 13:47:10.636 DEBUG LoggerApi                               Aviões encontrados: 9
+2025-01-14 13:47:10.691 INFO  LoggerApi                               Recebida solicitação para salvar todos os aviões.
+2025-01-14 13:47:10.691 INFO  LoggerApi                               Lista de aviões sendo salva no banco de dados.
+2025-01-14 13:47:10.749 DEBUG LoggerApi                               Aviões salvos com sucesso: [com.renato.aeroporto_api.model.Aviao@54667145]
+2025-01-14 13:47:10.778 INFO  LoggerApi                               Recebida solicitação para buscar o avião com ID: 8
+2025-01-14 13:47:10.779 INFO  LoggerApi                               Buscando avião com ID: 8
+2025-01-14 13:47:10.782 DEBUG LoggerApi                               Avião encontrado: com.renato.aeroporto_api.model.Aviao@36dce145
+2025-01-14 13:52:52.805 ERROR LoggerApi                               ERRO AO PROCESSAR JSON: JSON PARSE ERROR: CANNOT DESERIALIZE VALUE OF TYPE `COM.RENATO.AEROPORTO_API.MODEL.AVIAO` FROM ARRAY VALUE (TOKEN `JSONTOKEN.START_ARRAY`)
+2025-01-14 13:52:52.862 INFO  LoggerApi                               Recebida solicitação para buscar o avião com ID: 2
+2025-01-14 13:52:52.862 INFO  LoggerApi                               Buscando avião com ID: 2
+2025-01-14 13:52:52.944 DEBUG LoggerApi                               Avião encontrado: com.renato.aeroporto_api.model.Aviao@41e72042
+2025-01-14 13:52:53.032 INFO  LoggerApi                               Recebida solicitação para buscar todos os aviões.
+2025-01-14 13:52:53.032 INFO  LoggerApi                               Buscando todos os aviões no banco de dados.
+2025-01-14 13:52:53.123 DEBUG LoggerApi                               Aviões encontrados: 10
+2025-01-14 13:52:53.195 INFO  LoggerApi                               Recebida solicitação para salvar todos os aviões.
+2025-01-14 13:52:53.195 INFO  LoggerApi                               Lista de aviões sendo salva no banco de dados.
+2025-01-14 13:52:53.244 DEBUG LoggerApi                               Aviões salvos com sucesso: [com.renato.aeroporto_api.model.Aviao@1e63f983]
+2025-01-14 13:54:10.251 ERROR LoggerApi                               ERRO AO PROCESSAR JSON: JSON PARSE ERROR: CANNOT DESERIALIZE VALUE OF TYPE `COM.RENATO.AEROPORTO_API.MODEL.AVIAO` FROM ARRAY VALUE (TOKEN `JSONTOKEN.START_ARRAY`)
+2025-01-14 13:54:10.301 INFO  LoggerApi                               Recebida solicitação para buscar o avião com ID: 2
+2025-01-14 13:54:10.301 INFO  LoggerApi                               Buscando avião com ID: 2
+2025-01-14 13:54:10.377 DEBUG LoggerApi                               Avião encontrado: com.renato.aeroporto_api.model.Aviao@5c04cc80
+2025-01-14 13:54:10.463 INFO  LoggerApi                               Recebida solicitação para buscar todos os aviões.
+2025-01-14 13:54:10.463 INFO  LoggerApi                               Buscando todos os aviões no banco de dados.
+2025-01-14 13:54:10.543 DEBUG LoggerApi                               Aviões encontrados: 11
+2025-01-14 13:54:10.599 INFO  LoggerApi                               Recebida solicitação para salvar todos os aviões.
+2025-01-14 13:54:10.599 INFO  LoggerApi                               Lista de aviões sendo salva no banco de dados.
+2025-01-14 13:54:10.659 DEBUG LoggerApi                               Aviões salvos com sucesso: [com.renato.aeroporto_api.model.Aviao@3b2638c1]
+2025-01-14 13:54:10.689 INFO  LoggerApi                               Recebida solicitação para buscar o avião com ID: 8
+2025-01-14 13:54:10.689 INFO  LoggerApi                               Buscando avião com ID: 8
+2025-01-14 13:54:10.691 DEBUG LoggerApi                               Avião encontrado: com.renato.aeroporto_api.model.Aviao@5e7cf12
+2025-01-14 13:54:36.167 ERROR LoggerApi                               ERRO AO PROCESSAR JSON: JSON PARSE ERROR: CANNOT DESERIALIZE VALUE OF TYPE `COM.RENATO.AEROPORTO_API.MODEL.AVIAO` FROM ARRAY VALUE (TOKEN `JSONTOKEN.START_ARRAY`)
+2025-01-14 13:54:36.218 INFO  LoggerApi                               Recebida solicitação para buscar o avião com ID: 2
+2025-01-14 13:54:36.218 INFO  LoggerApi                               Buscando avião com ID: 2
+2025-01-14 13:54:36.310 DEBUG LoggerApi                               Avião encontrado: com.renato.aeroporto_api.model.Aviao@4f63e48
+2025-01-14 13:54:36.382 INFO  LoggerApi                               Recebida solicitação para buscar todos os aviões.
+2025-01-14 13:54:36.382 INFO  LoggerApi                               Buscando todos os aviões no banco de dados.
+2025-01-14 13:54:36.460 DEBUG LoggerApi                               Aviões encontrados: 12
+2025-01-14 13:54:36.518 INFO  LoggerApi                               Recebida solicitação para salvar todos os aviões.
+2025-01-14 13:54:36.519 INFO  LoggerApi                               Lista de aviões sendo salva no banco de dados.
+2025-01-14 13:54:36.571 DEBUG LoggerApi                               Aviões salvos com sucesso: [com.renato.aeroporto_api.model.Aviao@5b26a24e]
+2025-01-14 13:54:36.594 INFO  LoggerApi                               Recebida solicitação para buscar o avião com ID: 999999
+2025-01-14 13:54:36.594 INFO  LoggerApi                               Buscando avião com ID: 999999
+2025-01-14 13:54:36.597 ERROR LoggerApi                               AVIÃO NÃO ENCONTRADO: AVIÃO NÃO ENCONTRADO COM O ID: 999999
+2025-01-14 13:58:19.188 ERROR LoggerApi                               ERRO AO PROCESSAR JSON: JSON PARSE ERROR: CANNOT DESERIALIZE VALUE OF TYPE `COM.RENATO.AEROPORTO_API.MODEL.AVIAO` FROM ARRAY VALUE (TOKEN `JSONTOKEN.START_ARRAY`)
+2025-01-14 13:58:19.242 INFO  LoggerApi                               Recebida solicitação para buscar o avião com ID: 2
+2025-01-14 13:58:19.242 INFO  LoggerApi                               Buscando avião com ID: 2
+2025-01-14 13:58:19.315 DEBUG LoggerApi                               Avião encontrado: com.renato.aeroporto_api.model.Aviao@59a9ccda
+2025-01-14 13:58:19.391 INFO  LoggerApi                               Recebida solicitação para buscar todos os aviões.
+2025-01-14 13:58:19.391 INFO  LoggerApi                               Buscando todos os aviões no banco de dados.
+2025-01-14 13:58:19.480 DEBUG LoggerApi                               Aviões encontrados: 13
+2025-01-14 13:58:19.545 INFO  LoggerApi                               Recebida solicitação para salvar todos os aviões.
+2025-01-14 13:58:19.546 INFO  LoggerApi                               Lista de aviões sendo salva no banco de dados.
+2025-01-14 13:58:19.598 DEBUG LoggerApi                               Aviões salvos com sucesso: [com.renato.aeroporto_api.model.Aviao@8dec03e]
+2025-01-14 13:58:19.624 INFO  LoggerApi                               Recebida solicitação para buscar o avião com ID: 999999
+2025-01-14 13:58:19.624 INFO  LoggerApi                               Buscando avião com ID: 999999
+2025-01-14 13:58:19.627 ERROR LoggerApi                               AVIÃO NÃO ENCONTRADO: AVIÃO NÃO ENCONTRADO COM O ID: 999999
+2025-01-14 13:58:19.653 ERROR LoggerApi                               ERRO AO PROCESSAR JSON: REQUIRED REQUEST BODY IS MISSING: PUBLIC ORG.SPRINGFRAMEWORK.HTTP.RESPONSEENTITY<JAVA.UTIL.LIST<COM.RENATO.AEROPORTO_API.MODEL.AVIAO>> COM.RENATO.AEROPORTO_API.CONTROLLER.AEROPORTOCONTROLLER.SALVARTODOSAVIOES(JAVA.UTIL.LIST<COM.RENATO.AEROPORTO_API.MODEL.AVIAO>)
+2025-01-14 14:04:58.958 ERROR LoggerApi                               ERRO AO PROCESSAR JSON: JSON PARSE ERROR: CANNOT DESERIALIZE VALUE OF TYPE `COM.RENATO.AEROPORTO_API.MODEL.AVIAO` FROM ARRAY VALUE (TOKEN `JSONTOKEN.START_ARRAY`)
+2025-01-14 14:04:59.004 INFO  LoggerApi                               Recebida solicitação para buscar o avião com ID: 2
+2025-01-14 14:04:59.004 INFO  LoggerApi                               Buscando avião com ID: 2
+2025-01-14 14:04:59.081 DEBUG LoggerApi                               Avião encontrado: com.renato.aeroporto_api.model.Aviao@296ce294
+2025-01-14 14:04:59.153 INFO  LoggerApi                               Recebida solicitação para buscar todos os aviões.
+2025-01-14 14:04:59.153 INFO  LoggerApi                               Buscando todos os aviões no banco de dados.
+2025-01-14 14:04:59.237 DEBUG LoggerApi                               Aviões encontrados: 14
+2025-01-14 14:04:59.303 INFO  LoggerApi                               Recebida solicitação para salvar todos os aviões.
+2025-01-14 14:04:59.303 INFO  LoggerApi                               Lista de aviões sendo salva no banco de dados.
+2025-01-14 14:04:59.357 DEBUG LoggerApi                               Aviões salvos com sucesso: [com.renato.aeroporto_api.model.Aviao@e4f37b1]
+2025-01-14 14:04:59.383 INFO  LoggerApi                               Recebida solicitação para buscar o avião com ID: 999999
+2025-01-14 14:04:59.383 INFO  LoggerApi                               Buscando avião com ID: 999999
+2025-01-14 14:04:59.385 ERROR LoggerApi                               AVIÃO NÃO ENCONTRADO: AVIÃO NÃO ENCONTRADO COM O ID: 999999
+2025-01-14 14:04:59.410 ERROR LoggerApi                               ERRO AO PROCESSAR JSON: REQUIRED REQUEST BODY IS MISSING: PUBLIC ORG.SPRINGFRAMEWORK.HTTP.RESPONSEENTITY<JAVA.UTIL.LIST<COM.RENATO.AEROPORTO_API.MODEL.AVIAO>> COM.RENATO.AEROPORTO_API.CONTROLLER.AEROPORTOCONTROLLER.SALVARTODOSAVIOES(JAVA.UTIL.LIST<COM.RENATO.AEROPORTO_API.MODEL.AVIAO>)
+2025-01-14 14:07:16.322 INFO  LoggerApi                               Recebida solicitação para buscar o avião com ID: 8
+2025-01-14 14:07:17.430 INFO  LoggerApi                               Buscando avião com ID: 8
+2025-01-14 14:07:53.202 ERROR LoggerApi                               AVIÃO NÃO ENCONTRADO: AVIÃO NÃO ENCONTRADO COM O ID: 8
+2025-01-14 14:08:40.294 INFO  LoggerApi                               Recebida solicitação para buscar o avião com ID: 8
+2025-01-14 14:08:47.419 INFO  LoggerApi                               Buscando avião com ID: 8
+2025-01-14 14:08:51.498 ERROR LoggerApi                               AVIÃO NÃO ENCONTRADO: AVIÃO NÃO ENCONTRADO COM O ID: 8
+2025-01-14 14:12:06.315 ERROR LoggerApi                               ERRO AO PROCESSAR JSON: JSON PARSE ERROR: CANNOT DESERIALIZE VALUE OF TYPE `COM.RENATO.AEROPORTO_API.MODEL.AVIAO` FROM ARRAY VALUE (TOKEN `JSONTOKEN.START_ARRAY`)
+2025-01-14 14:12:06.363 INFO  LoggerApi                               Recebida solicitação para buscar o avião com ID: 2
+2025-01-14 14:12:06.364 INFO  LoggerApi                               Buscando avião com ID: 2
+2025-01-14 14:12:06.441 DEBUG LoggerApi                               Avião encontrado: com.renato.aeroporto_api.model.Aviao@6d882e2d
+2025-01-14 14:12:06.526 INFO  LoggerApi                               Recebida solicitação para buscar todos os aviões.
+2025-01-14 14:12:06.526 INFO  LoggerApi                               Buscando todos os aviões no banco de dados.
+2025-01-14 14:12:06.616 DEBUG LoggerApi                               Aviões encontrados: 15
+2025-01-14 14:12:06.687 INFO  LoggerApi                               Recebida solicitação para salvar todos os aviões.
+2025-01-14 14:12:06.688 INFO  LoggerApi                               Lista de aviões sendo salva no banco de dados.
+2025-01-14 14:12:06.737 DEBUG LoggerApi                               Aviões salvos com sucesso: [com.renato.aeroporto_api.model.Aviao@27b7342e]
+2025-01-14 14:12:06.762 INFO  LoggerApi                               Recebida solicitação para buscar o avião com ID: 999999
+2025-01-14 14:12:06.762 INFO  LoggerApi                               Buscando avião com ID: 999999
+2025-01-14 14:12:06.765 ERROR LoggerApi                               AVIÃO NÃO ENCONTRADO: AVIÃO NÃO ENCONTRADO COM O ID: 999999
+2025-01-14 14:12:06.790 ERROR LoggerApi                               ERRO AO PROCESSAR JSON: REQUIRED REQUEST BODY IS MISSING: PUBLIC ORG.SPRINGFRAMEWORK.HTTP.RESPONSEENTITY<JAVA.UTIL.LIST<COM.RENATO.AEROPORTO_API.MODEL.AVIAO>> COM.RENATO.AEROPORTO_API.CONTROLLER.AEROPORTOCONTROLLER.SALVARTODOSAVIOES(JAVA.UTIL.LIST<COM.RENATO.AEROPORTO_API.MODEL.AVIAO>)
+2025-01-14 14:12:52.426 ERROR LoggerApi                               ERRO AO PROCESSAR JSON: JSON PARSE ERROR: CANNOT DESERIALIZE VALUE OF TYPE `COM.RENATO.AEROPORTO_API.MODEL.AVIAO` FROM ARRAY VALUE (TOKEN `JSONTOKEN.START_ARRAY`)
+2025-01-14 14:12:52.477 INFO  LoggerApi                               Recebida solicitação para buscar o avião com ID: 2
+2025-01-14 14:12:52.477 INFO  LoggerApi                               Buscando avião com ID: 2
+2025-01-14 14:12:52.555 DEBUG LoggerApi                               Avião encontrado: com.renato.aeroporto_api.model.Aviao@478faad7
+2025-01-14 14:12:52.630 INFO  LoggerApi                               Recebida solicitação para buscar todos os aviões.
+2025-01-14 14:12:52.631 INFO  LoggerApi                               Buscando todos os aviões no banco de dados.
+2025-01-14 14:12:52.714 DEBUG LoggerApi                               Aviões encontrados: 16
+2025-01-14 14:12:52.788 INFO  LoggerApi                               Recebida solicitação para salvar todos os aviões.
+2025-01-14 14:12:52.788 INFO  LoggerApi                               Lista de aviões sendo salva no banco de dados.
+2025-01-14 14:12:52.839 DEBUG LoggerApi                               Aviões salvos com sucesso: [com.renato.aeroporto_api.model.Aviao@42cf527c]
+2025-01-14 14:12:52.861 INFO  LoggerApi                               Recebida solicitação para buscar o avião com ID: 999999
+2025-01-14 14:12:52.861 INFO  LoggerApi                               Buscando avião com ID: 999999
+2025-01-14 14:12:52.864 ERROR LoggerApi                               AVIÃO NÃO ENCONTRADO: AVIÃO NÃO ENCONTRADO COM O ID: 999999
+2025-01-14 14:12:52.894 ERROR LoggerApi                               ERRO AO PROCESSAR JSON: REQUIRED REQUEST BODY IS MISSING: PUBLIC ORG.SPRINGFRAMEWORK.HTTP.RESPONSEENTITY<JAVA.UTIL.LIST<COM.RENATO.AEROPORTO_API.MODEL.AVIAO>> COM.RENATO.AEROPORTO_API.CONTROLLER.AEROPORTOCONTROLLER.SALVARTODOSAVIOES(JAVA.UTIL.LIST<COM.RENATO.AEROPORTO_API.MODEL.AVIAO>)

@@ -164,8 +164,8 @@ class ControllerAeroportoTest {
 	
 	@Test
 	void testApagarAviao() {
-		restTemplate.delete("/apagar/1");
-		ResponseEntity<Aviao> response = restTemplate.getForEntity("/apagar/1", Aviao.class);
+		restTemplate.delete("/apagar/"+1L);
+		ResponseEntity<Aviao> response = restTemplate.getForEntity("/apagar/"+1L, Aviao.class);
 		Assert.assertEquals(HttpStatus.NOT_FOUND, response.getStatusCode());
 	}
 
