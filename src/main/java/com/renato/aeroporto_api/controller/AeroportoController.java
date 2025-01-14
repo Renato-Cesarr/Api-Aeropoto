@@ -71,7 +71,7 @@ public class AeroportoController {
     public ResponseEntity<Aviao> buscarAviaoPorId(@PathVariable Long id) {
         LoggerApi.logRequest("Recebida solicitação para buscar o avião com ID: " + id);
         Aviao aviao = aeroportoService.buscarPorId(id);
-
+        
         if (aviao == null) {
             LoggerApi.logRequestError("Avião não encontrado com ID: " + id);
             return ResponseEntity.notFound().build();

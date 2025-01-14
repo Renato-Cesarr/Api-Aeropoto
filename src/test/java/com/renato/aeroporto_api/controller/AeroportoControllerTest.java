@@ -1,4 +1,4 @@
-package com.renato.aeroporto_api;
+package com.renato.aeroporto_api.controller;
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;
