@@ -24,20 +24,7 @@ public class AeroportoService {
     @Autowired
     private AviaoValidationService aviaoValidationService;
 
-    public List<Aviao> buscarTodos() {
-        LoggerApi.logRequest("Buscando todos os aviões no banco de dados.");
-        return aviaoRepository.findAll();
-    }
-
-    public Aviao buscarPorId(Long id) {
-    	aviaoValidationService.validarId(id);
-    	
-        LoggerApi.logRequest("Buscando avião com ID: " + id);
-        return aviaoRepository.findById(id)
-            .orElseThrow(() -> new AviaoNotFoundException("Avião não encontrado com o ID: " + id));
-    }
-
-    public List<Aviao> salvarTodos(List<Aviao> avioes) {
+    public List<Aviao> cadastrar(List<Aviao> avioes) {
         try {
             aviaoValidationService.validarListaAvioes(avioes);
 
@@ -49,8 +36,34 @@ public class AeroportoService {
             throw ex;
         }
     }
+    
+    public List<Aviao> listarTodos() {
+        LoggerApi.logRequest("Buscando todos os aviões no banco de dados.");
+        return aviaoRepository.findAll();
+    }
 
-    public boolean apagarAviao(Long numeroDeSerie) {
+    public Aviao listarPorId(Long id) {
+    	aviaoValidationService.validarId(id);
+    	
+        LoggerApi.logRequest("Buscando avião com ID: " + id);
+        return aviaoRepository.findById(id)
+            .orElseThrow(() -> new AviaoNotFoundException("Avião não encontrado com o ID: " + id));
+    }
+    
+    public Aviao atualizar(Aviao aviao) {
+        aviaoValidationService.validarNumeroDeSerie(aviao.getNumeroDeSerie());
+        aviaoValidationService.validarFabricante(aviao);
+
+        LoggerApi.logRequest("Atualizando avião com ID: " + aviao.getNumeroDeSerie());
+        Optional<Aviao> aviaoExistente = aviaoRepository.findById(aviao.getNumeroDeSerie());
+
+        aviaoValidationService.validarAviãoExistente(aviao, aviaoExistente);
+        Aviao aviaoAtualizado = aviaoRepository.save(aviao);
+        LoggerApi.logRequestDetails("Avião atualizado com sucesso: " + aviaoAtualizado);
+        return aviaoAtualizado;
+    }
+
+    public boolean deletar(Long numeroDeSerie) {
         try {
             aviaoValidationService.validarNumeroDeSerie(numeroDeSerie);
 
@@ -70,16 +83,5 @@ public class AeroportoService {
         }
     }
 
-    public Aviao atualizar(Aviao aviao) {
-        aviaoValidationService.validarNumeroDeSerie(aviao.getNumeroDeSerie());
-        aviaoValidationService.validarFabricante(aviao);
-
-        LoggerApi.logRequest("Atualizando avião com ID: " + aviao.getNumeroDeSerie());
-        Optional<Aviao> aviaoExistente = aviaoRepository.findById(aviao.getNumeroDeSerie());
-
-        aviaoValidationService.validarAviãoExistente(aviao, aviaoExistente);
-        Aviao aviaoAtualizado = aviaoRepository.save(aviao);
-        LoggerApi.logRequestDetails("Avião atualizado com sucesso: " + aviaoAtualizado);
-        return aviaoAtualizado;
-    }
+    
 }
