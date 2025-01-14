@@ -24,7 +24,7 @@ import com.renato.aeroporto_api.model.Carga.StatusCarga;
 import com.renato.aeroporto_api.model.FlyAware;
 import com.renato.aeroporto_api.model.LicencaDePilotoAnac;
 import com.renato.aeroporto_api.model.LicencaDePilotoAnac.SituacaoLicenca;
-import com.renato.aeroporto_api.model.LocalizacaoAeroporto;
+import com.renato.aeroporto_api.model.Localizacao;
 import com.renato.aeroporto_api.model.Passageiro;
 import com.renato.aeroporto_api.model.Piloto;
 import com.renato.aeroporto_api.model.Piloto.StatusSaude;
@@ -50,7 +50,7 @@ class ControllerAeroportoTest {
 	public void setUp() {
 		LocalDateTime data = LocalDateTime.now();
 		// Dados da Localização
-		LocalizacaoAeroporto dadosLocalizacao = new LocalizacaoAeroporto();
+		Localizacao dadosLocalizacao = new Localizacao();
 		dadosLocalizacao.setCep("23456-789");
 		dadosLocalizacao.setCidade("Rio de Janeiro");
 		dadosLocalizacao.setEndereco("Avenida Santos Dumont, 2000");
@@ -126,8 +126,8 @@ class ControllerAeroportoTest {
 		dadosAeroporto.setAvioes(listaAavioes);
 		dadosAeroporto.setCapacidadeDeArmazenamentoDeCombustivel(120.5);
 		dadosAeroporto.setLimiteMaximoAeronaves(75);
-		dadosAeroporto.setLocalizacaoAeroporto(dadosLocalizacao);
-		dadosAeroporto.setNomeAeroporto("Aeroporto Internacional do Rio de Janeiro");
+		dadosAeroporto.setLocalizacao(dadosLocalizacao);
+		dadosAeroporto.setNome("Aeroporto Internacional do Rio de Janeiro");
 		dadosAeroporto.setPermitidoPousoAeronaves(true);
 		dadosAeroporto.setPortoesDeEmbarque(numeroPortoesDeEmbarque);
 		dadosAeroporto.setCodigoIATA(3L);

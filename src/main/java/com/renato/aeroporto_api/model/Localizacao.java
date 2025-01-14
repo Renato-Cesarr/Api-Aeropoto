@@ -9,11 +9,11 @@ import jakarta.persistence.Table;
 
 @Entity
 @Table(name = "tb_localizacao_aeroporto")
-public class LocalizacaoAeroporto {
+public class Localizacao {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_localizacao")
-    private Long idLocalizacao;
+    private Long id;
 
     @Column(name = "cep", nullable = false)
     private String cep;
@@ -28,11 +28,11 @@ public class LocalizacaoAeroporto {
     private String estado;
 
 	public Long getIdLocalizacao() {
-		return idLocalizacao;
+		return id;
 	}
 
-	public void setIdLocalizacao(Long idLocalizacao) {
-		this.idLocalizacao = idLocalizacao;
+	public void setIdLocalizacao(Long id) {
+		this.id = id;
 	}
 
 	public String getCep() {
