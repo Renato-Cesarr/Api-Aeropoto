@@ -1,5 +1,5 @@
-CREATE TABLE IF NOT EXISTS tb_licenca_de_piloto_anac (
-    numero_da_licenca INT PRIMARY KEY,
+CREATE TABLE tb_licenca_de_piloto_anac (
+    numero_da_licenca BIGSERIAL PRIMARY KEY,
     data_emissao TIMESTAMP(6) NOT NULL,
     data_validade TIMESTAMP(6) NOT NULL,
     situacao VARCHAR(15) NOT NULL CHECK (situacao IN ('ATIVA', 'SUSPENSA', 'CANCELADA', 'VENCIDA')),

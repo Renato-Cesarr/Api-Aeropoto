@@ -75,10 +75,6 @@ public class Passageiro {
         this.statusEmbarque = statusEmbarque;
     }
 
-    public Aviao getAviao() {
-        return aviao;
-    }
-
     public void setAviao(Aviao aviao) {
         this.aviao = aviao;
     }

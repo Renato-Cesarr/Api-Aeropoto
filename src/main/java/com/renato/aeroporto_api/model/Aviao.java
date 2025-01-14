@@ -2,6 +2,7 @@ package com.renato.aeroporto_api.model;
 
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIdentityInfo;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
@@ -63,6 +64,7 @@ public class Aviao {
 
     @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     @JoinColumn(name = "fk_aeroporto")
+    @JsonBackReference
     private Aeroporto aeroporto;
 
     public Long getNumeroDeSerie() {
