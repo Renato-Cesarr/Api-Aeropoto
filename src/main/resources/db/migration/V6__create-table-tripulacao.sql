@@ -1,5 +1,5 @@
-CREATE TABLE IF NOT EXISTS tb_tripulacao (
-    id_tripulacao SERIAL PRIMARY KEY,
+CREATE TABLE tb_tripulacao (
+    id_tripulacao BIGSERIAL PRIMARY KEY,
     funcao VARCHAR(255) NOT NULL,
     horas_de_voo INT NOT NULL,
     licenciamento VARCHAR(25) NOT NULL,
