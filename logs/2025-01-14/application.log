@@ -100,3 +100,73 @@
 2025-01-14 09:27:54.366 INFO  LoggerApi                               Recebida solicitação para salvar todos os aviões.
 2025-01-14 09:27:54.366 INFO  LoggerApi                               Salvando lista de aviões no banco de dados.
 2025-01-14 09:27:54.418 DEBUG LoggerApi                               Aviões salvos com sucesso: [com.renato.aeroporto_api.model.Aviao@3ab5a392]
+2025-01-14 09:56:45.066 INFO  LoggerApi                               Recebida solicitação para buscar o avião com ID: 1
+2025-01-14 09:56:45.066 INFO  LoggerApi                               Buscando avião com ID: 1
+2025-01-14 09:56:45.155 DEBUG LoggerApi                               Avião encontrado: com.renato.aeroporto_api.model.Aviao@6f561941
+2025-01-14 09:56:45.232 INFO  LoggerApi                               Recebida solicitação para buscar todos os aviões.
+2025-01-14 09:56:45.232 INFO  LoggerApi                               Buscando todos os aviões no banco de dados.
+2025-01-14 09:56:45.325 DEBUG LoggerApi                               Aviões encontrados: 5
+2025-01-14 09:56:45.361 INFO  LoggerApi                               Recebida solicitação para salvar todos os aviões.
+2025-01-14 09:56:45.361 INFO  LoggerApi                               Salvando lista de aviões no banco de dados.
+2025-01-14 09:56:45.414 DEBUG LoggerApi                               Aviões salvos com sucesso: [com.renato.aeroporto_api.model.Aviao@3ab5a392]
+2025-01-14 09:57:23.673 INFO  LoggerApi                               Recebida solicitação para buscar o avião com ID: 1
+2025-01-14 09:57:23.673 INFO  LoggerApi                               Buscando avião com ID: 1
+2025-01-14 09:57:23.736 DEBUG LoggerApi                               Avião encontrado: com.renato.aeroporto_api.model.Aviao@50737f78
+2025-01-14 09:57:23.814 INFO  LoggerApi                               Recebida solicitação para buscar todos os aviões.
+2025-01-14 09:57:23.814 INFO  LoggerApi                               Buscando todos os aviões no banco de dados.
+2025-01-14 09:57:23.879 DEBUG LoggerApi                               Aviões encontrados: 6
+2025-01-14 09:57:23.914 INFO  LoggerApi                               Recebida solicitação para salvar todos os aviões.
+2025-01-14 09:57:23.914 INFO  LoggerApi                               Salvando lista de aviões no banco de dados.
+2025-01-14 09:57:23.953 DEBUG LoggerApi                               Aviões salvos com sucesso: [com.renato.aeroporto_api.model.Aviao@549c13a3]
+2025-01-14 10:00:54.573 INFO  LoggerApi                               Recebida solicitação para buscar o avião com ID: 1
+2025-01-14 10:00:54.573 INFO  LoggerApi                               Buscando avião com ID: 1
+2025-01-14 10:00:54.663 DEBUG LoggerApi                               Avião encontrado: com.renato.aeroporto_api.model.Aviao@2d06276a
+2025-01-14 10:00:54.745 INFO  LoggerApi                               Recebida solicitação para buscar todos os aviões.
+2025-01-14 10:00:54.746 INFO  LoggerApi                               Buscando todos os aviões no banco de dados.
+2025-01-14 10:00:54.828 DEBUG LoggerApi                               Aviões encontrados: 7
+2025-01-14 10:00:54.892 INFO  LoggerApi                               Recebida solicitação para salvar todos os aviões.
+2025-01-14 10:00:54.893 INFO  LoggerApi                               Salvando lista de aviões no banco de dados.
+2025-01-14 10:00:54.938 DEBUG LoggerApi                               Aviões salvos com sucesso: [com.renato.aeroporto_api.model.Aviao@50f5dc20]
+2025-01-14 10:02:34.556 INFO  LoggerApi                               Recebida solicitação para buscar o avião com ID: 2
+2025-01-14 10:02:34.556 INFO  LoggerApi                               Buscando avião com ID: 2
+2025-01-14 10:02:34.625 DEBUG LoggerApi                               Avião encontrado: com.renato.aeroporto_api.model.Aviao@5722b057
+2025-01-14 10:02:34.703 INFO  LoggerApi                               Recebida solicitação para buscar todos os aviões.
+2025-01-14 10:02:34.703 INFO  LoggerApi                               Buscando todos os aviões no banco de dados.
+2025-01-14 10:02:34.790 DEBUG LoggerApi                               Aviões encontrados: 8
+2025-01-14 10:02:34.839 INFO  LoggerApi                               Recebida solicitação para salvar todos os aviões.
+2025-01-14 10:02:34.840 INFO  LoggerApi                               Salvando lista de aviões no banco de dados.
+2025-01-14 10:02:34.898 DEBUG LoggerApi                               Aviões salvos com sucesso: [com.renato.aeroporto_api.model.Aviao@44e7a4c4]
+2025-01-14 10:04:11.911 INFO  LoggerApi                               Recebida solicitação para buscar o avião com ID: 2
+2025-01-14 10:04:11.911 INFO  LoggerApi                               Buscando avião com ID: 2
+2025-01-14 10:04:11.981 DEBUG LoggerApi                               Avião encontrado: com.renato.aeroporto_api.model.Aviao@24ac8fea
+2025-01-14 10:04:12.045 INFO  LoggerApi                               Recebida solicitação para buscar todos os aviões.
+2025-01-14 10:04:12.045 INFO  LoggerApi                               Buscando todos os aviões no banco de dados.
+2025-01-14 10:04:12.137 DEBUG LoggerApi                               Aviões encontrados: 9
+2025-01-14 10:04:12.197 INFO  LoggerApi                               Recebida solicitação para salvar todos os aviões.
+2025-01-14 10:04:12.197 INFO  LoggerApi                               Salvando lista de aviões no banco de dados.
+2025-01-14 10:04:12.262 DEBUG LoggerApi                               Aviões salvos com sucesso: [com.renato.aeroporto_api.model.Aviao@a22a791]
+2025-01-14 10:05:01.813 INFO  LoggerApi                               Recebida solicitação para buscar o avião com ID: 2
+2025-01-14 10:05:01.814 INFO  LoggerApi                               Buscando avião com ID: 2
+2025-01-14 10:05:01.889 DEBUG LoggerApi                               Avião encontrado: com.renato.aeroporto_api.model.Aviao@24ac8fea
+2025-01-14 10:05:01.945 INFO  LoggerApi                               Recebida solicitação para buscar todos os aviões.
+2025-01-14 10:05:01.946 INFO  LoggerApi                               Buscando todos os aviões no banco de dados.
+2025-01-14 10:05:02.039 DEBUG LoggerApi                               Aviões encontrados: 10
+2025-01-14 10:05:02.091 INFO  LoggerApi                               Recebida solicitação para salvar todos os aviões.
+2025-01-14 10:05:02.092 INFO  LoggerApi                               Salvando lista de aviões no banco de dados.
+2025-01-14 10:05:02.142 DEBUG LoggerApi                               Aviões salvos com sucesso: [com.renato.aeroporto_api.model.Aviao@a22a791]
+2025-01-14 10:59:35.753 INFO  LoggerApi                               Recebida solicitação para buscar o avião com ID: 2
+2025-01-14 10:59:35.753 INFO  LoggerApi                               Buscando avião com ID: 2
+2025-01-14 10:59:35.824 INFO  LoggerApi                               Recebida solicitação para buscar todos os aviões.
+2025-01-14 10:59:35.825 INFO  LoggerApi                               Buscando todos os aviões no banco de dados.
+2025-01-14 10:59:35.878 DEBUG LoggerApi                               Aviões encontrados: 0
+2025-01-14 10:59:35.896 INFO  LoggerApi                               Recebida solicitação para salvar todos os aviões.
+2025-01-14 10:59:35.896 INFO  LoggerApi                               Lista de aviões sendo salva no banco de dados.
+2025-01-14 10:59:35.941 DEBUG LoggerApi                               Aviões salvos com sucesso: [com.renato.aeroporto_api.model.Aviao@2e35c945]
+2025-01-14 11:00:20.107 INFO  LoggerApi                               Recebida solicitação para buscar o avião com ID: 2
+2025-01-14 11:00:20.107 INFO  LoggerApi                               Buscando avião com ID: 2
+2025-01-14 11:00:20.195 INFO  LoggerApi                               Recebida solicitação para buscar todos os aviões.
+2025-01-14 11:00:20.195 INFO  LoggerApi                               Buscando todos os aviões no banco de dados.
+2025-01-14 11:00:20.300 DEBUG LoggerApi                               Aviões encontrados: 1
+2025-01-14 11:00:20.340 INFO  LoggerApi                               Recebida solicitação para salvar todos os aviões.
+2025-01-14 11:00:20.340 INFO  LoggerApi                               Lista de aviões sendo salva no banco de dados.
+2025-01-14 11:00:20.395 DEBUG LoggerApi                               Aviões salvos com sucesso: [com.renato.aeroporto_api.model.Aviao@6727be3e]
